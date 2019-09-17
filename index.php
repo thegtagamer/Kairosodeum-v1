@@ -6,216 +6,218 @@ session_start();
 /*if (isset($_SESSION['idx'])) {
 	header("location: ../home/");
 }*/
-$errorMsg = '';
-$successMsg='';
-$email = '';
-$pass = '';
-$remember = '';
-$timestamp = time() + 300;
-if (isset($_POST['email'])) {
-	$email = $_POST['email'];
-	$pass = $_POST['pass'];
-	if (isset($_POST['remember'])) {
-		$remember = $_POST['remember'];
-	}
-	$email = stripslashes($email);
-	$pass = stripslashes($pass);
-	$email = strip_tags($email);
-	$pass = strip_tags($pass);
-	
-	if ((!$email) || (!$pass)) { 
-		//echo 'error';
-		$errorMsg = '<div class="alert alert-danger fade in">
-    <a href="#" class="close" data-dismiss="alert">&times;</a>
-    <strong>Error!</strong> Please fill the both fields.
-</div>';
-echo $errorMsg;
 
-	} else { 
-		include '../scripts/DB_connect.php'; 
-		$email = mysql_real_escape_string($email); 
+
+// $errorMsg = '';
+// $successMsg='';
+// $email = '';
+// $pass = '';
+// $remember = '';
+// $timestamp = time() + 300;
+// if (isset($_POST['email'])) {
+// 	$email = $_POST['email'];
+// 	$pass = $_POST['pass'];
+// 	if (isset($_POST['remember'])) {
+// 		$remember = $_POST['remember'];
+// 	}
+// 	$email = stripslashes($email);
+// 	$pass = stripslashes($pass);
+// 	$email = strip_tags($email);
+// 	$pass = strip_tags($pass);
+	
+// 	if ((!$email) || (!$pass)) { 
+// 		//echo 'error';
+// 		$errorMsg = '<div class="alert alert-danger fade in">
+//     <a href="#" class="close" data-dismiss="alert">&times;</a>
+//     <strong>Error!</strong> Please fill the both fields.
+// </div>';
+// echo $errorMsg;
+
+// 	} else { 
+// 		include '../scripts/DB_connect.php'; 
+// 		$email = mysql_real_escape_string($email); 
 	 
-		$pass = md5($pass); 
+// 		$pass = md5($pass); 
 		
-        $sql = mysql_query("SELECT * FROM users WHERE email='$email' AND password='$pass'"); 
-		$login_check = mysql_num_rows($sql);
+//         $sql = mysql_query("SELECT * FROM users WHERE email='$email' AND password='$pass'"); 
+// 		$login_check = mysql_num_rows($sql);
         
-		if($login_check > 0){ 
-			header("location: /home");
-    			while($row = mysql_fetch_array($sql))
-					{
+// 		if($login_check > 0){ 
+// 			header("location: /home");
+//     			while($row = mysql_fetch_array($sql))
+// 					{
 		
-					$id = $row["id"]; 
-					$username = $row["username"];  
-					$_SESSION['id'] = $id;
-					$_SESSION['idx'] = base64_encode("g4p37hmp3h9xfn8sq03hs2234$id");
-					$_SESSION['username'] = $username;
+// 					$id = $row["id"]; 
+// 					$username = $row["username"];  
+// 					$_SESSION['id'] = $id;
+// 					$_SESSION['idx'] = base64_encode("g4p37hmp3h9xfn8sq03hs2234$id");
+// 					$_SESSION['username'] = $username;
 
-					mysql_query("UPDATE users SET last_log=now(), online = '1', timestamp = '$timestamp' WHERE id='$id' LIMIT 1");
-          			} 
+// 					mysql_query("UPDATE users SET last_log=now(), online = '1', timestamp = '$timestamp' WHERE id='$id' LIMIT 1");
+//           			} 
 	
-    			if($remember == "yes")
-					{
-                    $encryptedID = base64_encode("ghdg94enm2c0c4y3dn3727553$id");
-    			    setcookie("idCookie", $encryptedID, time()+60*60*24*100, "/"); 
-			        setcookie("passCookie", $pass, time()+60*60*24*100, "/"); 
-    				} 
-    			exit();
-		} else { 
+//     			if($remember == "yes")
+// 					{
+//                     $encryptedID = base64_encode("ghdg94enm2c0c4y3dn3727553$id");
+//     			    setcookie("idCookie", $encryptedID, time()+60*60*24*100, "/"); 
+// 			        setcookie("passCookie", $pass, time()+60*60*24*100, "/"); 
+//     				} 
+//     			exit();
+// 		} else { 
 		    
-		    $errorMsg = '<div class="alert alert-danger fade in">
-    <a href="#" class="close" data-dismiss="alert">&times;</a>
-    Error!</strong> Login not succesfull, Please try again.
-</div>';
-echo $errorMsg;
-		}
-    } 
-}
+// 		    $errorMsg = '<div class="alert alert-danger fade in">
+//     <a href="#" class="close" data-dismiss="alert">&times;</a>
+//     Error!</strong> Login not succesfull, Please try again.
+// </div>';
+// echo $errorMsg;
+// 		}
+//     } 
+// }
 
 
-$from = ""; 
-$dyn_www = $_SERVER['HTTP_HOST']; 
-if (isset ($_POST['email_reg'])){
+// $from = ""; 
+// $dyn_www = $_SERVER['HTTP_HOST']; 
+// if (isset ($_POST['email_reg'])){
    
-   $username = preg_replace('#[^A-Za-z0-9]#i', '', $_POST['usr']);
-   $user_type = preg_replace('#[^a-z]#i', '', $_POST['profile']); 
-    $email = $_POST['email_reg']; 
-     $pass = $_POST['pass'];
-     $city = $_POST['city'];
-     $email = stripslashes($email); 
-     $pass = stripslashes($pass); 
-     $email = strip_tags($email);
-     $pass = strip_tags($pass);
+//    $username = preg_replace('#[^A-Za-z0-9]#i', '', $_POST['usr']);
+//    $user_type = preg_replace('#[^a-z]#i', '', $_POST['profile']); 
+//     $email = $_POST['email_reg']; 
+//      $pass = $_POST['pass'];
+//      $city = $_POST['city'];
+//      $email = stripslashes($email); 
+//      $pass = stripslashes($pass); 
+//      $email = strip_tags($email);
+//      $pass = strip_tags($pass);
 
      
-     include_once '../scripts/DB_connect.php'; 
-     $emailValid = mysql_real_escape_string($email);
-   $emailValid = str_replace("`", "", $emailValid);
+//      include_once '../scripts/DB_connect.php'; 
+//      $emailValid = mysql_real_escape_string($email);
+//    $emailValid = str_replace("`", "", $emailValid);
   
-     $sql_email_check = mysql_query("SELECT email FROM users WHERE email='$emailValid'");
-     $email_check = mysql_num_rows($sql_email_check);
+//      $sql_email_check = mysql_query("SELECT email FROM users WHERE email='$emailValid'");
+//      $email_check = mysql_num_rows($sql_email_check);
 
-     if ((!$username) || (!$user_type) || (!$email) || (!$pass) || (!$city)) { 
-    //echo 'error'
-     $errorMsg = '<div class="alert alert-danger fade in">
-    <a href="#" class="close" data-dismiss="alert">&times;</a>
-    Error!</strong> You must fill all the informations.
-</div>';
-echo $errorMsg;
-     } else if ($email_check > 0){ 
+//      if ((!$username) || (!$user_type) || (!$email) || (!$pass) || (!$city)) { 
+//     //echo 'error'
+//      $errorMsg = '<div class="alert alert-danger fade in">
+//     <a href="#" class="close" data-dismiss="alert">&times;</a>
+//     Error!</strong> You must fill all the informations.
+// </div>';
+// echo $errorMsg;
+//      } else if ($email_check > 0){ 
 
-     $errorMsg ='<div class="alert alert-danger"><strong>Error!:</strong> Your Email address is already in use inside of our system. Please use another.</div>'; 
-     echo $errorMsg;
+//      $errorMsg ='<div class="alert alert-danger"><strong>Error!:</strong> Your Email address is already in use inside of our system. Please use another.</div>'; 
+//      echo $errorMsg;
 
-              // echo 'error';
-     } else { // Error handling is ended, process the data and add member to database
+//               // echo 'error';
+//      } else { // Error handling is ended, process the data and add member to database
      
-     $email = mysql_real_escape_string($email);
-     $pass = mysql_real_escape_string($pass);
+//      $email = mysql_real_escape_string($email);
+//      $pass = mysql_real_escape_string($pass);
    
-     $db_pass = md5($pass); 
+//      $db_pass = md5($pass); 
      
-     $ipaddress = getenv('REMOTE_ADDR');
+//      $ipaddress = getenv('REMOTE_ADDR');
 
-     $sql = mysql_query("INSERT INTO users (username, user_type, email, password, city, ipaddress, sign_up_date) 
-     VALUES('$username','$user_type','$email','$db_pass','$city', '$ipaddress', now())")  
-     or die (mysql_error());
+//      $sql = mysql_query("INSERT INTO users (username, user_type, email, password, city, ipaddress, sign_up_date) 
+//      VALUES('$username','$user_type','$email','$db_pass','$city', '$ipaddress', now())")  
+//      or die (mysql_error());
  
-     $id = mysql_insert_id();
+//      $id = mysql_insert_id();
    
-     mkdir("users/$id", 0755);
-     mkdir("users/$id/photos", 0755);  
-     mkdir("users/$id/music", 0755);
-     mkdir("users/$id/videos", 0755);   
+//      mkdir("users/$id", 0755);
+//      mkdir("users/$id/photos", 0755);  
+//      mkdir("users/$id/music", 0755);
+//      mkdir("users/$id/videos", 0755);   
 
-    $to = "$email";
+//     $to = "$email";
                      
-    $from = "info@kairosodeum.com";
-    $subject = 'Welcome To Kairosodeum';
+//     $from = "info@kairosodeum.com";
+//     $subject = 'Welcome To Kairosodeum';
 
-    $message = "<html>
-<head>
-<style>
-#mail_header{
-background:#282828;
-width:100%;
-height:120px; 
-}
-#header_logo{
-  margin-left:45%;
-  margin-top:1%;  
-}
-#mail_content h2{
-  text-align:center;
-  font-size:28px;
-  font-weight:bold;}
-#mail_content{
-  text-align:center;
+//     $message = "<html>
+// <head>
+// <style>
+// #mail_header{
+// background:#282828;
+// width:100%;
+// height:120px; 
+// }
+// #header_logo{
+//   margin-left:45%;
+//   margin-top:1%;  
+// }
+// #mail_content h2{
+//   text-align:center;
+//   font-size:28px;
+//   font-weight:bold;}
+// #mail_content{
+//   text-align:center;
   
-    font-size: 15px;
-    line-height: 1.6em;
-    margin-bottom: .8em;
-}
-  #mail_footer{
+//     font-size: 15px;
+//     line-height: 1.6em;
+//     margin-bottom: .8em;
+// }
+//   #mail_footer{
     
-    margin-top:16px;
-    width:100%;
-    height:40px;
-    bottom:0;
-    text-align:center;}
-</style>
-</head>
+//     margin-top:16px;
+//     width:100%;
+//     height:40px;
+//     bottom:0;
+//     text-align:center;}
+// </style>
+// </head>
 
-<body>
+// <body>
 
-<div id=\"mail_header\">
-<img id=\"header_logo\" src=\"http://www.kairosodeum.com/assets/images/nav-logo.png\">
-</div>
-<div id=\"mail_content\">
-<h2>Welcome to KairosOdeum</h2>
-<p>Hi $username,  </p>
-<p>We are very glad to have you as the member of this growing community.</p>
-<p> &ldquo;Kairos Odeum&rdquo; - A string that connects; musical ability, artistic integrity, love and passion for music! &lsquo;Kairos Odeum&rsquo;, is a Greek word with &lsquo;Kairos&rsquo; meaning &lsquo;Opportune moment&rsquo; and &lsquo;Odeum&rsquo; meaning &lsquo;a platform for musical performance&rsquo;. Thus, Kairos Odeum is born; a platform that gives the budding and established Indian musicians alike, a platform to play and perform on their own terms, giving you full access to gigs in just a few simple clicks. Previously, if a band had to perform, it had to approach the platform, agree on performance conditions, negotiate prices, give a sample of their performance and then maybe, just maybe it got the chance to perform… Now think! By making a simple profile and updating it, you get the gigs you deserve, at your preferred locations, on your terms and, more importantly at your price! All you have to do is sign up, upload your videos and maintain your profile. Seems utopian? Well, wake up and smell the coffee because Kairos Odeum gives you the stage for this, assuring you gigs with a few clicks. Just wait and see how Kairos Odeum turn your musical journey into silver screen performances!</p>
-<p> You can login to your account using these details below: <br />
-E-mail Address: $email <br />
-Pass: $pass<br />
-</p>
-</div>
+// <div id=\"mail_header\">
+// <img id=\"header_logo\" src=\"http://www.kairosodeum.com/assets/images/nav-logo.png\">
+// </div>
+// <div id=\"mail_content\">
+// <h2>Welcome to KairosOdeum</h2>
+// <p>Hi $username,  </p>
+// <p>We are very glad to have you as the member of this growing community.</p>
+// <p> &ldquo;Kairos Odeum&rdquo; - A string that connects; musical ability, artistic integrity, love and passion for music! &lsquo;Kairos Odeum&rsquo;, is a Greek word with &lsquo;Kairos&rsquo; meaning &lsquo;Opportune moment&rsquo; and &lsquo;Odeum&rsquo; meaning &lsquo;a platform for musical performance&rsquo;. Thus, Kairos Odeum is born; a platform that gives the budding and established Indian musicians alike, a platform to play and perform on their own terms, giving you full access to gigs in just a few simple clicks. Previously, if a band had to perform, it had to approach the platform, agree on performance conditions, negotiate prices, give a sample of their performance and then maybe, just maybe it got the chance to perform… Now think! By making a simple profile and updating it, you get the gigs you deserve, at your preferred locations, on your terms and, more importantly at your price! All you have to do is sign up, upload your videos and maintain your profile. Seems utopian? Well, wake up and smell the coffee because Kairos Odeum gives you the stage for this, assuring you gigs with a few clicks. Just wait and see how Kairos Odeum turn your musical journey into silver screen performances!</p>
+// <p> You can login to your account using these details below: <br />
+// E-mail Address: $email <br />
+// Pass: $pass<br />
+// </p>
+// </div>
 
-<div id=\"mail_footer\">Copyright © 2017 KAIROSODEUM All rights reserved.</div>
-</body>
-</html>
-";
-   //end of message
-  $headers  = "From: $from\r\n";
-   $headers .= "MIME-Version: 1.0\r\n";
-$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+// <div id=\"mail_footer\">Copyright © 2017 KAIROSODEUM All rights reserved.</div>
+// </body>
+// </html>
+// ";
+//    //end of message
+//   $headers  = "From: $from\r\n";
+//    $headers .= "MIME-Version: 1.0\r\n";
+// $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
-    mail($to, $subject, $message, $headers);
+//     mail($to, $subject, $message, $headers);
   
 
- $successMsg ='<div class="alert alert-success fade in">
-    <a href="#" class="close" data-dismiss="alert">&times;</a>
-    Success!</strong> You have been successfully registered. Please login
-</div>';
+//  $successMsg ='<div class="alert alert-success fade in">
+//     <a href="#" class="close" data-dismiss="alert">&times;</a>
+//     Success!</strong> You have been successfully registered. Please login
+// </div>';
    
-//echo 'success';
-include_once 'success.php'; 
+// //echo 'success';
+// include_once 'success.php'; 
 
 
-   exit();
-   } // Close else after duplication checks
+//    exit();
+//    } // Close else after duplication checks
 
-} else { 
+// } else { 
 
-    $errorMsg = "";
-    $successMsg = "";
-    $username = "";
-    $aadhar = "";
-    $email = "";
-    $pass = "";
+//     $errorMsg = "";
+//     $successMsg = "";
+//     $username = "";
+//     $aadhar = "";
+//     $email = "";
+//     $pass = "";
 
-}
+// }
 
 ?>
 
@@ -467,24 +469,27 @@ include_once 'success.php';
 				<div class="col-xs-12 col-sm-12 col-md-12">
 
 							<div class="kairosodeum-menu-icon">
-<?php if (isset($_SESSION['idx'])) { 
+<?php 
 
-								echo "<button class=\"kairosodeum-btn-\">
-								<a href=\"/home/\" >
-						<i class=\"fa fa-plus\"></i> <span>Dashboard</span>
-					</a>&nbsp; &nbsp;
-						<a href=\"/account/\" >
-						<i class=\"fa fa-plus\"></i> <span>Account</span>
-					</a>
-					</button>
-					";
-}else{
+// if (isset($_SESSION['idx'])) { 
+
+// 								echo "<button class=\"kairosodeum-btn-\">
+// 								<a href=\"/home/\" >
+// 						<i class=\"fa fa-plus\"></i> <span>Dashboard</span>
+// 					</a>&nbsp; &nbsp;
+// 						<a href=\"/account/\" >
+// 						<i class=\"fa fa-plus\"></i> <span>Account</span>
+// 					</a>
+// 					</button>
+// 					";
+// }else{
 								?>
 					<button class="kairosodeum-btn-sidebar">
 						<i class="fa fa-plus"></i> <span>Login/Signup</span>
 					</button>
 
-					<? } ?>
+					<? /*}*/ ?>
+					
 				</div>
 			
 			<div class="kairosodeum-logo hidden-sm hidden-xs">
