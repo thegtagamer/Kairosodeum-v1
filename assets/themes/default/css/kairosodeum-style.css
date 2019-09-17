@@ -1,0 +1,515 @@
+/*********************************************************************************************************** 
+*
+* BACKGROUND COLOR
+* 
+***********************************************************************************************************/
+
+html, body {
+	background-color: #FBFCFC;
+}
+
+/*********************************************************************************************************** 
+*
+* FONT FAMILY
+* 
+***********************************************************************************************************/
+
+html, body, p, .kairosodeum-big-title h1, .kairosodeum-big-title h2, .kairosodeum-single-titles h1, .kairosodeum-comment-bigtitle h3, .kairosodeum-comments-list .media-body h6,
+.kairosodeum-loop-list h1, .kairosodeum-blog-list h2, .kairosodeum-filter-posting h1, .kairosodeum-filter-posting h2, .kairosodeum-slidertitle h1, .kairosodeum-mod-detail h1, .kairosodeum-mod-detail h2,
+.kairosodeum-mod-dates h1, .kairosodeum-mod-dates h2, .kairosodeum-billboard ul li h1, #fap-current-title {
+	font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .kairosodeum-menu-icon .kairosodeum-btn-sidebar, .kairosodeum-top-search-form input, .kairosodeum-sidebar-tab ul li a,
+.kairosodeum-loading-image p, .kairosodeum-post-detail blockquote p {
+	font-family: 'Raleway', sans-serif;
+}
+
+/*********************************************************************************************************** 
+*
+* DARK COLOR SET #24252A
+* 
+***********************************************************************************************************/
+
+/* #24252A */
+html, body, p {
+	color: #24252A;
+}
+
+.kairosodeum-single-tracklist ol li a, .kairosodeum-post-tags a {
+	color:#24252A;
+}
+
+.kairosodeum-sidebar-tab ul li, .kairosodeum-sidebar-menu, .kairosodeum-nav-fixed, .kairosodeum-header-back, .btn-primary, .btn-success:hover, 
+.btn-success:focus, .btn-primary:focus, .kairosodeum-darkback-one, .kairosodeum-logo-footer ul li a, .component-fullwidth, .kairosodeum-mod-dark,
+.kairosodeum-single-tracklist .fap-add-playlist, #fap-closer, #fap-player-wrapper, #fap-playlist {
+	background-color:#24252A;
+}
+
+/* #2A2B30 */
+.kairosodeum-mini-share ul li, .kairosodeum-mini-share ul li a, .kairosodeum-mini-share-two ul li, .kairosodeum-mini-share-two ul li a, .kairosodeum-blog-list h1 a, .widget_search input[type=text],
+.widget ul li a, .tagcloud a, .kairosodeum-filter-posting h1 a, .kairosodeum-mod-detail h1 a, .kairosodeum-billboard ul li h1 a, .kairosodeum-contact-form input[type="text"], .kairosodeum-contact-form input[type="email"], .kairosodeum-contact-form textarea, 
+.kairosodeum-contact-form input[type="submit"] {
+	color:#2A2B30;
+}
+
+.kairosodeum-sidebar-tab ul li.active, .main-nav li > ul a, .kairosodeum-mini-popup ul li button, .input-group-addon, .kairosodeum-darkback-two, .kairosodeum-navi ul li a, .kairosodeum-navi ul li.page_nums,
+.kairosodeum-filter-menu ul li, .kairosodeum-filter-random ul li, #fap-volume-scrubber {
+	background-color:#2A2B30;
+}
+
+
+/*********************************************************************************************************** 
+*
+* MAIN COLOR SET
+* 
+***********************************************************************************************************/
+
+/* #FF8C00 */
+a {
+	color:#FF8C00;
+}
+
+.kairosodeum-big-title h1, .kairosodeum-mini-share ul li a:hover, .kairosodeum-mini-share-two ul li a:hover, .kairosodeum-btn-search:hover, .kairosodeum-btn-sidebar:hover, .kairosodeum-single-tracklist ol li a:hover, .kairosodeum-related-title h1,
+.kairosodeum-comments-list .media-body small a:hover, .kairosodeum-blog-list h1 a:hover, .widget ul li a:hover, .kairosodeum-filter-posting h1 a:hover, .kairosodeum-mod-detail h1 a:hover, .kairosodeum-mod-detail-dark h1 a:hover,
+.kairosodeum-mod-title-dark h2, .kairosodeum-billboard ul li h1 a:hover, .kairosodeum-top-search, .kairosodeum-top-search-form input:focus, #fap-closer .fa, #fap-current-title, #fap-current-time:after {
+	color:#FF8C00;
+}
+
+.kairosodeum-thumb-image .util-theme-default .util-prev, .kairosodeum-thumb-image .util-theme-default .util-next, .kairosodeum-mini-popup ul li button:hover, .btn-primary:hover, .btn-success,
+.kairosodeum-post-tags a:hover, .kairosodeum-related-fa .fa, .kairosodeum-contact-form input[type="submit"], .kairosodeum-logo-footer ul li a:hover, .kairosodeum-gallery-hover, .kairosodeum-biography-hover, .kairosodeum-navi ul li a:hover,
+.kairosodeum-navi ul li.current, .widget_search input[type=submit], .tagcloud a:hover, .kairosodeum-filter-menu ul li.active, .kairosodeum-filter-menu ul li:hover, .kairosodeum-filter-random ul li.active,
+.kairosodeum-content-none .kairosodeum-content-block h1, .parent-expanded, .kairosodeum-single-tracklist .fap-add-playlist:hover, #fap-play-pause, #fap-volume-indicator, #fap-playlist li.active  {
+	background-color:#FF8C00;
+}
+.kairosodeum-sidebar-tab ul li.active a {
+	border-color: #FF8C00;
+}
+
+/* #138D75 */
+a:hover, a:focus {
+	color:#138D75;
+}
+
+
+.kairosodeum-main-color-dark {
+	color:#138D75;
+}
+
+.kairosodeum-main-background-dark, .kairosodeum-contact-form input[type="submit"]:hover,
+.btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary,
+.btn-success:active, .btn-success.active, .open > .dropdown-toggle.btn-success,
+.btn:active, .btn.active, .open > .dropdown-toggle.btn {
+	background-color:#138D75;
+}
+
+/* #73C6B6 */
+.kairosodeum-main-color-light {
+	color:#73C6B6;
+}
+
+.kairosodeum-main-background-light {
+	background-color:#73C6B6;
+}
+
+/*********************************************************************************************************** 
+*
+* WHITE COLOR SET
+* 
+***********************************************************************************************************/
+
+/* #FDFEFE */
+.kairosodeum-sidebar-tab ul li.active a, .kairosodeum-sidebar-tab ul li a:hover, .main-nav a:hover, .kairosodeum-big-title h2, .kairosodeum-mini-popup ul li button, .kairosodeum-post-tags a:hover,
+.kairosodeum-related-fa .fa, .input-group-addon, .kairosodeum-logo-footer ul li a:hover, .kairosodeum-gallery-hover, .kairosodeum-biography-hover, .kairosodeum-navi ul li a, .kairosodeum-navi ul li.current,
+.kairosodeum-navi ul li.page_nums, .widget_search input[type=submit], .tagcloud a:hover, .kairosodeum-filter-menu ul li, .kairosodeum-filter-random ul li, .kairosodeum-slidertitle,
+.kairosodeum-slider-nav, .kairosodeum-mod-detail-dark h1, .kairosodeum-mod-detail-dark h1 a, .kairosodeum-mod-title-dark h1, .kairosodeum-content-none h1, #fap-play-pause, #fap-wrapper-switcher,
+#fap-playlist, #fap-volume-bar, #fap-time-bar  {
+	color: #FDFEFE;
+}
+
+.kairosodeum-loading, .kairosodeum-mini-popup, .kairosodeum-post-tags a, .kairosodeum-dark-widget, .kairosodeum-top-search {
+	background-color: #FDFEFE;
+}
+
+/* #FBFCFC */
+.kairosodeum-white-two {
+	color: #FBFCFC;
+}
+
+.kairosodeum-white-backone, .kairosodeum-mod-light, .kairosodeum-contact-form input[type="text"], .kairosodeum-contact-form input[type="email"], .kairosodeum-contact-form textarea {
+	background-color: #FBFCFC;
+}
+
+/* #F7F9F9 */
+.kairosodeum-white-three {
+	color: #F7F9F9;
+}
+
+/* #F4F6F7 */
+.kairosodeum-white-four {
+	color: #F4F6F7;
+}
+.kairosodeum-white-backtwo, .kairosodeum-mod-grey {
+	background-color: #F4F6F7;
+}
+
+.kairosodeum-header-bottomback, .kairosodeum-single-tracklist ol li:nth-child(odd), .btn-default:hover {
+	background-color: #F4F6F7;
+}
+
+/* #F0F3F4 */
+.kairosodeum-white-five {
+	color: #F0F3F4;
+}
+
+/* #ECF0F1 */
+.kairosodeum-white-six {
+	color: #ECF0F1;
+}
+
+.kairosodeum-single-tracklist ol li:nth-child(even), .btn-default, .kairosodeum-comments-list .media-body, .form-control, 
+.widget_search input[type=text], .tagcloud a, div#calendar_wrap, .kairosodeum-content-none p {
+	background-color: #ECF0F1;
+}
+
+.kairosodeum-single-titles h1, .kairosodeum-single-mininfo ul li, .kairosodeum-comment-bigtitle h3, .kairosodeum-blog-list h2, .widget-title, .widget ul li, .kairosodeum-event-ul li,
+.kairosodeum-mod-playlist .kairosodeum-mod-detail, .kairosodeum-mod-others li, .kairosodeum-billboard ul li, .kairosodeum-top-search {
+	border-color: #ECF0F1;
+}
+
+/* #D0D3D4 */
+.main-nav a, .kairosodeum-menu-icon button, .kairosodeum-related-title h6, .kairosodeum-logo-footer ul li a, .kairosodeum-mod-detail-dark h2, .kairosodeum-mod-detail-dark p {
+	color: #D0D3D4;
+}
+
+.kairosodeum-single-tracklist ol li:before {
+	background-color: #D0D3D4;
+}
+
+/* #B3B6B7 */
+.main-nav li > ul li a {
+	color: #B3B6B7;
+}
+
+/* #979A9A */
+.main-nav li > ul li > ul a, .kairosodeum-single-count {
+	color: #979A9A;
+}
+
+/* #7B7D7D */
+.kairosodeum-sidebar-tab ul li a, .kairosodeum-comments-list .media-body small a {
+	color: #7B7D7D;
+}
+
+/* #42444B */
+.kairosodeum-mod-dark .kairosodeum-single-titles h1, .kairosodeum-mod-dark .kairosodeum-single-mininfo ul li, .kairosodeum-mod-dark .kairosodeum-comment-bigtitle h3,
+.kairosodeum-mod-dark .kairosodeum-blog-list h2, .kairosodeum-mod-dark .widget-title, .kairosodeum-mod-dark .widget ul li, .kairosodeum-mod-dark .kairosodeum-event-ul li,
+.kairosodeum-mod-dark .kairosodeum-mod-playlist .kairosodeum-mod-detail, .kairosodeum-mod-dark .kairosodeum-mod-others li {
+	border-color: #42444B;
+}
+
+
+
+.carousel-margin{
+    margin-top: 20px;
+    margin-left:80px;
+    
+}
+
+.carousel-block{
+    float:left;
+    height: 140px;
+    width: 180px;
+    color: #985965;
+    margin-bottom: 2px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 2px;
+    padding-left: 10px;
+    padding-right: 2px;
+    /* background-color: #fff; */
+    /* border: 1px solid #ececec; */
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.carousel-block h4{
+    font-size: 12px;
+    font-weight: bold;
+    color:#fff;
+}
+.carousel-block img{
+	
+}
+
+
+
+
+
+.wrapper {
+  width: 100%;
+  position: relative;
+  background-color: #000;
+}
+.wrapper:after {
+  padding-top: 42.85714285714287%;
+  display: block;
+  content: '';
+}
+.wrapper .column {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 14.2857142857142857%;
+  float: left;
+  padding: 6px;
+  box-sizing: border-box;
+}
+.wrapper .column .inner {
+  width: 100%;
+  position: relative;
+}
+.wrapper .column .inner:after {
+  padding-top: 100%;
+  /* ratio 1:1 */
+  display: block;
+  content: '';
+}
+.wrapper .column .inner:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.wrapper .column .inner:hover:before {
+  background-color: rgba(0, 0, 0, 0);
+}
+.wrapper .column:nth-child(1) {
+  width: 28.5714285714285714%;
+}
+.wrapper .column:nth-child(2) {
+  left: 28.5714285714285714%;
+}
+.wrapper .column:nth-child(3) {
+  left: 28.5714285714285714%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.wrapper .column:nth-child(4) {
+  width: 28.5714285714285714%;
+  left: 42.85714285714286%;
+  top: 0;
+}
+.wrapper .column:nth-child(4) .inner:after {
+  padding-top: 48.7%;
+}
+.wrapper .column:nth-child(5) {
+  left: 71.42857142857143%;
+  top: 0;
+}
+.wrapper .column:nth-child(6) {
+  left: auto;
+  right: 0;
+  top: 0;
+}
+.wrapper .column:nth-child(7) {
+  left: 71.42857142857143%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.wrapper .column:nth-child(8) {
+  left: auto;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.wrapper .column:nth-child(9) {
+  width: 28.5714285714285714%;
+  top: auto;
+  left: 0;
+  bottom: 0;
+}
+.wrapper .column:nth-child(9) .inner:after {
+  padding-top: 48.7%;
+}
+.wrapper .column:nth-child(10) {
+  left: 28.5714285714285714%;
+  top: auto;
+  bottom: 0;
+}
+.wrapper .column:nth-child(11) {
+  left: 42.85714285714286%;
+  top: auto;
+  bottom: 0;
+  width: 28.5714285714285714%;
+}
+.wrapper .column:nth-child(12) {
+  left: auto;
+  top: auto;
+  bottom: 0;
+  right: 0;
+  width: 28.5714285714285714%;
+}
+.wrapper .column:nth-child(12) .inner:after {
+  padding-top: 48.7%;
+}
+
+
+.wrapper .column .inner {
+  background-size: cover;
+  background-position: center;
+}
+.wrapper .column:nth-child(1) .inner {
+  background-image: url('https://igcdn-photos-b-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-15/11055800_1556880671238497_1776548525_n.jpg');
+}
+.wrapper .column:nth-child(2) .inner {
+  background-image: url('https://igcdn-photos-h-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11055816_932624596782983_529466754_n.jpg');
+}
+.wrapper .column:nth-child(3) .inner {
+  background-image: url('https://igcdn-photos-g-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11008257_1569363026647030_933015336_n.jpg');
+}
+.wrapper .column:nth-child(4) .inner {
+  background-image: url('https://igcdn-photos-e-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11056045_436886419818172_768672462_n.jpg');
+}
+.wrapper .column:nth-child(5) .inner {
+  background-image: url('https://igcdn-photos-g-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-15/11049260_1374759412847590_258656935_n.jpg');
+}
+.wrapper .column:nth-child(6) .inner {
+  background-image: url('https://igcdn-photos-d-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11005276_1414641038838035_1026684390_n.jpg');
+}
+.wrapper .column:nth-child(7) .inner {
+  background-image: url('https://igcdn-photos-a-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11032879_730451393737672_1900382729_n.jpg');
+}
+.wrapper .column:nth-child(8) .inner {
+  background-image: url('https://igcdn-photos-h-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11008309_1069768239717639_19410808_n.jpg');
+}
+.wrapper .column:nth-child(9) .inner {
+  background-image: url('https://igcdn-photos-h-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/10919595_795737697170495_727510522_n.jpg');
+}
+.wrapper .column:nth-child(10) .inner {
+  background-image: url('https://igcdn-photos-h-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-15/11005073_763217610443223_1974563188_n.jpg');
+}
+.wrapper .column:nth-child(11) .inner {
+  background-image: url('https://igcdn-photos-h-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/10903752_533893980082103_132962602_n.jpg');
+}
+.wrapper .column:nth-child(12) .inner {
+  background-image: url('https://igcdn-photos-f-a.akamaihd.net/hphotos-ak-xap1/t51.2885-15/10483464_355418301328333_1012884493_n.jpg');
+}
+.wrapper .column:nth-child(13) .inner {
+  background-image: url('https://igcdn-photos-d-a.akamaihd.net/hphotos-ak-xap1/t51.2885-15/10483455_592335754230795_537719826_n.jpg');
+}
+
+
+.copyright{
+	color:#FDFEFE;
+}
+
+ .loginbox {
+        width: 250px;
+        height: auto;
+        margin: auto;
+        margin-top: 10%;
+    }
+    
+   
+    .loginbox input[type="text"] {
+        border-radius: 5px 5px 0px 0px;
+    }
+    
+    .loginbox input[type="password"] {
+        border-radius: 0px 0px 5px 5px;
+    }
+    
+    a.forgot_link {
+        color: #666;
+        text-decoration: none;
+        font-size: 11px;
+        position: relative;
+        left: 175px;
+        top: -52px;
+    }
+    a.forgot_link:hover {
+        text-decoration:none;
+        color: #111;
+        
+    }
+    
+    .loginbox button {
+        width: 100%;
+        border-radius: 5px;
+        background: #FF8C00;
+        text-decoration: center;
+        border: none;
+        color: #ffffff;
+        margin-top: -5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        outline: none;
+        font-size: 16px;
+        border-bottom: 3px solid #FF8C00;
+        cursor: pointer;
+    }
+    .separtor {
+        width: 100%;
+        height: 1px;
+        background: #fff;
+    }
+    
+    .separtor i {
+        width: 95%;
+        margin: auto;
+        height: 1px;
+        display: block;
+        background: #d1d1d1;
+    }
+    
+    
+
+
+
+
+ .signbox {
+        width: 250px;
+        height: auto;
+        margin: auto;
+        margin-top: 10%;
+    }
+    
+  
+    .signnbox input[type="text"] {
+        border-radius: 5px 5px 0px 0px;
+    }
+    
+    .signbox input[type="password"] {
+        border-radius: 0px 0px 5px 5px;
+    }
+    
+    
+    .signbox button {
+        width: 100%;
+        border-radius: 5px;
+        background: #FF8C00;
+        text-decoration: center;
+        border: none;
+        color: #ffffff;
+        margin-top: -5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        outline: none;
+        font-size: 16px;
+        border-bottom: 3px solid #FF8C00;
+        cursor: pointer;
+    }
+
+    

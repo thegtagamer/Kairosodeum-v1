@@ -1,0 +1,12 @@
+[24-Aug-2017 17:26:17 Etc/GMT] PHP Notice:  Constant DB_SERVER already defined in /home/kairow7u/public_html/scripts/DB_connect.php on line 3
+[24-Aug-2017 17:26:17 Etc/GMT] PHP Notice:  Constant DB_USERNAME already defined in /home/kairow7u/public_html/scripts/DB_connect.php on line 4
+[24-Aug-2017 17:26:17 Etc/GMT] PHP Notice:  Constant DB_PASSWORD already defined in /home/kairow7u/public_html/scripts/DB_connect.php on line 5
+[24-Aug-2017 17:26:17 Etc/GMT] PHP Notice:  Constant DB_DATABASE already defined in /home/kairow7u/public_html/scripts/DB_connect.php on line 6
+[24-Aug-2017 19:35:48 Etc/GMT] PHP Notice:  Constant DB_SERVER already defined in /home/kairow7u/public_html/scripts/DB_connect.php on line 3
+[24-Aug-2017 19:35:48 Etc/GMT] PHP Notice:  Constant DB_USERNAME already defined in /home/kairow7u/public_html/scripts/DB_connect.php on line 4
+[24-Aug-2017 19:35:48 Etc/GMT] PHP Notice:  Constant DB_PASSWORD already defined in /home/kairow7u/public_html/scripts/DB_connect.php on line 5
+[24-Aug-2017 19:35:48 Etc/GMT] PHP Notice:  Constant DB_DATABASE already defined in /home/kairow7u/public_html/scripts/DB_connect.php on line 6
+[25-Aug-2017 05:59:03 Etc/GMT] PHP Notice:  Constant DB_SERVER already defined in /home/kairow7u/public_html/scripts/DB_connect.php on line 3
+[25-Aug-2017 05:59:03 Etc/GMT] PHP Notice:  Constant DB_USERNAME already defined in /home/kairow7u/public_html/scripts/DB_connect.php on line 4
+[25-Aug-2017 05:59:03 Etc/GMT] PHP Notice:  Constant DB_PASSWORD already defined in /home/kairow7u/public_html/scripts/DB_connect.php on line 5
+[25-Aug-2017 05:59:03 Etc/GMT] PHP Notice:  Constant DB_DATABASE already defined in /home/kairow7u/public_html/scripts/DB_connect.php on line 6
