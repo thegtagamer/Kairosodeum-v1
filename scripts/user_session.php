@@ -1,9 +1,12 @@
 <?php
 session_start();
 error_reporting(E_ALL);
-ini_set("display_errors", 0);
+ini_set("display_errors", 1);
 ///////////////////////////////////////////////////////
 include_once "DB_connect.php"; 
+
+
+
 $dyn_www = $_SERVER['HTTP_HOST']; 
 //////CHECK IF USER IS LOGGED IN OR NOT ////
 $sessionInit = ''; 
@@ -28,7 +31,8 @@ if (isset($_SESSION['idx'])) {
         $sessionInit .= '<li><a href="http://' . $dyn_www . '/home/" class="scroll-link">Dashboard</a></li>
 <li><a href="http://' . $dyn_www . '/logout/" class="scroll-link">Logout</a></li>';
 $timestamp = time() + 600;
-@mysql_query("UPDATE users SET timestamp = '$timestamp'  WHERE id='$sessionInit_id'"); 
+
+@mysqli_query($connection, "UPDATE users SET timestamp = '$timestamp'  WHERE id='$sessionInit_id'"); 
 //////news div to be displayed if user is not login////
 } else if (isset($_COOKIE['idCookie'])) {// If id cookie is set, but no session ID is set yet, we set it below and update stuff
 	
@@ -37,13 +41,13 @@ $timestamp = time() + 600;
 	$userID = $id_array[1]; 
 	$userPass = $_COOKIE['passCookie'];
 	// Get their user first name to set into session var
-    $sql_uname = mysql_query("SELECT username FROM users WHERE id='$userID' AND password='$userPass' LIMIT 1");
-	$numRows = mysql_num_rows($sql_uname);
+    $sql_uname = mysqli_query($connection, "SELECT username FROM users WHERE id='$userID' AND password='$userPass' LIMIT 1");
+	$numRows = mysqli_num_rows($connection, $sql_uname);
 	if ($numRows == 0) {
 		echo 'Something went wrong. Please <a href="login.php">Log in again here please</a>';
 		exit();
 	}
-    while($row = mysql_fetch_array($sql_uname)){ 
+    while($row = mysqli_fetch_array($connection,$sql_uname)){ 
 	    $username = $row["username"];
 	}
 
@@ -55,7 +59,7 @@ $timestamp = time() + 600;
     $sessionInit_uname = substr('' . $sessionInit_uname . '', 0, 15); 
     ///////////          Update Last Login Date Field       /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	$timestamp = time() + 600;
-   @mysql_query("UPDATE users SET timestamp = '$timestamp'  WHERE id='$userID'"); 
+   @mysqli_query($connection, "UPDATE users SET timestamp = '$timestamp'  WHERE id='$userID'"); 
 
 
      $sessionInit = '<li><a href="http://' . $dyn_www . '/home/" class="scroll-link">Dashboard</a></li>
