@@ -449,7 +449,7 @@ Pass: $pass<br />
 						<i class="fa fa-plus"></i> <span>Login/Signup</span>
 					</button>
 
-					<? /*}*/ ?>
+					<?php /*}*/ ?>
 					
 				</div>
 			
