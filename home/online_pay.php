@@ -53,4 +53,3 @@ var_dump($data);
 $site = $data["payment_request"]["longurl"];
 header('HTTP/1.1 301 Moved Permanently');
 header('Location:' . $site);
-?>

@@ -1,5 +1,4 @@
-
-  <?php
+<?php
 include 'src/instamojo.php';
 /*$api = new Instamojo\Instamojo('5ab10726b6ff4eacdc65389ea7c8475c', '830b2e5caa7a946679fa656850dde37d','https://www.instamojo.com/api/1.1/payment-requests/');
 
@@ -21,7 +20,7 @@ echo "</pre>";*/
 ?>
 
 
-    <?php
+<?php
 /*
 }
 catch (Exception $e) {
@@ -31,7 +30,7 @@ catch (Exception $e) {
 */
 ?>
 
-  <?php
+<?php
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'https://www.instamojo.com/api/1.1/payments/MOJO5a06005J21512197/');
 curl_setopt($ch, CURLOPT_HEADER, FALSE);
@@ -45,8 +44,3 @@ echo "<h4>Payment Email: " . $response['payments'][0]['buyer_email'] . "</h4>";
 echo "<h6>An email was sent to you. (Check Junk Folder)</h6>";
 curl_close($ch);
 echo $response;
-?>
-
-
-      
-  

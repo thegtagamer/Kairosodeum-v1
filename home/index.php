@@ -566,60 +566,74 @@ $thisRandNum2 = rand(999999999999, 99999999999999999);
 ?>
 <!DOCTYPE html>
 <html lang="en-US" class="no-js">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
-	<title>#<?php echo $username; ?> #KairosOdeum</title>
+	<title>#
+		<?php echo $username; ?>#KairosOdeum</title>
 
-<link rel='stylesheet' id='bootstrap-css'  href='../assets/plugins/easy-bootstrap-shortcodes/styles/bootstrap.min.css?ver=4.7.5' type='text/css' media='all' />
-<link rel='stylesheet' id='bootstrap-fa-icon-css'  href='../assets/plugins/easy-bootstrap-shortcodes/styles/font-awesome.min.css?ver=4.7.5' type='text/css' media='all' />
-<link rel='stylesheet' id='contact-form-7-css'  href='assets/plugins/contact-form-7/includes/css/styles4906.css?ver=4.7' type='text/css' media='all' />
-<link rel='stylesheet' id='kairosodeum-bootstrap-css-css'  href='../assets/themes/default/css/bootstrap.css?ver=4.7.5' type='text/css' media='all' />
-<link rel='stylesheet' id='kairosodeum-theme-css-css'  href='../assets/themes/default/css/kairosodeum-main.css?ver=4.7.5' type='text/css' media='all' />
-<link rel='stylesheet' id='kairosodeum-color-css-css'  href='../assets/themes/default/css/kairosodeum-style.css?ver=4.7.5' type='text/css' media='all' />
-<link rel='stylesheet' id='kairosodeum-app-css'  href='../assets/themes/default/css/kairosodeum-app.css?ver=4.7.5' type='text/css' media='all' />
-<link rel='stylesheet' id='kairosodeum-carousel-css-css'  href='../assets/themes/default/js/utilcarousel-files/utilcarousel/util.carousel.css?ver=4.7.5' type='text/css' media='all' />
-<link rel='stylesheet' id='kairosodeum-skins-css-css'  href='../assets/themes/default/js/utilcarousel-files/utilcarousel/util.carousel.skins.css?ver=4.7.5' type='text/css' media='all' />
-<link rel='stylesheet' id='kairosodeum-popup-css-css'  href='../assets/themes/default/js/utilcarousel-files/magnific-popup/magnific-popup.css?ver=4.7.5' type='text/css' media='all' />
-<link rel='stylesheet' id='ebs_dynamic_css-css'  href='../assets/plugins/easy-bootstrap-shortcodes/styles/ebs_dynamic_css.css?ver=4.7.5' type='text/css' media='all' />
-<script type='text/javascript' src='../assets/plugins/advanced-ajax-page-loader/jquery.js?ver=4.7.5'></script>
-<script type='text/javascript' src='../assets/plugins/easy-bootstrap-shortcodes/js/bootstrap.min.js?ver=4.7.5'></script>
-<script type='text/javascript' src='../assets/themes/default/js/kairosodeum-js.js'></script>
+	<link rel='stylesheet' id='bootstrap-css' href='../assets/plugins/easy-bootstrap-shortcodes/styles/bootstrap.min.css?ver=4.7.5'
+	 type='text/css' media='all' />
+	<link rel='stylesheet' id='bootstrap-fa-icon-css' href='../assets/plugins/easy-bootstrap-shortcodes/styles/font-awesome.min.css?ver=4.7.5'
+	 type='text/css' media='all' />
+	<link rel='stylesheet' id='contact-form-7-css' href='assets/plugins/contact-form-7/includes/css/styles4906.css?ver=4.7' type='text/css'
+	 media='all' />
+	<link rel='stylesheet' id='kairosodeum-bootstrap-css-css' href='../assets/themes/default/css/bootstrap.css?ver=4.7.5' type='text/css'
+	 media='all' />
+	<link rel='stylesheet' id='kairosodeum-theme-css-css' href='../assets/themes/default/css/kairosodeum-main.css?ver=4.7.5'
+	 type='text/css' media='all' />
+	<link rel='stylesheet' id='kairosodeum-color-css-css' href='../assets/themes/default/css/kairosodeum-style.css?ver=4.7.5'
+	 type='text/css' media='all' />
+	<link rel='stylesheet' id='kairosodeum-app-css' href='../assets/themes/default/css/kairosodeum-app.css?ver=4.7.5' type='text/css'
+	 media='all' />
+	<link rel='stylesheet' id='kairosodeum-carousel-css-css' href='../assets/themes/default/js/utilcarousel-files/utilcarousel/util.carousel.css?ver=4.7.5'
+	 type='text/css' media='all' />
+	<link rel='stylesheet' id='kairosodeum-skins-css-css' href='../assets/themes/default/js/utilcarousel-files/utilcarousel/util.carousel.skins.css?ver=4.7.5'
+	 type='text/css' media='all' />
+	<link rel='stylesheet' id='kairosodeum-popup-css-css' href='../assets/themes/default/js/utilcarousel-files/magnific-popup/magnific-popup.css?ver=4.7.5'
+	 type='text/css' media='all' />
+	<link rel='stylesheet' id='ebs_dynamic_css-css' href='../assets/plugins/easy-bootstrap-shortcodes/styles/ebs_dynamic_css.css?ver=4.7.5'
+	 type='text/css' media='all' />
+	<script type='text/javascript' src='../assets/plugins/advanced-ajax-page-loader/jquery.js?ver=4.7.5'></script>
+	<script type='text/javascript' src='../assets/plugins/easy-bootstrap-shortcodes/js/bootstrap.min.js?ver=4.7.5'></script>
+	<script type='text/javascript' src='../assets/themes/default/js/kairosodeum-js.js'></script>
 
 	<script type="text/javascript">
 		checkjQuery = false;
 		jQueryScriptOutputted = false;
-		
+
 		//Content ID
 		var AAPL_content = 'content';
-		
+
 		//Search Class
 		var AAPL_search_class = 'searchform';
-		
+
 		//Ignore List - this is for travisavery who likes my comments... hello
-		var AAPL_ignore_string = new String('#, /wp-, .pdf, .zip, .rar'); 
+		var AAPL_ignore_string = new String('#, /wp-, .pdf, .zip, .rar');
 		var AAPL_ignore = AAPL_ignore_string.split(', ');
-		
+
 		//Shall we take care of analytics?
-		var AAPL_track_analytics = false		
+		var AAPL_track_analytics = false
 		//Various options and settings
-		var AAPL_scroll_top = true		
+		var AAPL_scroll_top = true
 		//Maybe the script is being a tw**? With this you can find out why...
 		var AAPL_warnings = false;
-		
+
 		//This is probably not even needed anymore, but lets keep for a fallback
 		function initJQuery() {
 			if (checkjQuery == true) {
 				//if the jQuery object isn't available
 				if (typeof(jQuery) == 'undefined') {
-				
-					if (! jQueryScriptOutputted) {
+
+					if (!jQueryScriptOutputted) {
 						//only output the script once..
 						jQueryScriptOutputted = true;
-						
+
 						//output the jquery script
 						//one day I will complain :/ double quotes inside singles.
-						document.write('<scr' + 'ipt type="text/javascript" src="../assets/plugins/advanced-ajax-page-loader/jquery.js"></scr' + 'ipt>');
+						document.write('<scr' +
+							'ipt type="text/javascript" src="../assets/plugins/advanced-ajax-page-loader/jquery.js"></scr' + 'ipt>');
 					}
 					setTimeout('initJQuery()', 50);
 				}
@@ -627,110 +641,109 @@ $thisRandNum2 = rand(999999999999, 99999999999999999);
 		}
 
 		initJQuery();
-
 	</script>
 
 	<script type="text/javascript" src="../assets/plugins/advanced-ajax-page-loader/ajax-page-loader.js"></script>
 	<script type="text/javascript" src="../assets/plugins/advanced-ajax-page-loader/reload_code.js"></script>
-	
+
 	<script type="text/javascript">
 		//urls
 		var AAPLsiteurl = "localhost";
 		var AAPLhome = "localhost";
-		
+
 		var AAPLloadingIMG = jQuery('<img/>').attr('src', '');
 		var AAPLloadingDIV = jQuery('<div/>').attr('style', 'display:none;').attr('id', 'ajaxLoadDivElement');
 		AAPLloadingDIV.appendTo('body');
 		AAPLloadingIMG.appendTo('#ajaxLoadDivElement');
-		
 
-		var str = "\t<div class=\"snd-loading\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"snd-loading-image\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t<\/div>\n\t\t\t\t\t\t\t\t\t\t\t<\/div>";
+
+		var str =
+			"\t<div class=\"snd-loading\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"snd-loading-image\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t<\/div>\n\t\t\t\t\t\t\t\t\t\t\t<\/div>";
 		var AAPL_loading_code = str.replace('{loader}', AAPLloadingIMG.attr('src'));
-		str = "\t<div class=\"snd-loading\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"snd-loading-image\">\n\t\t\t\t\t\t\t\t\t\t\t\t<H1>There was a problem and the page didnt load.<\/H1>\n\t\t\t\t\t\t\t\t\t\t\t<\/div>\n\t\t\t\t\t\t\t\t\t\t<\/div>";
+		str =
+			"\t<div class=\"snd-loading\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"snd-loading-image\">\n\t\t\t\t\t\t\t\t\t\t\t\t<H1>There was a problem and the page didnt load.<\/H1>\n\t\t\t\t\t\t\t\t\t\t\t<\/div>\n\t\t\t\t\t\t\t\t\t\t<\/div>";
 		var AAPL_loading_error_code = str.replace('', AAPLloadingIMG.attr('src'));
 	</script>
-		<script>
-$(document).ready(function() {
+	<script>
+		$(document).ready(function() {
 
-$("#search_q").keyup(function() 
-{
-var search_q= $(this).val();
-var dataString = 'searchword='+ search_q;
+			$("#search_q").keyup(function() {
+				var search_q = $(this).val();
+				var dataString = 'searchword=' + search_q;
 
-if(search_q=='')
-{
-document.getElementById('display_result').style.display = 'none';
-}
-else
-{
+				if (search_q == '') {
+					document.getElementById('display_result').style.display = 'none';
+				} else {
 
-$.ajax({
-type: "POST",
-url: "../search/index.php",
-data: dataString,
-cache: false,
-success: function(html)
-{
+					$.ajax({
+						type: "POST",
+						url: "../search/index.php",
+						data: dataString,
+						cache: false,
+						success: function(html) {
 
-$("#display_result").html(html).show();
-  
-  }
+							$("#display_result").html(html).show();
+
+						}
 
 
-});
+					});
 
 
-}return false;    
+				}
+				return false;
 
 
-});
+			});
 
-//////IF LOGIN USER ACCPT A FRND//////
-$(".accept").click(function(){
-  var pid = $(this).attr("id");
- 
-  var url = "con_parse.php";
-  $("#loader"+pid).html("<img src='images/loading30.gif' />").fadeIn().delay(7000).fadeOut();
-  //$("#loader").fadeIn().delay(10000).fadeOut();
-  $.post(url, {request: "acceptCon", reqID: pid}, function(data){
-    //$("#loader").html(data).show();
-    window.location.href = data;
-  });//close function(data) success
-});//close $.accept
+			//////IF LOGIN USER ACCPT A FRND//////
+			$(".accept").click(function() {
+				var pid = $(this).attr("id");
 
-////////////////IF A USER DENY FRIEND REQUESTS////
-$(".deny").click(function(){
-  var pid = $(this).attr("id");
-  alert(pid);
-  var url = "con_parse.php";
-  $("#loader"+pid).html("<img src='images/loading30.gif' />").fadeIn().delay(7000).fadeOut();
-  //$("#loader").fadeIn().delay(10000).fadeOut();
-  $.post(url, {request: "denyCon", reqID: pid}, function(data){
-    $("#loader"+pid).html(data).parent().parent().fadeOut();
-    //$("#loader").html(data).show();
-    //window.location.href = data;
-  });//close function(data) success
-});//close $.deny
-});
+				var url = "con_parse.php";
+				$("#loader" + pid).html("<img src='images/loading30.gif' />").fadeIn().delay(7000).fadeOut();
+				//$("#loader").fadeIn().delay(10000).fadeOut();
+				$.post(url, {
+					request: "acceptCon",
+					reqID: pid
+				}, function(data) {
+					//$("#loader").html(data).show();
+					window.location.href = data;
+				}); //close function(data) success
+			}); //close $.accept
 
-      
-      
-
-</script>
-		</head>
+			////////////////IF A USER DENY FRIEND REQUESTS////
+			$(".deny").click(function() {
+				var pid = $(this).attr("id");
+				alert(pid);
+				var url = "con_parse.php";
+				$("#loader" + pid).html("<img src='images/loading30.gif' />").fadeIn().delay(7000).fadeOut();
+				//$("#loader").fadeIn().delay(10000).fadeOut();
+				$.post(url, {
+					request: "denyCon",
+					reqID: pid
+				}, function(data) {
+					$("#loader" + pid).html(data).parent().parent().fadeOut();
+					//$("#loader").html(data).show();
+					//window.location.href = data;
+				}); //close function(data) success
+			}); //close $.deny
+		});
+	</script>
+</head>
 
 <body class="home page-template page-template-page-templates page-template-page-builder page-template-page-templatespage-builder-php page page-id-457">
 
-	
+
 	<!-- BODY -->
 	<div class="kairosodeum-body"></div>
 
 	<!-- MUSIC PLAYER -->
 	<div id="fap">
-							<!--	<a data-music="  http://djboyradio.streamguys1.com/sub-pop-records.mp3 " title="Radio Pop Live" target=""></a>
+		<!--	<a data-music="  http://djboyradio.streamguys1.com/sub-pop-records.mp3 " title="Radio Pop Live" target=""></a>
 						<a data-music="  http://0.s3.envato.com/files/151969330/preview.mp3 " title="Forever Dance" target=""></a>
 						<a data-music="  http://0.s3.envato.com/files/151505358/preview.mp3 " title="Stoner Party" target=""></a>-->
-						</div>
+	</div>
 
 	<!-- SEARH BAR -->
 	<div class="kairosodeum-top-search">
@@ -738,8 +751,9 @@ $(".deny").click(function(){
 			<div class="row">
 				<div class="col-md-12">
 					<div class="kairosodeum-top-search-form">
-						<form role="search" method="get" id="searchform" class="kairosodeum-search searchform"  action="">
-							<input type="text" value="" name="s" id="s" placeholder="Type and Press Enter to Search .." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type and Press Enter to Search ..'" />
+						<form role="search" method="get" id="searchform" class="kairosodeum-search searchform" action="">
+							<input type="text" value="" name="s" id="s" placeholder="Type and Press Enter to Search .." onfocus="this.placeholder = ''"
+							 onblur="this.placeholder = 'Type and Press Enter to Search ..'" />
 						</form>
 					</div>
 				</div>
@@ -747,15 +761,15 @@ $(".deny").click(function(){
 		</div>
 	</div>
 
-	
+
 	<!-- SOUND THEME / TOP NAVIGATION -->
 	<div class="container-fluid kairosodeum-nav-fixed kairosodeum-nav-fixed-mobil">
-		
-		<!-- SOUND THEME / LOGO AREA -->
-				<div class="col-xs-12 col-sm-12 col-md-12">
 
-							<div class="kairosodeum-menu-icon">
-<?php if (isset($_SESSION['idx'])) {
+		<!-- SOUND THEME / LOGO AREA -->
+		<div class="col-xs-12 col-sm-12 col-md-12">
+
+			<div class="kairosodeum-menu-icon">
+				<?php if (isset($_SESSION['idx'])) {
     echo "<button class=\"kairosodeum-btn-\">
 								<a href=\"/home/\" >
 						<i class=\"fa fa-plus\"></i> <span>Dashboard</span>
@@ -766,22 +780,23 @@ $(".deny").click(function(){
 					</button>";
 } else {
 ?>
-					<button class="kairosodeum-btn-sidebar">
-						<i class="fa fa-plus"></i> <span>Login/Signup</span>
-					</button>
+				<button class="kairosodeum-btn-sidebar">
+					<i class="fa fa-plus"></i>
+					<span>Login/Signup</span>
+				</button>
 
-					<? } ?>
-				</div>
-			
+				<?php } ?>
+			</div>
+
 			<div class="kairosodeum-logo hidden-sm hidden-xs">
 				<a href="index.php">
-											<img src="../assets/themes/default/images/logo.png" alt="Logo">
-									</a>
+					<img src="../assets/themes/default/images/logo.png" alt="Logo">
+				</a>
 			</div>
 			<div class="kairosodeum-logo hidden-md hidden-lg">
 				<a href="index.php">
-											<img src="../assets/themes/default/images/logo.png" alt="Logo">
-									</a>
+					<img src="../assets/themes/default/images/logo.png" alt="Logo">
+				</a>
 			</div>
 
 			<div class="kairosodeum-search-icon">
@@ -796,669 +811,693 @@ $(".deny").click(function(){
 	</div>
 	<div class="clearfix"></div>
 
-<!-- SOUND THEME / AJAX CONTENT START -->
-<div id="content" class="site-content">
-	<!-- SOUND THEME / MODULE SLIDER -->
-	<!-- Module Slider -->
-	
-
-	<div class="profile-content">
-    <div class="card hovercard">
-        
-        <div class="useravatar">
-                <?php echo $user_pic; ?>
-        </div>
-        <div class="card-info"> <span class="card-title"><?php echo $username; ?></span><br />
-           <span class="card-title-city"><?php echo $city; ?></span>
+	<!-- SOUND THEME / AJAX CONTENT START -->
+	<div id="content" class="site-content">
+		<!-- SOUND THEME / MODULE SLIDER -->
+		<!-- Module Slider -->
 
 
+		<div class="profile-content">
+			<div class="card hovercard">
 
-        </div>
+				<div class="useravatar">
+					<?php echo $user_pic; ?>
+				</div>
+				<div class="card-info">
+					<span class="card-title">
+						<?php echo $username; ?>
+					</span>
+					<br />
+					<span class="card-title-city">
+						<?php echo $city; ?>
+					</span>
 
 
-<?php if ($sessionInit_id == $id) { ?>
 
-         <a data-toggle="modal" data-target="#uploadMusic"><button class="btn btn-primary"><i class="fa fa-music"></i></button></a>
+				</div>
 
-		<a data-toggle="modal" data-target="#uploadPhoto"><button class="btn btn-primary"><i class="fa fa-photo"></i></button></a>
-<a data-toggle="modal" data-target="#uploadVideo"><button class="btn btn-primary"><i class="fa fa-file-video-o"></i> </button></a>
 
-<?php
+				<?php if ($sessionInit_id == $id) { ?>
+
+				<a data-toggle="modal" data-target="#uploadMusic">
+					<button class="btn btn-primary">
+						<i class="fa fa-music"></i>
+					</button>
+				</a>
+
+				<a data-toggle="modal" data-target="#uploadPhoto">
+					<button class="btn btn-primary">
+						<i class="fa fa-photo"></i>
+					</button>
+				</a>
+				<a data-toggle="modal" data-target="#uploadVideo">
+					<button class="btn btn-primary">
+						<i class="fa fa-file-video-o"></i>
+					</button>
+				</a>
+
+				<?php
     } ?>
-<!--<a data-toggle="modal" data-target="#uploadPhoto"><button class="btn btn-primary"><i class="fa fa-user"></i> </button></a>-->
+				<!--<a data-toggle="modal" data-target="#uploadPhoto"><button class="btn btn-primary"><i class="fa fa-user"></i> </button></a>-->
 
 
-<?php
-    if ($logged_user_type != $user_type) {
-        if ($sessionInit_id != $id) { ?>
+				<?php
+if ($logged_user_type != $user_type) {
+	if ($sessionInit_id != $id) { 
+		if ($hire_check_flag > 0 && $approval == 0) { ?>
 
-<?php if ($hire_check_flag > 0 && $approval == 0) { ?>
+				<a>
+					<button class="btn btn-primary">Hired! Awaiting Confirmation </button>
+				</a>
 
-<a><button class="btn btn-primary">Hired! Awaiting Confirmation </button></a>
-
-<?php
+				<?php
             } else if ($hire_check_flag > 0 && $approval == 1) { ?>
 
 
-<a data-toggle="modal" data-target="#payment_window"><button class="btn btn-primary">Pay for Gig </button></a>
+				<a data-toggle="modal" data-target="#payment_window">
+					<button class="btn btn-primary">Pay for Gig </button>
+				</a>
 
-<?php
+				<?php
             } else { ?>
 
 
 
-<a data-toggle="modal" data-target="#hire_window"><button class="btn btn-primary">Hire </button></a>
+				<a data-toggle="modal" data-target="#hire_window">
+					<button class="btn btn-primary">Hire </button>
+				</a>
 
 
 
-<?php
+				<?php
             }
         }
     } ?>
 
 
 
-<?php
+				<?php
     if ($sessionInit_id != $id) { ?>
 
-<?php if ($follow_check_flag > 0) { ?>
-<form action="index.php" method="post" enctype="multipart\form-data">
-<a>
-<input type="hidden" name="user_value" value="<?php echo $id; ?>">
-<button type="submit" name="unfollow" id="unfollow" class="btn btn-primary">Unfollow </button></a>
-</form>
+				<?php if ($follow_check_flag > 0) { ?>
+				<form action="index.php" method="post" enctype="multipart\form-data">
+					<a>
+						<input type="hidden" name="user_value" value="<?php echo $id; ?>">
+						<button type="submit" name="unfollow" id="unfollow" class="btn btn-primary">Unfollow </button>
+					</a>
+				</form>
 
-<?php
+				<?php
         } else { ?>
 
 
-<form action="index.php" method="post" enctype="multipart\form-data">
-<a>
-<input type="hidden" name="user_value" value="<?php echo $id; ?>">
-<button type="submit" name="follow" id="follow" class="btn btn-primary">Follow </button></a>
-</form>
+				<form action="index.php" method="post" enctype="multipart\form-data">
+					<a>
+						<input type="hidden" name="user_value" value="<?php echo $id; ?>">
+						<button type="submit" name="follow" id="follow" class="btn btn-primary">Follow </button>
+					</a>
+				</form>
 
 
-<?php
+				<?php
         }
     } ?>
 
 
 
-  <?php if ($sessionInit_id == $id) { ?>
+				<?php if ($sessionInit_id == $id) { ?>
 
-<a data-toggle="modal" data-target="#invite_window"><button class="btn btn-primary">Invite </button></a>
-<?php
+				<a data-toggle="modal" data-target="#invite_window">
+					<button class="btn btn-primary">Invite </button>
+				</a>
+				<?php
     } ?>
-<a href="../logout/"><button class="btn btn-primary">Logout </button></a>
+				<a href="../logout/">
+					<button class="btn btn-primary">Logout </button>
+				</a>
 
-<div class="container" style="margin-top: 80px;">
-	<div class="row">
-           <div id="custom-search-input">
-                            <div class="input-group col-md-12">
-                                <input id="search_q" type="text" class="  search-query form-control" placeholder="Search for the artists and clubs by their name and city. " />
-                                <span class="input-group-btn">
-                                    <!--<button class="btn btn-danger" type="button">
+				<div class="container" style="margin-top: 80px;">
+					<div class="row">
+						<div id="custom-search-input">
+							<div class="input-group col-md-12">
+								<input id="search_q" type="text" class="  search-query form-control" placeholder="Search for the artists and clubs by their name and city. "
+								/>
+								<span class="input-group-btn">
+									<!--<button class="btn btn-danger" type="button">
                                         <span class=" glyphicon glyphicon-search"></span>
                                     </button>-->
-                                </span>
-                            </div>
-                            <div id="display_result"></div>
-            </div>
+								</span>
+							</div>
+							<div id="display_result"></div>
+						</div>
 
-	</div>
-</div>
-
-
-<?php echo $hire_area; ?>
-
-
-    </div>
-
-
-
-
-      <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
-        <div class="btn-group" role="group">
-            <a href="#about">
-            <button type="button" id="about" class="btn btn-primary" ><i class="fa fa-user"></i>
-                <div class="hidden-xs">About</div>
-            </button>
-            </a>
-        </div>
-        <div class="btn-group" role="group">
-           <a href="#music">
-            <button type="button" id="music" class="btn btn-primary" href="#music" ><i class="fa fa-music"></i>
-                <div class="hidden-xs">Music</div>
-            </button>
-            </a>
-        </div>
-        <div class="btn-group" role="group">
-           <a href="#gallery">
-            <button type="button" id="gallery" class="btn btn-primary" href="#gallery" ><i class="fa fa-photo"></i>
-                <div class="hidden-xs">Gallery</div>
-
-            </button>
-            </a>
-        </div>
-          <div class="btn-group" role="group">
-             <a href="#videos">
-            <button type="button" id="videos" class="btn btn-primary" href="#videos" ><i class="fa fa-video-camera"></i>
-                <div class="hidden-xs">Videos</div>
-            </button>
-            </a>
-        </div>
-    </div>
-
-      
-    </div>
-
-    <!-- Modal Music -->
-<div id="uploadMusic" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Upload Track</h4>
-      </div>
-      <div class="modal-body">
-      <?php echo $ErrorFlag; ?>
-        <form class="form-horizontal" action="add_audio/index.php" method="post" enctype="multipart/form-data">
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="audio_name">Title:</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="audio_name" name="audio_name" placeholder="Track Title">
-    </div>
-  </div>
-  <div class="form-group">
-  
-   <label class="control-label col-sm-2" for="audio_desc">Description:</label>
-  <div class="col-sm-10"> 
-  <textarea class="form-control" rows="5" id="audio_desc" name="audio_desc" placeholder="Description of Track"></textarea>
-  </div>
-</div>
-
-
-
-    <div class="form-group">
-    <label class="control-label col-sm-2" for="genre">Genre:</label>
-    <div class="col-sm-10"> 
-      <input type="text" class="form-control" id="genre" name="genre" placeholder="Genre (Rock, Country, Pop, Blues, etc...)">
-    </div>
-  </div>
-  
-
-    <div class="form-group">
-    <label class="control-label col-sm-2" for="cover">Track Art:</label>
-    <div class="col-sm-10"> 
-      <input type="file" class="form-control" id="cover" name="cover" />
-    </div>
-  </div>
-
- <div class="form-group">
-    <label class="control-label col-sm-2" for="cover">Upload Mp3:</label>
-    <div class="col-sm-10"> 
-      <input type="file" class="form-control" id="musicFile" name="musicFile" />
-    </div>
-  </div>
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-default" >Save</button>
-      </div>
-    </div>
-
-    </form>
-
-  </div>
-</div>
-
-<!--modal music end-->
-
-<!-- Modal Photo -->
-<div id="uploadPhoto" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Upload Photo</h4>
-      </div>
-      <div class="modal-body">
-      <?php echo $ErrorFlag; ?>
-        <form class="form-horizontal" action="add_photos/index.php" method="post" enctype="multipart/form-data">
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="photo_name">Title:</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="photo_name" name="photo_name" placeholder="Photo Title">
-    </div>
-  </div>
-
-
-
- <div class="form-group">
-    <label class="control-label col-sm-2" for="photoFile">Upload Photo:</label>
-    <div class="col-sm-10"> 
-      <input type="file" class="form-control" id="photoFile" name="photoFile" />
-    </div>
-  </div>
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-default" >Save</button>
-      </div>
-    </div>
-
-    </form>
-
-  </div>
-</div>
-
-<!--modal photo end-->
-
-
-
-<!-- Modal Photo -->
-<div id="uploadVideo" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Upload Video</h4>
-      </div>
-      <div class="modal-body">
-      <?php echo $ErrorFlag; ?>
-         <form class="form-horizontal" action="add_videos/index.php" method="post" enctype="multipart/form-data">
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="videoTitle">Title:</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="videoTitle" name="videoTitle" placeholder="VideoTitle">
-    </div>
-  </div>
-  <div class="form-group">
-  
-   <label class="control-label col-sm-2" for="video_url">Video URL:</label>
-  <div class="col-sm-10"> 
-  <input type="text" class="form-control" id="video_url" name="video_url" placeholder="Youtube URL Of Video" />
-  </div>
-</div>
-
-
-
-  
-
-    <div class="form-group">
-    <label class="control-label col-sm-2" for="cover">Video Art:</label>
-    <div class="col-sm-10"> 
-      <input type="file" class="form-control" id="vidCover" name="vidCover" />
-    </div>
-  </div>
-
-
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-default" >Save</button>
-      </div>
-    </div>
-
-    </form>
-
-  </div>
-</div>
-
-<!--modal Video end-->
-
-<?php if ($sessionInit_id != $id) { ?>
-<!-- Modal Hiring -->
-<div id="hire_window" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Hire #<?php echo $username; ?></h4>
-        <?php echo $error_p; ?>
-      </div>
-      <div class="modal-body">
-      <?php echo $ErrorFlag; ?>
-         <form class="form-horizontal" action="index.php" method="post" enctype="multipart/form-data">
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="bookDate">Booking Date:</label>
-    <div class="col-sm-10">
-      <input type="date" class="form-control" id="bookDate" name="bookDate" required="true" />
-    </div>
-  </div>
-  <div class="form-group">
-  
-   <label class="control-label col-sm-2" for="bookTime">Booking Time:</label>
-  <div class="col-sm-10"> 
-  <input type="time" class="form-control" id="bookTime" name="bookTime" required="true" />
-  </div>
-</div>
-
-
-<div class="form-group">
-    <label class="control-label col-sm-2" for="quotePrice">Quote Price:</label>
-    <div class="col-sm-10">
-      <input type="number" class="form-control" id="quotePrice" name="quotePrice" required="true" />
-    </div>
-  </div>
-
-
-      <input type="hidden" class="form-control" id="hd" name="hd" value="<?php echo $id; ?>" />
-
-      <input type="hidden" class="form-control" id="od" name="od" value="<?php echo $sessionInit_id; ?>" />
- 
-
-
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-default" >Send Hire Request</button>
-      </div>
-    </div>
-
-    </form>
-
-  </div>
-</div>
-
-<!--modal Hire end-->
-
-<?php
-    } ?>
-
-
-
-
-
-<!-- Modal Invite -->
-<div id="invite_window" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Invite your friends</h4>
-        <?php echo $error_p; ?>
-        <?php echo $Successmsg; ?>
-      </div>
-      <div class="modal-body">
-      <?php echo $ErrorFlag; ?>
-         <form class="form-horizontal" action="index.php" method="post" enctype="multipart/form-data">
- 
-
- <input type="text" class="form-control" id="invite_q" name="invite_q" placeholder="Enter email addresses seperated by comma operator ( ,)" required="true" />
-
-	
-
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-default" >Send invites</button>
-      </div>
-    </div>
-
-    </form>
-
-  </div>
-</div>
-
-<!--modal Invite end-->
-
-
-
-<?php if ($sessionInit_id != $id) { ?>
-<!-- Modal Hiring -->
-
-<div id="payment_window" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Pay #<?php echo $username; ?></h4>
-        <?php echo $error_p; ?>
-      </div>
-      <div class="modal-body">
-      <?php echo $ErrorFlag; ?>
-         <form class="form-horizontal" action="index.php" method="post" enctype="multipart/form-data">
- 
-
-
-
-              <label for="payment"><span class="glyphicon glyphicon-user"></span> Payment Method:</label>
-             
-  <select class="form-control" id="payment_method" name="payment_method">
-    <option value="pg">Instamojo Payment Gateway (Online)</option>
-    
-  </select>
-
-  <input type="hidden" class="form-control" id="parse_var" name="parse_var" value="<?php echo $book_price; ?>">
-      <input type="hidden" class="form-control" id="hd" name="hd" value="<?php echo $id; ?>" />
-      <input type="hidden" class="form-control" id="parse_var" name="parse_var2" value="<?php echo $username; ?>">
-      <input type="hidden" class="form-control" id="od" name="od" value="<?php echo $sessionInit_id; ?>" />
- 
-
-
-
-
-
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-default" >Send Hire Request</button>
-      </div>
-    </div>
-
-    </form>
-
-  </div>
-</div>
-<!--modal Hire end-->
-
-<?php
-    } ?>
-           
-
-	<!-- SOUND THEME / BUILDER START -->
-
-<!-- SOUND THEME / FEATURED SLIDER -->
-
-		
-			<style type="text/css">
-				.kairosodeum-gradient-wall {
-				background: url(<?php echo $user_bg; ?>) no-repeat center center;
-				background-color:#24252A;
-				  -webkit-background-size: cover;
-				  -moz-background-size: cover;
-				  -o-background-size: cover;
-				  background-size: cover; 
-				  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="<?php echo $user_bg; ?>", sizingMethod='scale');
-				  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<?php echo $user_bg; ?>', sizingMethod='scale')";
-				}
-			</style>
-					
-<div id="about" class="container-fluid kairosodeum-mod-gradient kairosodeum-container kairosodeum-gradient-wall ">
-
-
-<div class="container ">
-	<div class="row">
-			<div class="col-md-12">
-					<div class="kairosodeum-mod-title kairosodeum-mod-title-dark">
-						<h1>#ABOUT</h1>
-						<h2>@<?php echo $username; ?></h2>
-						<h2><?php echo $bio_body; ?></h2>
-						<h1 style="margin-top:8%;">#Experience</h1>
-						<h2>@<?php echo $username; ?></h2>
-						<h2><?php echo $experience; ?></h2>
 					</div>
+				</div>
+
+
+				<?php echo $hire_area; ?>
+
+
 			</div>
 
+
+
+
+			<div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+				<div class="btn-group" role="group">
+					<a href="#about">
+						<button type="button" id="about" class="btn btn-primary">
+							<i class="fa fa-user"></i>
+							<div class="hidden-xs">About</div>
+						</button>
+					</a>
+				</div>
+				<div class="btn-group" role="group">
+					<a href="#music">
+						<button type="button" id="music" class="btn btn-primary" href="#music">
+							<i class="fa fa-music"></i>
+							<div class="hidden-xs">Music</div>
+						</button>
+					</a>
+				</div>
+				<div class="btn-group" role="group">
+					<a href="#gallery">
+						<button type="button" id="gallery" class="btn btn-primary" href="#gallery">
+							<i class="fa fa-photo"></i>
+							<div class="hidden-xs">Gallery</div>
+
+						</button>
+					</a>
+				</div>
+				<div class="btn-group" role="group">
+					<a href="#videos">
+						<button type="button" id="videos" class="btn btn-primary" href="#videos">
+							<i class="fa fa-video-camera"></i>
+							<div class="hidden-xs">Videos</div>
+						</button>
+					</a>
+				</div>
+			</div>
+
+
 		</div>
-	</div>
-</div>
 
+		<!-- Modal Music -->
+		<div id="uploadMusic" class="modal fade" role="dialog">
+			<div class="modal-dialog">
 
-			
-	
-<!-- SOUND THEME / FEATURED SLIDER -->
-			<style type="text/css">
-		.kairosodeum-mod-galleries {
-		background: url(assets/themes/default/images/gradient_2.jpg) no-repeat center center;
-				background-color:#24252A;
-				  -webkit-background-size: cover;
-		  -moz-background-size: cover;
-		  -o-background-size: cover;
-		  background-size: cover; 
-		  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/uploads/2017/10/Music-Header.png', sizingMethod='scale');
-		  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/uploads/2017/10/Music-Header.png', sizingMethod='scale')";
-		}
-	</style>
-
-<div class="container-fluid kairosodeum-mod-galleries kairosodeum-container kairosodeum-mod-dark ">
-	<div class="container">
-		<div class="row">
-							<div class="col-md-12">
-					<div class="kairosodeum-mod-title  kairosodeum-mod-title-dark ">
-						<h1>#Music </h1>
-													<h2>@<?php echo $username; ?></h2>
-											</div>
-				</div>
-			
-			<div class="clearfix"></div>
-
-							<div id="kairosodeum-module-gallery" class="util-carousel team-showcase kairosodeum-mod-featcon">
-								    	                             
-                                                                     
-                                                                     
-                                                  <?php echo $musicDisplay; ?>
-                        
-								    														
-                                                              
-				</div>
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Upload Track</h4>
 					</div>
-	</div>
-</div>
+					<div class="modal-body">
+						<?php echo $ErrorFlag; ?>
+						<form class="form-horizontal" action="add_audio/index.php" method="post" enctype="multipart/form-data">
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="audio_name">Title:</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="audio_name" name="audio_name" placeholder="Track Title">
+								</div>
+							</div>
+							<div class="form-group">
 
-					
-		
+								<label class="control-label col-sm-2" for="audio_desc">Description:</label>
+								<div class="col-sm-10">
+									<textarea class="form-control" rows="5" id="audio_desc" name="audio_desc" placeholder="Description of Track"></textarea>
+								</div>
+							</div>
+
+
+
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="genre">Genre:</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="genre" name="genre" placeholder="Genre (Rock, Country, Pop, Blues, etc...)">
+								</div>
+							</div>
+
+
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="cover">Track Art:</label>
+								<div class="col-sm-10">
+									<input type="file" class="form-control" id="cover" name="cover" />
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="cover">Upload Mp3:</label>
+								<div class="col-sm-10">
+									<input type="file" class="form-control" id="musicFile" name="musicFile" />
+								</div>
+							</div>
+
+
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-default">Save</button>
+					</div>
+				</div>
+
+				</form>
+
+			</div>
+		</div>
+
+		<!--modal music end-->
+
+		<!-- Modal Photo -->
+		<div id="uploadPhoto" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Upload Photo</h4>
+					</div>
+					<div class="modal-body">
+						<?php echo $ErrorFlag; ?>
+						<form class="form-horizontal" action="add_photos/index.php" method="post" enctype="multipart/form-data">
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="photo_name">Title:</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="photo_name" name="photo_name" placeholder="Photo Title">
+								</div>
+							</div>
+
+
+
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="photoFile">Upload Photo:</label>
+								<div class="col-sm-10">
+									<input type="file" class="form-control" id="photoFile" name="photoFile" />
+								</div>
+							</div>
+
+
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-default">Save</button>
+					</div>
+				</div>
+
+				</form>
+
+			</div>
+		</div>
+
+		<!--modal photo end-->
+
+
+
+		<!-- Modal Photo -->
+		<div id="uploadVideo" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Upload Video</h4>
+					</div>
+					<div class="modal-body">
+						<?php echo $ErrorFlag; ?>
+						<form class="form-horizontal" action="add_videos/index.php" method="post" enctype="multipart/form-data">
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="videoTitle">Title:</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="videoTitle" name="videoTitle" placeholder="VideoTitle">
+								</div>
+							</div>
+							<div class="form-group">
+
+								<label class="control-label col-sm-2" for="video_url">Video URL:</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="video_url" name="video_url" placeholder="Youtube URL Of Video" />
+								</div>
+							</div>
+
+
+
+
+
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="cover">Video Art:</label>
+								<div class="col-sm-10">
+									<input type="file" class="form-control" id="vidCover" name="vidCover" />
+								</div>
+							</div>
+
+
+
+
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-default">Save</button>
+					</div>
+				</div>
+
+				</form>
+
+			</div>
+		</div>
+
+		<!--modal Video end-->
+
+		<?php if ($sessionInit_id != $id) { ?>
+		<!-- Modal Hiring -->
+		<div id="hire_window" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Hire #
+							<?php echo $username; ?>
+						</h4>
+						<?php echo $error_p; ?>
+					</div>
+					<div class="modal-body">
+						<?php echo $ErrorFlag; ?>
+						<form class="form-horizontal" action="index.php" method="post" enctype="multipart/form-data">
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="bookDate">Booking Date:</label>
+								<div class="col-sm-10">
+									<input type="date" class="form-control" id="bookDate" name="bookDate" required="true" />
+								</div>
+							</div>
+							<div class="form-group">
+
+								<label class="control-label col-sm-2" for="bookTime">Booking Time:</label>
+								<div class="col-sm-10">
+									<input type="time" class="form-control" id="bookTime" name="bookTime" required="true" />
+								</div>
+							</div>
+
+
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="quotePrice">Quote Price:</label>
+								<div class="col-sm-10">
+									<input type="number" class="form-control" id="quotePrice" name="quotePrice" required="true" />
+								</div>
+							</div>
+
+
+							<input type="hidden" class="form-control" id="hd" name="hd" value="<?php echo $id; ?>"
+							/>
+
+							<input type="hidden" class="form-control" id="od" name="od" value="<?php echo $sessionInit_id; ?>"
+							/>
+
+
+
+
+
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-default">Send Hire Request</button>
+					</div>
+				</div>
+
+				</form>
+
+			</div>
+		</div>
+
+		<!--modal Hire end-->
+
+		<?php
+    } ?>
+
+
+
+
+
+		<!-- Modal Invite -->
+		<div id="invite_window" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Invite your friends</h4>
+						<?php echo $error_p; ?>
+						<?php echo $Successmsg; ?>
+					</div>
+					<div class="modal-body">
+						<?php echo $ErrorFlag; ?>
+						<form class="form-horizontal" action="index.php" method="post" enctype="multipart/form-data">
+
+
+							<input type="text" class="form-control" id="invite_q" name="invite_q" placeholder="Enter email addresses seperated by comma operator ( ,)"
+							 required="true" />
+
+
+
+
+
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-default">Send invites</button>
+					</div>
+				</div>
+
+				</form>
+
+			</div>
+		</div>
+
+		<!--modal Invite end-->
+
+
+
+		<?php if ($sessionInit_id != $id) { ?>
+		<!-- Modal Hiring -->
+
+		<div id="payment_window" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Pay #
+							<?php echo $username; ?>
+						</h4>
+						<?php echo $error_p; ?>
+					</div>
+					<div class="modal-body">
+						<?php echo $ErrorFlag; ?>
+						<form class="form-horizontal" action="index.php" method="post" enctype="multipart/form-data">
+
+
+
+
+							<label for="payment">
+								<span class="glyphicon glyphicon-user"></span> Payment Method:</label>
+
+							<select class="form-control" id="payment_method" name="payment_method">
+								<option value="pg">Instamojo Payment Gateway (Online)</option>
+
+							</select>
+
+							<input type="hidden" class="form-control" id="parse_var" name="parse_var" value="<?php echo $book_price; ?>">
+							<input type="hidden" class="form-control" id="hd" name="hd" value="<?php echo $id; ?>"
+							/>
+							<input type="hidden" class="form-control" id="parse_var" name="parse_var2" value="<?php echo $username; ?>">
+							<input type="hidden" class="form-control" id="od" name="od" value="<?php echo $sessionInit_id; ?>"
+							/>
+
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-default">Send Hire Request</button>
+					</div>
+				</div>
+
+				</form>
+
+			</div>
+		</div>
+		<!--modal Hire end-->
+
+		<?php
+    } ?>
+
+		<!-- SOUND THEME / BUILDER START -->
 		<!-- SOUND THEME / FEATURED SLIDER -->
-				<style type="text/css">
-		.kairosodeum-mod-events {
-		background: url(../assets/uploads/2017/10/Event-Light.png) no-repeat center center;
-				background-color:#F4F6F7;
-				  -webkit-background-size: cover;
-		  -moz-background-size: cover;
-		  -o-background-size: cover;
-		  background-size: cover; 
-		  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../assets/uploads/2017/10/Event-Light.png', sizingMethod='scale');
-		  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../assets/uploads/2017/10/Event-Light.png', sizingMethod='scale')";
-		}
-	</style>
+
+		<style type="text/css">
+			.kairosodeum-gradient-wall {
+				background: url(<?php echo $user_bg; ?>) no-repeat center center;
+				background-color: #24252A;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+				filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="<?php echo $user_bg; ?>", sizingMethod='scale');
+				-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<?php echo $user_bg; ?>', sizingMethod='scale')";
+			}
+		</style>
+
+		<div id="about" class="container-fluid kairosodeum-mod-gradient kairosodeum-container kairosodeum-gradient-wall ">
 
 
-
-	
-						<style type="text/css">
-		.kairosodeum-mod-newsblog {
-		/*background: url(assets/themes/default/images/trending.jpg) no-repeat center center;*/
-				background-color:#F4F6F7;
-				  -webkit-background-size: cover;
-		  -moz-background-size: cover;
-		  -o-background-size: cover;
-		  background-size: cover; 
-		  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../assets/themes/default/images/trending.jpg', sizingMethod='scale');
-		  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../assets/themes/default/images/trending.jpg', sizingMethod='scale')";
-		}
-	</style>
-
-
-
-	
-
-<div class="container-fluid kairosodeum-mod-newsblog kairosodeum-container kairosodeum-mod-grey ">
-	<div class="container">
+			<div class="container ">
+				<div class="row">
 					<div class="col-md-12">
-						<div class="kairosodeum-mod-title">
-								<h1>#Videos</h1>
-								<h2>@<?php echo $username; ?></h2>
+						<div class="kairosodeum-mod-title kairosodeum-mod-title-dark">
+							<h1>#ABOUT</h1>
+							<h2>@
+								<?php echo $username; ?>
+							</h2>
+							<h2>
+								<?php echo $bio_body; ?>
+							</h2>
+							<h1 style="margin-top:8%;">#Experience</h1>
+							<h2>@
+								<?php echo $username; ?>
+							</h2>
+							<h2>
+								<?php echo $experience; ?>
+							</h2>
 						</div>
 					</div>
-		
-		<div class="clearfix"></div>
 
-		<div class="row kairosodeum-mod-videolist" style="margin-top:60px;">									    							
-				<?php echo $vidDisplay; ?>
-			<div class="clearfix"></div>
+				</div>
+			</div>
 		</div>
 
+
+
+
+		<!-- SOUND THEME / FEATURED SLIDER -->
+		<style type="text/css">
+			.kairosodeum-mod-galleries {
+				background: url(assets/themes/default/images/gradient_2.jpg) no-repeat center center;
+				background-color: #24252A;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+				filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/uploads/2017/10/Music-Header.png', sizingMethod='scale');
+				-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/uploads/2017/10/Music-Header.png', sizingMethod='scale')";
+			}
+		</style>
+
+		<div class="container-fluid kairosodeum-mod-galleries kairosodeum-container kairosodeum-mod-dark ">
+			<div class="container">
 				<div class="row">
-				<div class="col-md-4 kairosodeum-mod-playreposive"></div>
-			
-				<div class="col-md-4"></div>
-				<div class="clearfix"></div>
+					<div class="col-md-12">
+						<div class="kairosodeum-mod-title  kairosodeum-mod-title-dark ">
+							<h1>#Music </h1>
+							<h2>@
+								<?php echo $username; ?>
+							</h2>
+						</div>
+					</div>
+
+					<div class="clearfix"></div>
+
+					<div id="kairosodeum-module-gallery" class="util-carousel team-showcase kairosodeum-mod-featcon">
+
+						<?php echo $musicDisplay; ?>
+
+					</div>
+				</div>
 			</div>
-			
-
-</div>
-</div>
+		</div>
 
 
 
+		<!-- SOUND THEME / FEATURED SLIDER -->
+		<style type="text/css">
+			.kairosodeum-mod-events {
+				background: url(../assets/uploads/2017/10/Event-Light.png) no-repeat center center;
+				background-color: #F4F6F7;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+				filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../assets/uploads/2017/10/Event-Light.png', sizingMethod='scale');
+				-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../assets/uploads/2017/10/Event-Light.png', sizingMethod='scale')";
+			}
+		</style>
 
+		<style type="text/css">
+			.kairosodeum-mod-newsblog {
+				/*background: url(assets/themes/default/images/trending.jpg) no-repeat center center;*/
+				background-color: #F4F6F7;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+				filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../assets/themes/default/images/trending.jpg', sizingMethod='scale');
+				-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../assets/themes/default/images/trending.jpg', sizingMethod='scale')";
+			}
+		</style>
+
+		<div class="container-fluid kairosodeum-mod-newsblog kairosodeum-container kairosodeum-mod-grey ">
+			<div class="container">
+				<div class="col-md-12">
+					<div class="kairosodeum-mod-title">
+						<h1>#Videos</h1>
+						<h2>@
+							<?php echo $username; ?>
+						</h2>
+					</div>
+				</div>
+
+				<div class="clearfix"></div>
+
+				<div class="row kairosodeum-mod-videolist" style="margin-top:60px;">
+					<?php echo $vidDisplay; ?>
+					<div class="clearfix"></div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4 kairosodeum-mod-playreposive"></div>
+
+					<div class="col-md-4"></div>
+					<div class="clearfix"></div>
+				</div>
+
+
+			</div>
+		</div>
 		<!-- SOUND THEME / VIDEO -->
-
-
-
 		<!-- SOUND THEME / BIG NEWS -->
-			 
-				
-				<!-- Photo gallery -->
-						<style type="text/css">
-		.kairosodeum-mod-photoGallery {
-		/*background: url(assets/themes/default/images/trending.jpg) no-repeat center center;*/
-				background-color:#FFFFFF;
-				  -webkit-background-size: cover;
-		  -moz-background-size: cover;
-		  -o-background-size: cover;
-		  background-size: cover; 
-		  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../assets/themes/default/images/trending.jpg', sizingMethod='scale');
-		  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../assets/themes/default/images/trending.jpg', sizingMethod='scale')";
-		}
-	</style>
+		<!-- Photo gallery -->
+		<style type="text/css">
+			.kairosodeum-mod-photoGallery {
+				/*background: url(assets/themes/default/images/trending.jpg) no-repeat center center;*/
+				background-color: #FFFFFF;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+				filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../assets/themes/default/images/trending.jpg', sizingMethod='scale');
+				-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../assets/themes/default/images/trending.jpg', sizingMethod='scale')";
+			}
+		</style>
 
 		<!-- Footer -->
-			 
-				
-					<style type="text/css">
-				.kairosodeum-footer-wall {
+		<style type="text/css">
+			.kairosodeum-footer-wall {
 				background: url(assets/themes/default/images/found.jpg) no-repeat center center;
-				background-color:#24252A;
-				  -webkit-background-size: cover;
-				  -moz-background-size: cover;
-				  -o-background-size: cover;
-				  background-size: cover; 
-				  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/themes/default/images/found.jpg", sizingMethod='scale');
-				  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/themes/default/images/found.jpg', sizingMethod='scale')";
-				}
-			</style>
-		
+				background-color: #24252A;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+				filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/themes/default/images/found.jpg", sizingMethod='scale');
+				-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/themes/default/images/found.jpg', sizingMethod='scale')";
+			}
+		</style>
+
 		<!-- Footer -->
 		<div id="gallery" class="container-fluid kairosodeum-darkback-one kairosodeum-footer-wall">
 			<div class="container">
@@ -1466,187 +1505,182 @@ $(".deny").click(function(){
 					<div class="col-md-12">
 
 						<div class="kairosodeum-related-title">
-															<h1>#Gallery</h1>
-							
-															<h6>@<?php echo $username; ?></h6>
-													</div>
+							<h1>#Gallery</h1>
 
-													<div class="kairosodeum-contact-form">
-								<div class="row">
-									
+							<h6>@
+								<?php echo $username; ?>
+							</h6>
+						</div>
+
+						<div class="kairosodeum-contact-form">
+							<div class="row">
 
 
-<div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-         
-              
-                
-           
-            <div class="modal-body">
-                <img style="width:600px; height:400px;" id="image-gallery-image" class="img-responsive" src="">
-            </div>
-            <div class="modal-footer">
 
-                <div class="col-md-2">
-                    <button type="button" class="btn btn-primary" id="show-previous-image">Previous</button>
-                </div>
-
-                <div class="col-md-8 text-center" id="image-gallery-caption">
-                    No photos
-                </div>
-
-                <div class="col-md-2">
-                    <button type="button" id="show-next-image" class="btn btn-primary">Next</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-						    				    
-						    			<?php echo $photoDisplay; ?>
+								<div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
 
 
 
 
-									<div class="clearfix"></div>
-								</div>
-							</div>
+											<div class="modal-body">
+												<img style="width:600px; height:400px;" id="image-gallery-image" class="img-responsive" src="">
 											</div>
+											<div class="modal-footer">
+
+												<div class="col-md-2">
+													<button type="button" class="btn btn-primary" id="show-previous-image">Previous</button>
+												</div>
+
+												<div class="col-md-8 text-center" id="image-gallery-caption">
+													No photos
+												</div>
+
+												<div class="col-md-2">
+													<button type="button" id="show-next-image" class="btn btn-primary">Next</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<?php echo $photoDisplay; ?>
+
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
 					<div class="clearfix"></div>
 				</div>
 			</div>
 		</div>
 		<div class="clearfix"></div>
-	
-						<!-- icons -->
-			<div class="container-fluid kairosodeum-darkback-two">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="kairosodeum-logo-footer">
-								<ul>
-																			<li>
-											<a href="https://www.youtube.com/channel/UC9wsWr46RbTAEdleFzjSKXg"><i class="fa fa-youtube"></i></a>
-										</li>
-																			<li>
-											<a href="https://www.instagram.com/kairosodeum/"><i class="fa fa-instagram"></i></a>
-										</li>
-																			<li>
-											<a href="https://www.twitter.com/kairosodeum/"><i class="fa fa-twitter"></i></a>
-										</li>
-																			<li>
-											<a href="https://www.facebook.com/kairosodeum/"><i class="fa fa-facebook"></i></a>
-										</li>
-																	</ul>
+
+		<!-- icons -->
+		<div class="container-fluid kairosodeum-darkback-two">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="kairosodeum-logo-footer">
+							<ul>
+								<li>
+									<a href="https://www.youtube.com/channel/UC9wsWr46RbTAEdleFzjSKXg">
+										<i class="fa fa-youtube"></i>
+									</a>
+								</li>
+								<li>
+									<a href="https://www.instagram.com/kairosodeum/">
+										<i class="fa fa-instagram"></i>
+									</a>
+								</li>
+								<li>
+									<a href="https://www.twitter.com/kairosodeum/">
+										<i class="fa fa-twitter"></i>
+									</a>
+								</li>
+								<li>
+									<a href="https://www.facebook.com/kairosodeum/">
+										<i class="fa fa-facebook"></i>
+									</a>
+								</li>
+							</ul>
+							<div class="clearfix"></div>
+							<div class="container">
+								<div class="row">
+									<div class="copyright">
+
+										&copy; 2017 Kairos Odeum.
 
 
-								<div class="clearfix"></div>
+									</div>
 
-
-
-<div class="container">
-      <div class="row">
-        <div class="copyright">
-   
-         &copy; 2017 Kairos Odeum. 
-
-         
-        </div>
-       
-      </div>
-    </div>
-
-
+								</div>
 							</div>
+
+
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="clearfix"></div>
-			
-	
-</div>
-<!-- scripts -->
-<script type="text/javascript">
-       
-    $(document).ready(function(){                    
-       $('.kairosodeum-nav-fixed').css('display','block');
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<!-- scripts -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.kairosodeum-nav-fixed').css('display', 'block');
 
-       });
-    
-</script>
+		});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
 
-<script type="text/javascript">
-	$(document).ready(function(){
+			loadGallery(true, 'a.photoGallery');
 
-    loadGallery(true, 'a.photoGallery');
+			//This function disables buttons when needed
+			function disableButtons(counter_max, counter_current) {
+				$('#show-previous-image, #show-next-image').show();
+				if (counter_max == counter_current) {
+					$('#show-next-image').hide();
+				} else if (counter_current == 1) {
+					$('#show-previous-image').hide();
+				}
+			}
 
-    //This function disables buttons when needed
-    function disableButtons(counter_max, counter_current){
-        $('#show-previous-image, #show-next-image').show();
-        if(counter_max == counter_current){
-            $('#show-next-image').hide();
-        } else if (counter_current == 1){
-            $('#show-previous-image').hide();
-        }
-    }
+			/**
+			 *
+			 * @param setIDs        Sets IDs when DOM is loaded. If using a PHP counter, set to false.
+			 * @param setClickAttr  Sets the attribute for the click handler.
+			 */
 
-    /**
-     *
-     * @param setIDs        Sets IDs when DOM is loaded. If using a PHP counter, set to false.
-     * @param setClickAttr  Sets the attribute for the click handler.
-     */
+			function loadGallery(setIDs, setClickAttr) {
+				var current_image,
+					selector,
+					counter = 0;
 
-    function loadGallery(setIDs, setClickAttr){
-        var current_image,
-            selector,
-            counter = 0;
+				$('#show-next-image, #show-previous-image').click(function() {
+					if ($(this).attr('id') == 'show-previous-image') {
+						current_image--;
+					} else {
+						current_image++;
+					}
 
-        $('#show-next-image, #show-previous-image').click(function(){
-            if($(this).attr('id') == 'show-previous-image'){
-                current_image--;
-            } else {
-                current_image++;
-            }
+					selector = $('[data-image-id="' + current_image + '"]');
+					updateGallery(selector);
+				});
 
-            selector = $('[data-image-id="' + current_image + '"]');
-            updateGallery(selector);
-        });
+				function updateGallery(selector) {
+					var $sel = selector;
+					current_image = $sel.data('image-id');
+					$('#image-gallery-caption').text($sel.data('caption'));
+					$('#image-gallery-title').text($sel.data('title'));
+					$('#image-gallery-image').attr('src', $sel.data('image'));
+					disableButtons(counter, $sel.data('image-id'));
+				}
 
-        function updateGallery(selector) {
-            var $sel = selector;
-            current_image = $sel.data('image-id');
-            $('#image-gallery-caption').text($sel.data('caption'));
-            $('#image-gallery-title').text($sel.data('title'));
-            $('#image-gallery-image').attr('src', $sel.data('image'));
-            disableButtons(counter, $sel.data('image-id'));
-        }
-
-        if(setIDs == true){
-            $('[data-image-id]').each(function(){
-                counter++;
-                $(this).attr('data-image-id',counter);
-            });
-        }
-        $(setClickAttr).on('click',function(){
-            updateGallery($(this));
-        });
-    }
-});
-
-</script>
+				if (setIDs == true) {
+					$('[data-image-id]').each(function() {
+						counter++;
+						$(this).attr('data-image-id', counter);
+					});
+				}
+				$(setClickAttr).on('click', function() {
+					updateGallery($(this));
+				});
+			}
+		});
+	</script>
 
 
 
 
-<!-- footer-->
+	<!-- footer-->
 
 	<!-- MUSIC PLAYER OPTIONS -->
 	<script src="../assets/themes/default/js/soundmanager2-nodebug-jsmin.js"></script>
 
-	
+
 	<script src="connect.soundcloud.com/sdk.js"></script>
 	<script src="../assets/themes/default/js/jquery.fullwidthAudioPlayer.js"></script>
 	<script type="text/javascript">
@@ -1654,10 +1688,10 @@ $(".deny").click(function(){
 		soundManager.flashVersion = 9;
 		soundManager.useHTML5Audio = true;
 		soundManager.debugMode = true;
-		$(document).ready(function(){
+		$(document).ready(function() {
 			$('#fap').fullwidthAudioPlayer({
-									autoPlay: true,
-								autoLoad: false, 
+				autoPlay: true,
+				autoLoad: false,
 				sortable: true,
 				popup: false,
 				wrapperPosition: 'top',
@@ -1666,15 +1700,15 @@ $(".deny").click(function(){
 				metaColor: '#F0F3F4',
 				strokeColor: '#2A2B30',
 				activeTrackColor: '#24252A',
-									twitterText: 'Share on Twitter',
-				
-									facebookText: 'Share on Facebook',
-								height: 75,
+				twitterText: 'Share on Twitter',
+
+				facebookText: 'Share on Facebook',
+				height: 75,
 				loopPlaylist: true,
 				playlistHeight: 250,
 				offset: 30,
-									playlist: true,
-								keyboard: false,
+				playlist: true,
+				keyboard: false,
 				socials: true,
 				shuffle: false,
 				openPlayerOnTrackPlay: true,
@@ -1683,53 +1717,71 @@ $(".deny").click(function(){
 				closeLabel: '<i class="fa fa-power-off"></i>'
 			});
 
-							$('#fap-wrapper').addClass('fap-wrapper-open');
+			$('#fap-wrapper').addClass('fap-wrapper-open');
 
-				$('#fap-closer .fa-power-off').click(function() {
-					$('#fap-wrapper').addClass('fap-wrapper-close');
-					$("#fap-closer .fa-power-off").css({ opacity: '0', display:'none'  });
-					$("#fap-closer .fa-music").css({ opacity: '0.95', display:'block'  });
+			$('#fap-closer .fa-power-off').click(function() {
+				$('#fap-wrapper').addClass('fap-wrapper-close');
+				$("#fap-closer .fa-power-off").css({
+					opacity: '0',
+					display: 'none'
 				});
+				$("#fap-closer .fa-music").css({
+					opacity: '0.95',
+					display: 'block'
+				});
+			});
 
-				$('#fap-closer .fa-music').click(function() {
-					$('#fap-wrapper').removeClass('fap-wrapper-close');
-					$("#fap-closer .fa-power-off").css({ opacity: '0.95', display:'block'  });
-					$("#fap-closer .fa-music").css({ opacity: '0', display:'none'  });
+			$('#fap-closer .fa-music').click(function() {
+				$('#fap-wrapper').removeClass('fap-wrapper-close');
+				$("#fap-closer .fa-power-off").css({
+					opacity: '0.95',
+					display: 'block'
 				});
-			
+				$("#fap-closer .fa-music").css({
+					opacity: '0',
+					display: 'none'
+				});
+			});
+
 			$('.kairosodeum-btn-sidebar').click(function() {
-				$("#fap-wrapper").animate({ opacity: '0' }, 100, 'easeInOutExpo');
+				$("#fap-wrapper").animate({
+					opacity: '0'
+				}, 100, 'easeInOutExpo');
 			});
 
 			$('#content, .kairosodeum-sidebar-closed, .kairosodeum-body').click(function() {
-				$("#fap-wrapper").animate({ opacity: '1' }, 10, 'easeInOutExpo');
+				$("#fap-wrapper").animate({
+					opacity: '1'
+				}, 10, 'easeInOutExpo');
 			});
 
 
 		});
 	</script>
-	
-			<script type="text/javascript">
-			function AAPL_reload_code() {
-			jQuery.getScript("../assets/themes/default/js/utilcarousel-files/utilcarousel/jquery.utilcarousel.min.js", function(data, textStatus, jqxhr){ });
-			jQuery.getScript("../assets/themes/default/js/utilcarousel-files/magnific-popup/jquery.magnific-popup.js", function(data, textStatus, jqxhr){ }); 
-			jQuery.getScript("../assets/themes/default/js/jquery.mixitup.js", function(data, textStatus, jqxhr){ }); 
-			jQuery.getScript("../assets/themes/default/js/kairosodeum-load-up.js", function(data, textStatus, jqxhr){ });  
-			jQuery.getScript("../assets/themes/default/js/kairosodeum-load-down.js", function(data, textStatus, jqxhr){ });
-					}
-		</script>
-<script type='text/javascript' src='../assets/plugins/contact-form-7/includes/js/jquery.form.mind03d.js?ver=3.51.0-2014.06.20'></script>
-<script type='text/javascript' src='../assets/plugins/contact-form-7/includes/js/scripts4906.js?ver=4.7'></script>
-<script type='text/javascript' src='../assets/themes/default/js/kairosodeum-ui.js'></script>
-<script type='text/javascript' src='../assets/themes/default/js/bootstrap.js'></script>
-<script type='text/javascript' src='../assets/themes/default/js/utilcarousel-files/utilcarousel/jquery.utilcarousel.min.js'></script>
-<script type='text/javascript' src='../assets/themes/default/js/utilcarousel-files/magnific-popup/jquery.magnific-popup.js'></script>
-<script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false'></script>
-<script type='text/javascript' src='../assets/themes/default/js/kairosodeum-fixed.js'></script>
-<script type='text/javascript' src='../assets/themes/default/js/kairosodeum-fixed-down.js'></script>
-<script type='text/javascript' src='../assets/themes/default/js/jquery.mixitup.js'></script>
-<script type='text/javascript' src='../assets/themes/default/js/kairosodeum-load-up.js'></script>
-<script type='text/javascript' src='../assets/themes/default/js/kairosodeum-load-down.js'></script>
-<script type='text/javascript' src='../wp-includes/js/wp-embed.min.js?ver=4.7.5'></script>
+
+	<script type="text/javascript">
+		function AAPL_reload_code() {
+			jQuery.getScript("../assets/themes/default/js/utilcarousel-files/utilcarousel/jquery.utilcarousel.min.js", function(
+				data, textStatus, jqxhr) {});
+			jQuery.getScript("../assets/themes/default/js/utilcarousel-files/magnific-popup/jquery.magnific-popup.js", function(
+				data, textStatus, jqxhr) {});
+			jQuery.getScript("../assets/themes/default/js/jquery.mixitup.js", function(data, textStatus, jqxhr) {});
+			jQuery.getScript("../assets/themes/default/js/kairosodeum-load-up.js", function(data, textStatus, jqxhr) {});
+			jQuery.getScript("../assets/themes/default/js/kairosodeum-load-down.js", function(data, textStatus, jqxhr) {});
+		}
+	</script>
+	<script type='text/javascript' src='../assets/plugins/contact-form-7/includes/js/jquery.form.mind03d.js?ver=3.51.0-2014.06.20'></script>
+	<script type='text/javascript' src='../assets/plugins/contact-form-7/includes/js/scripts4906.js?ver=4.7'></script>
+	<script type='text/javascript' src='../assets/themes/default/js/kairosodeum-ui.js'></script>
+	<script type='text/javascript' src='../assets/themes/default/js/bootstrap.js'></script>
+	<script type='text/javascript' src='../assets/themes/default/js/utilcarousel-files/utilcarousel/jquery.utilcarousel.min.js'></script>
+	<script type='text/javascript' src='../assets/themes/default/js/utilcarousel-files/magnific-popup/jquery.magnific-popup.js'></script>
+	<script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false'></script>
+	<script type='text/javascript' src='../assets/themes/default/js/kairosodeum-fixed.js'></script>
+	<script type='text/javascript' src='../assets/themes/default/js/kairosodeum-fixed-down.js'></script>
+	<script type='text/javascript' src='../assets/themes/default/js/jquery.mixitup.js'></script>
+	<script type='text/javascript' src='../assets/themes/default/js/kairosodeum-load-up.js'></script>
+	<script type='text/javascript' src='../assets/themes/default/js/kairosodeum-load-down.js'></script>
+	<script type='text/javascript' src='../wp-includes/js/wp-embed.min.js?ver=4.7.5'></script>
 </body>
 </html>
