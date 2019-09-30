@@ -1,142 +1,112 @@
 <?php
-include_once("scripts/user_session.php");
+include_once ("scripts/user_session.php");
 ?>
 <?php
-if(!isset($_SESSION)) 
-{ 
-	session_start(); 
-} 
+if (!isset($_SESSION)) {
+    session_start();
+}
 /*if (isset($_SESSION['idx'])) {
 	header("location: ../home/");
 }*/
-
-
 $errorMsg = '';
-$successMsg='';
+$successMsg = '';
 $email = '';
 $pass = '';
 $remember = '';
 $timestamp = time() + 300;
 if (isset($_POST['email'])) {
-	$email = $_POST['email'];
-	$pass = $_POST['pass'];
-	if (isset($_POST['remember'])) {
-		$remember = $_POST['remember'];
-	}
-	$email = stripslashes($email);
-	$pass = stripslashes($pass);
-	$email = strip_tags($email);
-	$pass = strip_tags($pass);
-	
-	if ((!$email) || (!$pass)) { 
-		//echo 'error';
-		$errorMsg = '<div class="alert alert-danger fade in">
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
+    if (isset($_POST['remember'])) {
+        $remember = $_POST['remember'];
+    }
+    $email = stripslashes($email);
+    $pass = stripslashes($pass);
+    $email = strip_tags($email);
+    $pass = strip_tags($pass);
+    if ((!$email) || (!$pass)) {
+        //echo 'error';
+        $errorMsg = '<div class="alert alert-danger fade in">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
     <strong>Error!</strong> Please fill the both fields.
 </div>';
-echo $errorMsg;
-
-	} else { 
-		include 'scripts/DB_connect.php'; 
-		$email = mysqli_real_escape_string($connection,$email); 
-		$pass = md5($pass); 
-        $sql = mysqli_query($connection, "SELECT * FROM users WHERE email='$email' AND password='$pass'"); 
-		$login_check = mysqli_num_rows($sql);
-        
-		if($login_check > 0){ 
-			header("location: /home");
-    			while($row = mysqli_fetch_array($connection,$sql))
-					{
-		
-					$id = $row["id"]; 
-					$username = $row["username"];  
-					$_SESSION['id'] = $id;
-					$_SESSION['idx'] = base64_encode("g4p37hmp3h9xfn8sq03hs2234$id");
-					$_SESSION['username'] = $username;
-
-					mysqli_query($connection, "UPDATE users SET last_log=now(), online = '1', timestamp = '$timestamp' WHERE id='$id' LIMIT 1");
-          			} 
-	
-    			if($remember == "yes")
-					{
-                    $encryptedID = base64_encode("ghdg94enm2c0c4y3dn3727553$id");
-    			    setcookie("idCookie", $encryptedID, time()+60*60*24*100, "/"); 
-			        setcookie("passCookie", $pass, time()+60*60*24*100, "/"); 
-    				} 
-    			exit();
-		} else { 
-		    
-		    $errorMsg = '<div class="alert alert-danger fade in">
+        echo $errorMsg;
+    } else {
+        include 'scripts/DB_connect.php';
+        $email = mysqli_real_escape_string($connection, $email);
+        $pass = md5($pass);
+        $sql = mysqli_query($connection, "SELECT * FROM users WHERE email='$email' AND password='$pass'");
+        $login_check = mysqli_num_rows($sql);
+        if ($login_check > 0) {
+            header("location: /home");
+            while ($row = mysqli_fetch_array($connection, $sql)) {
+                $id = $row["id"];
+                $username = $row["username"];
+                $_SESSION['id'] = $id;
+                $_SESSION['idx'] = base64_encode("g4p37hmp3h9xfn8sq03hs2234$id");
+                $_SESSION['username'] = $username;
+                mysqli_query($connection, "UPDATE users SET last_log=now(), online = '1', timestamp = '$timestamp' WHERE id='$id' LIMIT 1");
+            }
+            if ($remember == "yes") {
+                $encryptedID = base64_encode("ghdg94enm2c0c4y3dn3727553$id");
+                setcookie("idCookie", $encryptedID, time() + 60 * 60 * 24 * 100, "/");
+                setcookie("passCookie", $pass, time() + 60 * 60 * 24 * 100, "/");
+            }
+            exit();
+        } else {
+            $errorMsg = '<div class="alert alert-danger fade in">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
     Error!</strong> Login not succesfull, Please try again.
 </div>';
-echo $errorMsg;
-		}
-    } 
+            echo $errorMsg;
+        }
+    }
 }
-
-
-$from = ""; 
-$dyn_www = $_SERVER['HTTP_HOST']; 
-if (isset ($_POST['email_reg'])){
-   
-   $username = preg_replace('#[^A-Za-z0-9]#i', '', $_POST['usr']);
-   $user_type = preg_replace('#[^a-z]#i', '', $_POST['profile']); 
-    $email = $_POST['email_reg']; 
-     $pass = $_POST['pass'];
-     $city = $_POST['city'];
-     $email = stripslashes($email); 
-     $pass = stripslashes($pass); 
-     $email = strip_tags($email);
-     $pass = strip_tags($pass);
-
-     
-     include_once 'scripts/DB_connect.php'; 
-     $emailValid = mysqli_real_escape_string($connection, $email);
-   $emailValid = str_replace("`", "", $emailValid);
-  
-     $sql_email_check = mysqli_query($connection,"SELECT email FROM users WHERE email='$emailValid'");
-     $email_check = mysqli_num_rows($sql_email_check);
-
-     if ((!$username) || (!$user_type) || (!$email) || (!$pass) || (!$city)) { 
-    //echo 'error'
-     $errorMsg = '<div class="alert alert-danger fade in">
+$from = "";
+$dyn_www = $_SERVER['HTTP_HOST'];
+if (isset($_POST['email_reg'])) {
+    $username = preg_replace('#[^A-Za-z0-9]#i', '', $_POST['usr']);
+    $user_type = preg_replace('#[^a-z]#i', '', $_POST['profile']);
+    $email = $_POST['email_reg'];
+    $pass = $_POST['pass'];
+    $city = $_POST['city'];
+    $email = stripslashes($email);
+    $pass = stripslashes($pass);
+    $email = strip_tags($email);
+    $pass = strip_tags($pass);
+    include_once 'scripts/DB_connect.php';
+    $emailValid = mysqli_real_escape_string($connection, $email);
+    $emailValid = str_replace("`", "", $emailValid);
+    $sql_email_check = mysqli_query($connection, "SELECT email FROM users WHERE email='$emailValid'");
+    $email_check = mysqli_num_rows($sql_email_check);
+    if ((!$username) || (!$user_type) || (!$email) || (!$pass) || (!$city)) {
+        //echo 'error'
+        $errorMsg = '<div class="alert alert-danger fade in">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
     Error!</strong> You must fill all the informations.
 </div>';
-echo $errorMsg;
-     } else if ($email_check > 0){ 
-
-     $errorMsg ='<div class="alert alert-danger"><strong>Error!:</strong> Your Email address is already in use inside of our system. Please use another.</div>'; 
-     echo $errorMsg;
-
-              // echo 'error';
-     } else { // Error handling is ended, process the data and add member to database
-     
-     $email = mysqli_real_escape_string($connection,$email);
-     $pass = mysqli_real_escape_string($connection,$pass);
-   
-     $db_pass = md5($pass); 
-     
-     $ipaddress = getenv('REMOTE_ADDR');
-
-     $sql = mysqli_query($connection,"INSERT INTO users (username, user_type, email, password, city, ipaddress, sign_up_date) 
-     VALUES('$username','$user_type','$email','$db_pass','$city', '$ipaddress', now())")  
-     or die (mysqli_connect_error());
- 
-     $id = mysqli_insert_id($connection);
-   
-     mkdir("users/$id", 0755);
-     mkdir("users/$id/photos", 0755);  
-     mkdir("users/$id/music", 0755);
-     mkdir("users/$id/videos", 0755);   
-
-    $to = "$email";
-                     
-    $from = "info@kairosodeum.com";
-    $subject = 'Welcome To Kairosodeum';
-
-    $message = "<html>
+        echo $errorMsg;
+    } else if ($email_check > 0) {
+        $errorMsg = '<div class="alert alert-danger"><strong>Error!:</strong> Your Email address is already in use inside of our system. Please use another.</div>';
+        echo $errorMsg;
+        // echo 'error';
+        
+    } else { // Error handling is ended, process the data and add member to database
+        $email = mysqli_real_escape_string($connection, $email);
+        $pass = mysqli_real_escape_string($connection, $pass);
+        $db_pass = md5($pass);
+        $ipaddress = getenv('REMOTE_ADDR');
+        $sql = mysqli_query($connection, "INSERT INTO users (username, user_type, email, password, city, ipaddress, sign_up_date) 
+     VALUES('$username','$user_type','$email','$db_pass','$city', '$ipaddress', now())") or die(mysqli_connect_error());
+        $id = mysqli_insert_id($connection);
+        mkdir("users/$id", 0755);
+        mkdir("users/$id/photos", 0755);
+        mkdir("users/$id/music", 0755);
+        mkdir("users/$id/videos", 0755);
+        $to = "$email";
+        $from = "info@kairosodeum.com";
+        $subject = 'Welcome To Kairosodeum';
+        $message = "<html>
 <head>
 <style>
 #mail_header{
@@ -189,37 +159,28 @@ Pass: $pass<br />
 </body>
 </html>
 ";
-   //end of message
-  $headers  = "From: $from\r\n";
-   $headers .= "MIME-Version: 1.0\r\n";
-$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-
-    mail($to, $subject, $message, $headers);
-  
-
- $successMsg ='<div class="alert alert-success fade in">
+        //end of message
+        $headers = "From: $from\r\n";
+        $headers.= "MIME-Version: 1.0\r\n";
+        $headers.= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+        mail($to, $subject, $message, $headers);
+        $successMsg = '<div class="alert alert-success fade in">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
     Success!</strong> You have been successfully registered. Please login
 </div>';
-   
-//echo 'success';
-include_once 'success.php'; 
-
-
-   exit();
-   } // Close else after duplication checks
-
-} else { 
-
+        //echo 'success';
+        include_once 'success.php';
+        exit();
+    } // Close else after duplication checks
+    
+} else {
     $errorMsg = "";
     $successMsg = "";
     $username = "";
     $aadhar = "";
     $email = "";
     $pass = "";
-
 }
-
 ?>
 
 
@@ -470,10 +431,8 @@ include_once 'success.php';
 				<div class="col-xs-12 col-sm-12 col-md-12">
 
 							<div class="kairosodeum-menu-icon">
-<?php 
-
-// if (isset($_SESSION['idx'])) { 
-
+<?php
+// if (isset($_SESSION['idx'])) {
 // 								echo "<button class=\"kairosodeum-btn-\">
 // 								<a href=\"/home/\" >
 // 						<i class=\"fa fa-plus\"></i> <span>Dashboard</span>
@@ -484,7 +443,8 @@ include_once 'success.php';
 // 					</button>
 // 					";
 // }else{
-								?>
+
+?>
 					<button class="kairosodeum-btn-sidebar">
 						<i class="fa fa-plus"></i> <span>Login/Signup</span>
 					</button>

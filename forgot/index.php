@@ -1,96 +1,60 @@
 <?php
 error_reporting(E_ALL);
 ini_set("display_errors", 0);
-include_once("../scripts/user_session.php");
+include_once ("../scripts/user_session.php");
 include_once '../scripts/DB_connect.php';
-
 if (isset($_SESSION['idx'])) {
-   header('Location: ../index.php');
-  }
-
-
+    header('Location: ../index.php');
+}
 $id = $sessionInit_id; // Set the profile owner ID
-$error_msg = ""; 
+$error_msg = "";
 $errorMsg = "";
 $success_msg = "";
-
-$user_type="";
-$cacheBuster = rand(9999999,99999999999); // Put appended to the image URL will help always show new when changed
-
-
-
-
-
-$sql_default = mysqli_query($connection,"SELECT * FROM users WHERE id='$id'");
-while($row = mysqli_fetch_array($sql_default)){ 
-  $username = $row['username'];
-  $email = $row['email'];
-  $phone = $row['phone'];
-  $country = $row['country'];
-  $state = $row['state'];
-  $city = $row['city'];
-  $address = $row['address'];
-  $pincode = $row['pincode'];
-  $birthday = $row['birthday'];
-  $user_type = $row['user_type'];
-  $about = $row['bio_body'];
-  $about = str_replace("<br />", "", $about);
-  $about = stripslashes($about);
-
-  
+$user_type = "";
+$cacheBuster = rand(9999999, 99999999999); // Put appended to the image URL will help always show new when changed
+$sql_default = mysqli_query($connection, "SELECT * FROM users WHERE id='$id'");
+while ($row = mysqli_fetch_array($sql_default)) {
+    $username = $row['username'];
+    $email = $row['email'];
+    $phone = $row['phone'];
+    $country = $row['country'];
+    $state = $row['state'];
+    $city = $row['city'];
+    $address = $row['address'];
+    $pincode = $row['pincode'];
+    $birthday = $row['birthday'];
+    $user_type = $row['user_type'];
+    $about = $row['bio_body'];
+    $about = str_replace("<br />", "", $about);
+    $about = stripslashes($about);
 } // close while loop
-
-
-
-if(isset($_POST['email_reset'])){
-
-  $email = mysqli_real_escape_string($connection,$_POST['email_reset']);
-
-  if($email!=""){
-
-    $sql_query = mysqli_query($connection,"SELECT * FROM users where email='$email' ");
-
-    $email_check =mysqli_num_rows($sql_query);
-
-    
-
-
-if($email_check>0){
-      $email_cut = substr($email, 0 ,2);
-      $gen_rand = rand();
-      $temp = "$email_cut$gen_rand";
-      $hash = md5($temp);
-
-      @mysqli_query($connection, "UPDATE users set password='$hash' where email='$email'");
-      
-      $to = "$email";
-      $from = "info@kairosodeum.com";
-
-      $subject = 'Password Reset';
-
-      $message = "Hello there, 
+if (isset($_POST['email_reset'])) {
+    $email = mysqli_real_escape_string($connection, $_POST['email_reset']);
+    if ($email != "") {
+        $sql_query = mysqli_query($connection, "SELECT * FROM users where email='$email' ");
+        $email_check = mysqli_num_rows($sql_query);
+        if ($email_check > 0) {
+            $email_cut = substr($email, 0, 2);
+            $gen_rand = rand();
+            $temp = "$email_cut$gen_rand";
+            $hash = md5($temp);
+            @mysqli_query($connection, "UPDATE users set password='$hash' where email='$email'");
+            $to = "$email";
+            $from = "info@kairosodeum.com";
+            $subject = 'Password Reset';
+            $message = "Hello there, 
       Your KairosOdeum password has been successfully changed, You can login to your KairosOdeum account using these new credintials.
 
       Email: $email,
       Password: $temp";
-      
-      //end of message
-  $headers  = "From: $from\r\n";
-    $headers .= "Content-type: text\r\n";
-
-    mail($to, $subject, $message, $headers);
-
-    $Successmsg= 'Your request has been registered, We will reach out to you soon through your email - Team kairosodeum';
-
-      }
-  }
-
+            //end of message
+            $headers = "From: $from\r\n";
+            $headers.= "Content-type: text\r\n";
+            mail($to, $subject, $message, $headers);
+            $Successmsg = 'Your request has been registered, We will reach out to you soon through your email - Team kairosodeum';
+        }
+    }
 }
-
-
-
-  
-
 ?>
 
 <!DOCTYPE html>
@@ -412,9 +376,8 @@ $(".deny").click(function(){
 				<div class="col-xs-12 col-sm-12 col-md-12">
 
 							<div class="kairosodeum-menu-icon">
-<?php if (isset($_SESSION['idx'])) { 
-
-								echo "<button class=\"kairosodeum-btn-\">
+<?php if (isset($_SESSION['idx'])) {
+    echo "<button class=\"kairosodeum-btn-\">
 								<a href=\"/home/\" >
 						<i class=\"fa fa-plus\"></i> <span>Dashboard</span>
 					</a>&nbsp; &nbsp;
@@ -422,8 +385,8 @@ $(".deny").click(function(){
 						<i class=\"fa fa-plus\"></i> <span>Account</span>
 					</a>
 					</button>";
-}else{
-								?>
+} else {
+?>
 					<button class="kairosodeum-btn-sidebar">
 						<i class="fa fa-plus"></i> <span>Login/Signup</span>
 					</button>
