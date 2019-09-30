@@ -66,4 +66,3 @@ if ($mac_provided == $mac_calculated) {
 } else {
     echo "Invalid MAC passed";
 }
-?>
