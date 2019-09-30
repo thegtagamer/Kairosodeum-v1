@@ -361,7 +361,7 @@ $(".deny").click(function(){
 						<i class="fa fa-plus"></i> <span>Login/Signup</span>
 					</button>
 
-					<? } ?>
+					<?php } ?>
 				</div>
 			
 			<div class="kairosodeum-logo hidden-sm hidden-xs">
