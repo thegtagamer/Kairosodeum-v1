@@ -6,9 +6,10 @@ if (!isset($_SESSION['idx'])) {
 	 header('Location: ../../index.php');
 	}
 
+
 $id = $sessionInit_id;
 $UploadDirectory	= '../../users/'.$id.'/videos/'; //Upload Directory, ends with slash & make sure folder exist
-// replace with your mysql database details
+// replace with your mysqli database details
 
 if (!@file_exists($UploadDirectory)) {
 	//destination folder does not exist
@@ -48,8 +49,8 @@ function getYouTubeIdFromURL($url)
 
 
 	$FileName			= strtolower($_FILES['vidCover']['name']); //uploaded file name
-	$FileTitle			= mysql_real_escape_string($_POST['videoTitle']); // file title
-	$FileURL_fetch			= mysql_real_escape_string($_POST['video_url']); // file title
+	$FileTitle			= mysqli_real_escape_string($connection, $_POST['videoTitle']); // file title
+	$FileURL_fetch			= mysqli_real_escape_string($connection, $_POST['video_url']); // file title
 	$FileURL = 			getYouTubeIdFromURL($FileURL_fetch);
 	$ImageExt			= substr($FileName, strrpos($FileName, '.')); //file extension
 	$OwnId				= $sessionInit_id;
@@ -78,7 +79,7 @@ function getYouTubeIdFromURL($url)
    if(move_uploaded_file($_FILES['vidCover']["tmp_name"], $UploadDirectory . $NewFileName ))
    {
 		//connect & insert file record in database
-		$query =mysql_query("INSERT INTO videos (uploaded_date,own_id,file_url,file_size,title,cover) VALUES('$uploaded_date','$OwnId','$FileURL','$FileSize','$FileTitle','$NewFileName')");
+		$query =mysqli_query($connection, "INSERT INTO videos (uploaded_date,own_id,file_url,file_size,title,cover) VALUES('$uploaded_date','$OwnId','$FileURL','$FileSize','$FileTitle','$NewFileName')");
 
 
 		///////////////////////////////PDF conversion and mail sending //////////////////////////////////////////////

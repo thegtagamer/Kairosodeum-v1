@@ -13,12 +13,12 @@ if (!isset($_SESSION['idx'])) {
 if($_POST)
 {
 
-$q=mysql_escape_string($_POST['searchword']);
+$q=mysqli_escape_string($connection,$_POST['searchword']);
 
 
-$sql_res=mysql_query("SELECT * from users where concat(username,' ',city,' ',state) like '%$q%' order by id LIMIT 8");
-$search_nums = mysql_num_rows($sql_res); //TOTAL NUMBER OF RESULTS
-while($row=mysql_fetch_array($sql_res))
+$sql_res=mysqli_query($connection,"SELECT * from users where concat(username,' ',city,' ',state) like '%$q%' order by id LIMIT 8");
+$search_nums = mysqli_num_rows($sql_res); //TOTAL NUMBER OF RESULTS
+while($row=mysqli_fetch_array($sql_res))
 {
 $id = $row['id'];
 $user=$row['username'];

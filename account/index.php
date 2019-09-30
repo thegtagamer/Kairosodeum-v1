@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-ini_set("display_errors", 1);
+ini_set("display_errors", 0);
 include_once("../scripts/user_session.php");
 include_once '../scripts/DB_connect.php';
 if (!isset($_SESSION['idx'])) {
@@ -38,8 +38,8 @@ $cacheBuster = rand(9999999,99999999999); // Put appended to the image URL will 
 
 
 
-$sql_default = mysql_query("SELECT * FROM users WHERE id='$id'");
-while($row = mysql_fetch_array($sql_default)){ 
+$sql_default = mysqli_query($connection, "SELECT * FROM users WHERE id='$id'");
+while($row = mysqli_fetch_array($sql_default)){ 
   $username = $row['username'];
   $email = $row['email'];
   $phone = $row['phone'];
@@ -79,9 +79,9 @@ while($row = mysql_fetch_array($sql_default)){
 
 
   if(isset($_POST['username'])){
-    $username_c= mysql_real_escape_string($_POST['username']);
+    $username_c= mysqli_real_escape_string($connection, $_POST['username']);
    // Update the database data now here for all fields posted in the form
-   $sqlUpdate = mysql_query("UPDATE users SET username='$username_c' WHERE id='$id' LIMIT 1");
+   $sqlUpdate = mysqli_query($connection, "UPDATE users SET username='$username_c' WHERE id='$id' LIMIT 1");
      if ($sqlUpdate){
            header('Location: ../account/');
               $success_msg = '<div class="alert alert-success fade in">
@@ -95,9 +95,9 @@ while($row = mysql_fetch_array($sql_default)){
 
 
   if(isset($_POST['email'])){
-    $email_c= mysql_real_escape_string($_POST['email']);
+    $email_c= mysqli_real_escape_string($connection, $_POST['email']);
    // Update the database data now here for all fields posted in the form
-   $sqlUpdate = mysql_query("UPDATE users SET email='$email_c' WHERE id='$id' LIMIT 1");
+   $sqlUpdate = mysqli_query($connection, "UPDATE users SET email='$email_c' WHERE id='$id' LIMIT 1");
      if ($sqlUpdate){
            header('Location: ../account/');
            $success_msg = '<div class="alert alert-success fade in">
@@ -109,9 +109,9 @@ while($row = mysql_fetch_array($sql_default)){
      }}
 
        if(isset($_POST['phone'])){
-    $phone_c= mysql_real_escape_string($_POST['phone']);
+    $phone_c= mysqli_real_escape_string($connection, $_POST['phone']);
    // Update the database data now here for all fields posted in the form
-   $sqlUpdate = mysql_query("UPDATE users SET phone='$phone_c' WHERE id='$id' LIMIT 1");
+   $sqlUpdate = mysqli_query($connection, "UPDATE users SET phone='$phone_c' WHERE id='$id' LIMIT 1");
      if ($sqlUpdate){
            header('Location: ../account/');
               $success_msg = '<div class="alert alert-success fade in">
@@ -125,9 +125,9 @@ while($row = mysql_fetch_array($sql_default)){
 
 
   if(isset($_POST['country'])){
-    $country_c= mysql_real_escape_string($_POST['country']);
+    $country_c= mysqli_real_escape_string($connection, $_POST['country']);
    // Update the database data now here for all fields posted in the form
-   $sqlUpdate = mysql_query("UPDATE users SET country='$country_c' WHERE id='$id' LIMIT 1");
+   $sqlUpdate = mysqli_query($connection, "UPDATE users SET country='$country_c' WHERE id='$id' LIMIT 1");
      if ($sqlUpdate){
           header('Location: ../account/');
              $success_msg = '<div class="alert alert-success fade in">
@@ -139,9 +139,9 @@ while($row = mysql_fetch_array($sql_default)){
      }}
 
        if(isset($_POST['state'])){
-    $state_c= mysql_real_escape_string($_POST['state']);
+    $state_c= mysqli_real_escape_string($connection, $_POST['state']);
    // Update the database data now here for all fields posted in the form
-   $sqlUpdate = mysql_query("UPDATE users SET state='$state_c' WHERE id='$id' LIMIT 1");
+   $sqlUpdate = mysqli_query($connection, "UPDATE users SET state='$state_c' WHERE id='$id' LIMIT 1");
      if ($sqlUpdate){
         header('Location: ../account/');
            $success_msg = '<div class="alert alert-success fade in">
@@ -153,9 +153,9 @@ while($row = mysql_fetch_array($sql_default)){
      }}
 
        if(isset($_POST['city'])){
-    $city_c= mysql_real_escape_string($_POST['city']);
+    $city_c= mysqli_real_escape_string($connection, $_POST['city']);
    // Update the database data now here for all fields posted in the form
-   $sqlUpdate = mysql_query("UPDATE users SET city='$city_c' WHERE id='$id' LIMIT 1");
+   $sqlUpdate = mysqli_query($connection, "UPDATE users SET city='$city_c' WHERE id='$id' LIMIT 1");
      if ($sqlUpdate){
           header('Location: ../account/');
              $success_msg = '<div class="alert alert-success fade in">
@@ -167,9 +167,9 @@ while($row = mysql_fetch_array($sql_default)){
      }}
 
        if(isset($_POST['address'])){
-    $address_c= mysql_real_escape_string($_POST['address']);
+    $address_c= mysqli_real_escape_string($connection, $_POST['address']);
    // Update the database data now here for all fields posted in the form
-   $sqlUpdate = mysql_query("UPDATE users SET address='$address_c' WHERE id='$id' LIMIT 1");
+   $sqlUpdate = mysqli_query($connection, "UPDATE users SET address='$address_c' WHERE id='$id' LIMIT 1");
      if ($sqlUpdate){
           header('Location: ../account/');
              $success_msg = '<div class="alert alert-success fade in">
@@ -181,9 +181,9 @@ while($row = mysql_fetch_array($sql_default)){
      }}
 
        if(isset($_POST['pincode'])){
-    $pincode_c= mysql_real_escape_string($_POST['pincode']);
+    $pincode_c= mysqli_real_escape_string($connection, $_POST['pincode']);
    // Update the database data now here for all fields posted in the form
-   $sqlUpdate = mysql_query("UPDATE users SET pincode='$pincode_c' WHERE id='$id' LIMIT 1");
+   $sqlUpdate = mysqli_query($connection, "UPDATE users SET pincode='$pincode_c' WHERE id='$id' LIMIT 1");
      if ($sqlUpdate){
          header('Location: ../account/');
             $success_msg = '<div class="alert alert-success fade in">
@@ -195,9 +195,9 @@ while($row = mysql_fetch_array($sql_default)){
      }}
 
     if(isset($_POST['birthday'])){
-    $birthday_c= mysql_real_escape_string($_POST['birthday']);
+    $birthday_c= mysqli_real_escape_string($connection, $_POST['birthday']);
    // Update the database data now here for all fields posted in the form
-   $sqlUpdate = mysql_query("UPDATE users SET birthday='$birthday_c' WHERE id='$id' LIMIT 1");
+   $sqlUpdate = mysqli_query($connection, "UPDATE users SET birthday='$birthday_c' WHERE id='$id' LIMIT 1");
      if ($sqlUpdate){
           header('Location: ../account/');
              $success_msg = '<div class="alert alert-success fade in">
@@ -210,9 +210,9 @@ while($row = mysql_fetch_array($sql_default)){
    }
 
     if(isset($_POST['about'])){
-    $bio_c= mysql_real_escape_string($_POST['about']);
+    $bio_c= mysqli_real_escape_string($connection, $_POST['about']);
    // Update the database data now here for all fields posted in the form
-   $sqlUpdate = mysql_query("UPDATE users SET bio_body='$bio_c' WHERE id='$id' LIMIT 1");
+   $sqlUpdate = mysqli_query($connection, "UPDATE users SET bio_body='$bio_c' WHERE id='$id' LIMIT 1");
      if ($sqlUpdate){
           header('Location: ../account/');
              $success_msg = '<div class="alert alert-success fade in">
@@ -227,9 +227,9 @@ while($row = mysql_fetch_array($sql_default)){
 
 
   if(isset($_POST['experiences'])){
-    $exp_c= mysql_real_escape_string($_POST['experiences']);
+    $exp_c= mysqli_real_escape_string($connection, $_POST['experiences']);
    // Update the database data now here for all fields posted in the form
-   $sqlUpdate = mysql_query("UPDATE users SET experiences_body='$exp_c' WHERE id='$id' LIMIT 1");
+   $sqlUpdate = mysqli_query($connection, "UPDATE users SET experiences_body='$exp_c' WHERE id='$id' LIMIT 1");
      if ($sqlUpdate){
           header('Location: ../account/');
              $success_msg = '<div class="alert alert-success fade in">
@@ -244,9 +244,9 @@ while($row = mysql_fetch_array($sql_default)){
 
 
 if(isset($_POST['user_type'])){
-    $usr_c= mysql_real_escape_string($_POST['user_type']);
+    $usr_c= mysqli_real_escape_string($connection, $_POST['user_type']);
    // Update the database data now here for all fields posted in the form
-   $sqlUpdate = mysql_query("UPDATE users SET user_type='$usr_c' WHERE id='$id' LIMIT 1");
+   $sqlUpdate = mysqli_query($connection, "UPDATE users SET user_type='$usr_c' WHERE id='$id' LIMIT 1");
      if ($sqlUpdate){
            header('Location: ../account/');
               $success_msg = '<div class="alert alert-success fade in">

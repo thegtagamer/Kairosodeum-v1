@@ -31,26 +31,26 @@ if($mac_provided == $mac_calculated){
 
         include_once("../scripts/DB_connect.php");
 
-        $sql_query_b = mysql_query("SELECT * FROM users WHERE username='$username_booked'");
-        while($row = mysql_fetch_array($sql_query_b)){
+        $sql_query_b = mysqli_query($connection,"SELECT * FROM users WHERE username='$username_booked'");
+        while($row = mysqli_fetch_array($sql_query_b)){
             $user_id = $row['id'];
             $booked_email = $row['email'];
             
         }
-        $sql_q = mysql_query("SELECT * FROM hire_request WHERE hiring_id='$user_id'");
+        $sql_q = mysqli_query($connection,"SELECT * FROM hire_request WHERE hiring_id='$user_id'");
         while($row = mysqli_fetch_array($sql_q)){
             $hired_id = $row['hiring_id'];
         }
 
-        $sql_q2 = mysql_query("SELECT * FROM users WHERE username='$username_booker'");
-        while($row=mysql_fetch_array($sql_q2)){
+        $sql_q2 = mysqli_query($connection,"SELECT * FROM users WHERE username='$username_booker'");
+        while($row=mysqli_fetch_array($sql_q2)){
 
             $booker_id = $row['id'];
         }
 
-        $sql_quey_send = mysql_query("INSERT INTO bookings (booking_user,booked_user,booked_price,transaction_id,payment_status,paydate) VALUES('$booker_id','$user_id','$price','$pay_id','1',now())");
+        $sql_quey_send = mysqli_query($connection,"INSERT INTO bookings (booking_user,booked_user,booked_price,transaction_id,payment_status,paydate) VALUES('$booker_id','$user_id','$price','$pay_id','1',now())");
 
-        $sql_query2 = mysql_query("DELETE FROM hire_request WHERE own_id='$booker_id' AND hiring_id='$user_id' LIMIT 1");
+        $sql_query2 = mysqli_query($connection,"DELETE FROM hire_request WHERE own_id='$booker_id' AND hiring_id='$user_id' LIMIT 1");
 
        $creator_email = "kairosodeum@gmail.com";
        // Payment was successful, mark it as completed in your database  
@@ -86,7 +86,7 @@ if($mac_provided == $mac_calculated){
     }
     else{
        // Payment was unsuccessful, mark it as failed in your database
-         //$sql_query = mysqli_query("UPDATE applicants SET pay_id='$pay_id', payment_status='0' WHERE course_id='$c_id' AND email='$email' LIMIT 1");
+         //$sql_query = mysqli_query($connection,"UPDATE applicants SET pay_id='$pay_id', payment_status='0' WHERE course_id='$c_id' AND email='$email' LIMIT 1");
     }
 }
 else{

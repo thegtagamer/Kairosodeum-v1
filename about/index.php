@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-ini_set("display_errors", 1);
+ini_set("display_errors", 0);
 include_once("../scripts/user_session.php");
 include_once '../scripts/DB_connect.php';
 
@@ -16,8 +16,8 @@ $cacheBuster = rand(9999999,99999999999); // Put appended to the image URL will 
 
 
 
-$sql_default = mysql_query("SELECT * FROM users WHERE id='$id'");
-while($row = mysql_fetch_array($sql_default)){ 
+$sql_default = mysqli_query($connection, "SELECT * FROM users WHERE id='$id'");
+while($row = mysqli_fetch_array($sql_default)){ 
   $username = $row['username'];
   $email = $row['email'];
   $phone = $row['phone'];

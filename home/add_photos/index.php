@@ -32,7 +32,7 @@ if($_POST)
 		die(upload_errors($_FILES['photoFile']['error']));
 	}
 	$FileName			= strtolower($_FILES['photoFile']['name']); //uploaded file name
-	$FileTitle			= mysql_real_escape_string($_POST['audio_name']); // file title
+	$FileTitle			= mysqli_real_escape_string($connection,$_POST['audio_name']); // file title
 	$ImageExt			= substr($FileName, strrpos($FileName, '.')); //file extension
 	$OwnId				= $sessionInit_id;
 	$FileType			= $_FILES['photoFile']['type']; //file type
@@ -60,7 +60,7 @@ if($_POST)
    if(move_uploaded_file($_FILES['photoFile']["tmp_name"], $UploadDirectory . $NewFileName ))
    {
 		//connect & insert file record in database
-		$query =mysql_query("INSERT INTO gallery(filename,title, file_size, own_id, uploaded_date) VALUES ('$NewFileName','$FileTitle', '$FileSize', '$OwnId', now())");
+		$query =mysqli_query($connection,"INSERT INTO gallery(filename,title, file_size, own_id, uploaded_date) VALUES ('$NewFileName','$FileTitle', '$FileSize', '$OwnId', now())");
 
 
 		///////////////////////////////PDF conversion and mail sending //////////////////////////////////////////////

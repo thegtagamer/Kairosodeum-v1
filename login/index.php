@@ -28,16 +28,16 @@ if (isset($_POST['email'])) {
 
 	} else { 
 		include '../scripts/DB_connect.php'; 
-		$email = mysql_real_escape_string($email); 
+		$email = mysqli_real_escape_string($connection, $email); 
 	 
 		$pass = md5($pass); 
 		
-        $sql = mysql_query("SELECT * FROM users WHERE email='$email' AND password='$pass'"); 
-		$login_check = mysql_num_rows($sql);
+        $sql = mysqli_query($connection,"SELECT * FROM users WHERE email='$email' AND password='$pass'"); 
+		$login_check = mysqli_num_rows($sql);
         
 		if($login_check > 0){ 
 			echo "success";
-    			while($row = mysql_fetch_array($sql))
+    			while($row = mysqli_fetch_array($sql))
 					{
 		
 					$id = $row["id"]; 
@@ -46,7 +46,7 @@ if (isset($_POST['email'])) {
 					$_SESSION['idx'] = base64_encode("g4p37hmp3h9xfn8sq03hs2234$id");
 					$_SESSION['username'] = $username;
 
-					mysql_query("UPDATE users SET last_log=now(), online = '1', timestamp = '$timestamp' WHERE id='$id' LIMIT 1");
+					mysqli_query($connection, "UPDATE users SET last_log=now(), online = '1', timestamp = '$timestamp' WHERE id='$id' LIMIT 1");
           			} 
 	
     			if($remember == "yes")

@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-ini_set("display_errors", 1);
+ini_set("display_errors", 0);
 include_once("../scripts/user_session.php");
 include_once '../scripts/DB_connect.php';
 
@@ -21,8 +21,8 @@ $cacheBuster = rand(9999999,99999999999); // Put appended to the image URL will 
 
 
 
-$sql_default = mysql_query("SELECT * FROM users WHERE id='$id'");
-while($row = mysql_fetch_array($sql_default)){ 
+$sql_default = mysqli_query($connection,"SELECT * FROM users WHERE id='$id'");
+while($row = mysqli_fetch_array($sql_default)){ 
   $username = $row['username'];
   $email = $row['email'];
   $phone = $row['phone'];
@@ -44,13 +44,13 @@ while($row = mysql_fetch_array($sql_default)){
 
 if(isset($_POST['email_reset'])){
 
-  $email = mysql_real_escape_string($_POST['email_reset']);
+  $email = mysqli_real_escape_string($connection,$_POST['email_reset']);
 
   if($email!=""){
 
-    $sql_query = mysql_query("SELECT * FROM users where email='$email' ");
+    $sql_query = mysqli_query($connection,"SELECT * FROM users where email='$email' ");
 
-    $email_check =mysql_num_rows($sql_query);
+    $email_check =mysqli_num_rows($sql_query);
 
     
 
@@ -61,7 +61,7 @@ if($email_check>0){
       $temp = "$email_cut$gen_rand";
       $hash = md5($temp);
 
-      @mysql_query("UPDATE users set password='$hash' where email='$email'");
+      @mysqli_query($connection, "UPDATE users set password='$hash' where email='$email'");
       
       $to = "$email";
       $from = "info@kairosodeum.com";

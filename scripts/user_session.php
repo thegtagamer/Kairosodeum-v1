@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(E_ALL);
-ini_set("display_errors", 1);
+ini_set("display_errors", 0);
 ///////////////////////////////////////////////////////
 include_once "DB_connect.php"; 
 
@@ -47,7 +47,7 @@ $timestamp = time() + 600;
 		echo 'Something went wrong. Please <a href="login.php">Log in again here please</a>';
 		exit();
 	}
-    while($row = mysqli_fetch_array($connection,$sql_uname)){ 
+    while($row = mysqli_fetch_array($sql_uname)){ 
 	    $username = $row["username"];
 	}
 
