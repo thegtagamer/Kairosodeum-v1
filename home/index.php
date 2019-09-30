@@ -27,7 +27,7 @@ $cacheBuster = rand(999999999,9999999999999); // Put on an image URL will help a
 $encrypted_nos = base64_encode("s6k3k4lsjdfsdsasf453fs"); //this will be used in deleting response
 // ------- END INITIALIZE SOME VARIABLES ---------
 
-// ------- ESTABLISH THE PAGE ID ACCORDING TO CONDITIONS ---------
+//------- ESTABLISH THE PAGE ID ACCORDING TO CONDITIONS ---------
 if (isset($_GET['id'])) {
 	 $id = preg_replace('#[^0-9]#i', '', $_GET['id']); // filter everything but numbers
 } else if (isset($_SESSION['idx'])) {
@@ -38,12 +38,13 @@ if (isset($_GET['id'])) {
 }
 
 $id = preg_replace("#[^0-9]#i", '', $id);
-$check_user = mysql_query("SELECT * FROM users WHERE id = '$id' LIMIT 1") or die(mysql_error());
-$sql_confirmation = mysql_num_rows($check_user);
+$check_user = mysqli_query($connection,"SELECT * FROM users WHERE id = '$id' LIMIT 1") or die(mysqli_connect_error());
+$sql_confirmation = mysqli_num_rows($check_user);
+
 if($sql_confirmation == 0){
-	header("location:index.php?msg=user_does_not_exist");
+	// header("location:index.php?msg=user_does_not_exist");
 	}
-while($row = mysql_fetch_array($check_user)) {
+while($row = mysqli_fetch_array($check_user)) {
     $email = $row['email'];
 	
 	$username = $row["username"];
@@ -164,7 +165,7 @@ if($firstname != "")
  if(isset($_POST['invite_q'])){
 
  	$invite_q = $_POST['invite_q'];
- 	$invite_q = mysql_real_escape_string($invite_q);
+ 	$invite_q = mysqli_real_escape_string($connection,$invite_q);
   	
 
 
@@ -256,8 +257,8 @@ $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
 			//////////////////////////////// Check if already hired ////////////////////////////
 
-$hire_check = mysql_query("SELECT * from hire_request WHERE own_id='$sessionInit_id' AND hiring_id='$id'");
-while($row=mysql_fetch_array($hire_check)){
+$hire_check = mysqli_query($connection, "SELECT * from hire_request WHERE own_id='$sessionInit_id' AND hiring_id='$id'");
+while($row=mysqli_fetch_array($hire_check)){
 	$approval = $row['approved'];
 	$book_price = $row['price'];
 }
@@ -265,23 +266,23 @@ while($row=mysql_fetch_array($hire_check)){
 	$bb_price = $book_price;
 
 
-$hire_check_flag = mysql_num_rows($hire_check);
+$hire_check_flag = mysqli_num_rows($hire_check);
 
 
-$follow_check = mysql_query("SELECT * from followers where own_id='$sessionInit_id' AND following_id='$id'");
-while($row= mysql_fetch_array($follow_check)){
+$follow_check = mysqli_query($connection, "SELECT * from followers where own_id='$sessionInit_id' AND following_id='$id'");
+while($row= mysqli_fetch_array($follow_check)){
 	$follow_approval = $row['approved'];
 
 }
-$follow_check_flag = mysql_num_rows($follow_check);
+$follow_check_flag = mysqli_num_rows($follow_check);
 
 
 //////////////////////Follow Mechanism //////////////////////////////////////////////
 if(isset($_POST['follow'])){
 
-	$user_value = mysql_real_escape_string($_POST['user_value']);
+	$user_value = mysqli_real_escape_string($connection, $_POST['user_value']);
 
-	$follow_query=mysql_query("INSERT INTO followers (own_id,following_id,follow_date) VALUES('$sessionInit_id','$user_value',now())");
+	$follow_query=mysqli_query($connection, "INSERT INTO followers (own_id,following_id,follow_date) VALUES('$sessionInit_id','$user_value',now())");
 
 if($follow_query){
 	header('location:/home?id='.$user_value.'');
@@ -292,9 +293,9 @@ if($follow_query){
 //////////////////Unfollow Mechanism ////////////////////////////////////////////////
 if(isset($_POST['unfollow'])){
 
-	$user_value = mysql_real_escape_string($_POST['user_value']);
+	$user_value = mysqli_real_escape_string($connection, $_POST['user_value']);
 
-	$follow_query=mysql_query("DELETE FROM followers WHERE own_id='$sessionInit_id' AND following_id='$user_value'");
+	$follow_query=mysqli_query($connection, "DELETE FROM followers WHERE own_id='$sessionInit_id' AND following_id='$user_value'");
 
 if($follow_query){
 	header('location:/home?id='.$user_value.'');
@@ -317,7 +318,7 @@ if($follow_query){
    
 
 
-    	$hire_query = mysql_query("INSERT INTO hire_request(own_id,hiring_id,bookdate,booktime,price,approved,req_date) VALUES ('$owners_id','$hiring_user','$bookDate','$bookTime','$quotePrice','$approved','$req_date')");
+    	$hire_query = mysqli_query($connection, "INSERT INTO hire_request(own_id,hiring_id,bookdate,booktime,price,approved,req_date) VALUES ('$owners_id','$hiring_user','$bookDate','$bookTime','$quotePrice','$approved','$req_date')");
 
 
     
@@ -351,10 +352,10 @@ if($follow_query){
   
   /*  $sql_check_if_con = mysql_query("SELECT con_array FROM users WHERE id='$id' LIMIT 1") or die(mysql_error());
     $sql_con_check2 = mysql_query("SELECT usera,userb FROM con_req WHERE usera='$phone'");
-     $con_check2 = mysql_num_rows($sql_con_check2);
+     $con_check2 = mysqli_num_rows($sql_con_check2);
     $con_list_arr = explode(",", $con_list);
 
-  while($row = mysql_fetch_array($sql_check_if_con))
+  while($row = mysqli_fetch_array($connection,$sql_check_if_con))
     {
     $con_list = $row['con_array'];
     }//close while
@@ -383,18 +384,18 @@ if($follow_query){
       $hire_area="";
       /////////////////////////// Hire Alert ///////////////////////////////////////
 
-      $hire_alert = mysql_query("SELECT * FROM hire_request WHERE hiring_id='$sessionInit_id' AND approved='0'");
+      $hire_alert = mysqli_query($connection, "SELECT * FROM hire_request WHERE hiring_id='$sessionInit_id' AND approved='0'");
 
 
-      while($row= mysql_fetch_array($hire_alert)){
+      while($row= mysqli_fetch_array($hire_alert)){
       	$o_id = $row['own_id'];
       	$h_id = $row['hiring_id'];
       	$b_date = $row['bookdate'];
       	$b_time = $row['booktime'];
       	$b_price = $row['price'];
 
-      	$sql_hire_user = mysql_query("SELECT * FROM users WHERE id='$o_id'");
-      	while($row= mysql_fetch_array($sql_hire_user)){
+      	$sql_hire_user = mysqli_query($connection, "SELECT * FROM users WHERE id='$o_id'");
+      	while($row= mysqli_fetch_array($sql_hire_user)){
 
       		$hiring_name = $row['username'];
       
@@ -421,8 +422,8 @@ if($follow_query){
 
 //////////////////////Clubs can only hire other artist and clubs cannot hire another club///////////////////
 
-$sql_user_a = mysql_query("SELECT user_type from users where id='$sessionInit_id'");
-while($row=mysql_fetch_array($sql_user_a)){
+$sql_user_a = mysqli_query($connection, "SELECT user_type from users where id='$sessionInit_id'");
+while($row=mysqli_fetch_array($sql_user_a)){
 	$logged_user_type = $row['user_type'];
 }
 
@@ -439,7 +440,7 @@ while($row=mysql_fetch_array($sql_user_a)){
 
       
 
-      	$sql_approved_query = mysql_query("UPDATE hire_request SET approved='1' WHERE hiring_id='$sessionInit_id' AND own_id='$approval_id' LIMIT 1");
+      	$sql_approved_query = mysqli_query($connection, "UPDATE hire_request SET approved='1' WHERE hiring_id='$sessionInit_id' AND own_id='$approval_id' LIMIT 1");
 
       	header('location: /home');
 
@@ -454,24 +455,24 @@ while($row=mysql_fetch_array($sql_user_a)){
 
       
 
-      	$sql_deny_query = mysql_query("DELETE FROM hire_request WHERE hiring_id='$sessionInit_id' AND own_id='$deny_id' LIMIT 1");
+      	$sql_deny_query = mysqli_query($connection, "DELETE FROM hire_request WHERE hiring_id='$sessionInit_id' AND own_id='$deny_id' LIMIT 1");
 
     header('location: /home');
       }
 
       ////////////////////// Notification for phone Request /////////////////////////
 
-      $sql_alert_p = mysql_query("SELECT * from con_req where userb='$phone' LIMIT 1"); 
-      $check_palert = mysql_num_rows($sql_alert_p);   
+      $sql_alert_p = mysqli_query($connection, "SELECT * from con_req where userb='$phone' LIMIT 1"); 
+      $check_palert = mysqli_num_rows($sql_alert_p);   
 
-      while($row=mysql_fetch_array($sql_alert_p)){
+      while($row=mysqli_fetch_array($sql_alert_p)){
         $ap_id = $row["id"];
         $c_u = $row["usera"]; 
         $con_date = $row["con_date"];
 
-        $sql_cname = mysql_query("SELECT * from users where phone='$c_u' LIMIT 1");
+        $sql_cname = mysqli_query($connection, "SELECT * from users where phone='$c_u' LIMIT 1");
 
-        while($row= mysql_fetch_array($sql_cname)){
+        while($row= mysqli_fetch_array($sql_cname)){
 
         $d_name= $row['username'];
         }
@@ -497,8 +498,8 @@ while($row=mysql_fetch_array($sql_user_a)){
 		//////////////////////////paqyment gateway////////////////////////////////////////////
 if(isset($_POST['payment_method'])){
 
-$b_price2 = mysql_real_escape_string($_POST['parse_var']);
-$b_username = mysql_real_escape_string($_POST['parse_var2']);
+$b_price2 = mysqli_real_escape_string($connection, $_POST['parse_var']);
+$b_username = mysqli_real_escape_string($connection, $_POST['parse_var2']);
 
 
 include('online_pay.php');
@@ -522,13 +523,13 @@ include('online_pay.php');
 			
 				$musicDisplay="";
 		///////  END Mechanism to Display Pic	
-$sql_music = mysql_query("SELECT * FROM music where own_id='$id' ORDER BY uploaded_date DESC");
-$count_music = mysql_num_rows($sql_music);
+$sql_music = mysqli_query($connection, "SELECT * FROM music where own_id='$id' ORDER BY uploaded_date DESC");
+$count_music = mysqli_num_rows($sql_music);
 
 
 
 
-while($row = mysql_fetch_array($sql_music)){
+while($row = mysqli_fetch_array($sql_music)){
 	
 			$music_id = $row['id'];
 			//$id_to_delete = "ks007".$row_id; 
@@ -543,8 +544,8 @@ while($row = mysql_fetch_array($sql_music)){
 			
 
 			//////////////////////////////////////  ///////////////////////////////////////////////
-			$sql5 = mysql_query("SELECT id, username FROM users where id = '$owner_id' LIMIT 1");
-				while($row = mysql_fetch_array($sql5)) 
+			$sql5 = mysqli_query($connection, "SELECT id, username FROM users where id = '$owner_id' LIMIT 1");
+				while($row = mysqli_fetch_array($sql5)) 
 					{
 					$music_poster_id = $row['id'];
 					//$blabbers_uname = $row['username'];
@@ -621,13 +622,13 @@ if($count_music>0){
 			
 				$vidDisplay="";
 		///////  END Mechanism to Display Pic	
-$sql_vids = mysql_query("SELECT * FROM videos where own_id='$id' ORDER BY uploaded_date DESC");
-$count_vid = mysql_num_rows($sql_vids);
+$sql_vids = mysqli_query($connection, "SELECT * FROM videos where own_id='$id' ORDER BY uploaded_date DESC");
+$count_vid = mysqli_num_rows($sql_vids);
 
 
 
 
-while($row = mysql_fetch_array($sql_vids)){
+while($row = mysqli_fetch_array($sql_vids)){
 $vid_id = $row['id'];
 			//$id_to_delete = "ks007".$row_id; 
 			//$encrypted_login_id = base64_encode("g4p3h9xfn8sq03hs2234h$id_to_delete");
@@ -637,8 +638,8 @@ $vid_id = $row['id'];
 			$owner_id = $row["own_id"];
 			$vidPath = "../users/$owner_id/videos/$vidCover";
 			///////////////////
-			$sql5 = mysql_query("SELECT id, username FROM users where id = '$owner_id' LIMIT 1");
-				while($row = mysql_fetch_array($sql5)) 
+			$sql5 = mysqli_query($connection,"SELECT id, username FROM users where id = '$owner_id' LIMIT 1");
+				while($row = mysqli_fetch_array($sql5)) 
 					{
 					$vid_poster_id = $row['id'];
 					//$blabbers_uname = $row['username'];
@@ -713,14 +714,14 @@ if($count_vid>0){
 
 	$photoDisplay="";
 		///////  END Mechanism to Display Pic	
-$sql_photos = mysql_query("SELECT * FROM gallery where own_id='$id' ORDER 
+$sql_photos = mysqli_query($connection, "SELECT * FROM gallery where own_id='$id' ORDER 
 								BY uploaded_date DESC");
-$count_photo = mysql_num_rows($sql_photos);
+$count_photo = mysqli_num_rows($sql_photos);
 
 
 
 
-while($row = mysql_fetch_array($sql_photos)){
+while($row = mysqli_fetch_array($sql_photos)){
 $photo_id = $row['id'];
 			//$id_to_delete = "ks007".$row_id; 
 			//$encrypted_login_id = base64_encode("g4p3h9xfn8sq03hs2234h$id_to_delete");
@@ -729,8 +730,8 @@ $photo_id = $row['id'];
 			$owner_id = $row["own_id"];
 			$photoPath = "../users/$owner_id/photos/$photo_filename";
 			///////////////////
-			$sql5 = mysql_query("SELECT id, username FROM users where id = '$owner_id' LIMIT 1");
-				while($row = mysql_fetch_array($sql5)) 
+			$sql5 = mysqli_query($connection,"SELECT id, username FROM users where id = '$owner_id' LIMIT 1");
+				while($row = mysqli_fetch_array($sql5)) 
 					{
 					$photo_poster_id = $row['id'];
 					

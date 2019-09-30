@@ -1,7 +1,7 @@
 <?php
 // Start_session, check if user is logged in or not, and connect to the database all in one included file
 error_reporting(E_ALL);
-ini_set("display_errors", 1);
+ini_set("display_errors", 0);
 
 include("../../scripts/user_session.php");
 include("../../scripts/DB_connect.php");
@@ -61,9 +61,9 @@ if($_POST)
 	}
 	$FileName			= strtolower($_FILES['cover']['name']); //uploaded file name
 	$FileName2			= strtolower($_FILES['musicFile']['name']); //uploaded file name
-	$FileTitle			= mysql_real_escape_string($_POST['audio_name']); // file title
-	$FileDesc			= mysql_real_escape_string($_POST['audio_desc']); // file title
-	$FileGenre			= mysql_real_escape_string($_POST['genre']); // file title
+	$FileTitle			= mysqli_real_escape_string($connection,$_POST['audio_name']); // file title
+	$FileDesc			= mysqli_real_escape_string($connection,$_POST['audio_desc']); // file title
+	$FileGenre			= mysqli_real_escape_string($connection,$_POST['genre']); // file title
 	$ImageExt			= substr($FileName, strrpos($FileName, '.')); //file extension
 	$MusicExt			= substr($FileName2, strrpos($FileName2, '.')); //file extension
 	$OwnId				= $sessionInit_id;
