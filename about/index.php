@@ -1,46 +1,33 @@
 <?php
 error_reporting(E_ALL);
 ini_set("display_errors", 0);
-include_once("../scripts/user_session.php");
+include_once ("../scripts/user_session.php");
 include_once '../scripts/DB_connect.php';
-
 $id = $sessionInit_id; // Set the profile owner ID
-$error_msg = ""; 
+$error_msg = "";
 $errorMsg = "";
 $success_msg = "";
-
-$user_type="";
-$cacheBuster = rand(9999999,99999999999); // Put appended to the image URL will help always show new when changed
-
-
-
-
-
+$user_type = "";
+$cacheBuster = rand(9999999, 99999999999); // Put appended to the image URL will help always show new when changed
 $sql_default = mysqli_query($connection, "SELECT * FROM users WHERE id='$id'");
-while($row = mysqli_fetch_array($sql_default)){ 
-  $username = $row['username'];
-  $email = $row['email'];
-  $phone = $row['phone'];
-  $country = $row['country'];
-  $state = $row['state'];
-  $city = $row['city'];
-  $address = $row['address'];
-  $pincode = $row['pincode'];
-  $birthday = $row['birthday'];
-  $user_type = $row['user_type'];
-  $about = $row['bio_body'];
-  $about = str_replace("<br />", "", $about);
-  $about = stripslashes($about);
-
-  
+while ($row = mysqli_fetch_array($sql_default)) {
+    $username = $row['username'];
+    $email = $row['email'];
+    $phone = $row['phone'];
+    $country = $row['country'];
+    $state = $row['state'];
+    $city = $row['city'];
+    $address = $row['address'];
+    $pincode = $row['pincode'];
+    $birthday = $row['birthday'];
+    $user_type = $row['user_type'];
+    $about = $row['bio_body'];
+    $about = str_replace("<br />", "", $about);
+    $about = stripslashes($about);
 } // close while loop
 
-
-
-  
-
 ?>
-<?php echo $success_msg;?> 
+<?php echo $success_msg; ?> 
 <!DOCTYPE html>
 <html lang="en-US" class="no-js">
 <head>
@@ -359,9 +346,8 @@ $(".deny").click(function(){
 				<div class="col-xs-12 col-sm-12 col-md-12">
 
 							<div class="kairosodeum-menu-icon">
-<?php if (isset($_SESSION['idx'])) { 
-
-								echo "<button class=\"kairosodeum-btn-\">
+<?php if (isset($_SESSION['idx'])) {
+    echo "<button class=\"kairosodeum-btn-\">
 								<a href=\"/home/\" >
 						<i class=\"fa fa-plus\"></i> <span>Dashboard</span>
 					</a>&nbsp; &nbsp;
@@ -369,8 +355,8 @@ $(".deny").click(function(){
 						<i class=\"fa fa-plus\"></i> <span>Account</span>
 					</a>
 					</button>";
-}else{
-								?>
+} else {
+?>
 					<button class="kairosodeum-btn-sidebar">
 						<i class="fa fa-plus"></i> <span>Login/Signup</span>
 					</button>

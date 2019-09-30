@@ -244,15 +244,14 @@
 				<div class="col-xs-12 col-sm-12 col-md-12">
 
 							<div class="kairosodeum-menu-icon">
-<?php if (isset($_SESSION['idx'])) { 
-
-								echo "<button class=\"kairosodeum-btn-\">
+<?php if (isset($_SESSION['idx'])) {
+    echo "<button class=\"kairosodeum-btn-\">
 								<a href=\"/home/\" >
 						<i class=\"fa fa-plus\"></i> <span>Dashboard</span>
 					</a>
 					</button>";
-}else{
-								?>
+} else {
+?>
 					<button class="kairosodeum-btn-sidebar">
 						<i class="fa fa-plus"></i> <span>Login/Signup</span>
 					</button>

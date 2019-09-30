@@ -1,186 +1,150 @@
 <?php
-include("../scripts/user_session.php");
-
+include ("../scripts/user_session.php");
 $user_pic = "";
-$links = "";	 	 	 	 	 	 	 
-$username = ""; 	 	 	 	 
-$firstname = ""; 	 	 	 	 	 	 
-$middlename	= ""; 	 	 	 	 	 	 
-$lastname = "";	 	 	 	 	 	 
-$gender = "";		 	 	 	 	 	 	
-$birthday = "";	 	 	 	 	 	
-$email = "";	 	 	 	 	 	 	 	 	 	 	 	 	 	 
-$sign_up_date = "";	 	 	 	 	 	 	
-$last_log_date = "";	 	 	 	 	 	 	
-$bio_body = "";		 	 	 				 
-$website = "";	 	 	 	 	 	 	 
-$youtube = "";		 	 	 	 	 	 	 
-$facebook = "";	 	 	 	 	 	 	 
-$twitter = "";	 	 	 	 	 	 	  	 	 				 
-$user_type = "";	 	 	 	 	 	 	
-$account_status	= "";	 	 	 	 	 	 	 	 	 	 	 	 	 
-$phone = "";	 	 	 	 	 	 	 
-$address = "";	 	 	 	 	 	 	 	 	 	 	 	 	 
-$user_type="";
-$contract = "";	 	 	 	 
-$cacheBuster = rand(999999999,9999999999999); // Put on an image URL will help always show new when changed
+$links = "";
+$username = "";
+$firstname = "";
+$middlename = "";
+$lastname = "";
+$gender = "";
+$birthday = "";
+$email = "";
+$sign_up_date = "";
+$last_log_date = "";
+$bio_body = "";
+$website = "";
+$youtube = "";
+$facebook = "";
+$twitter = "";
+$user_type = "";
+$account_status = "";
+$phone = "";
+$address = "";
+$user_type = "";
+$contract = "";
+$cacheBuster = rand(999999999, 9999999999999); // Put on an image URL will help always show new when changed
 $encrypted_nos = base64_encode("s6k3k4lsjdfsdsasf453fs"); //this will be used in deleting response
 // ------- END INITIALIZE SOME VARIABLES ---------
-
 //------- ESTABLISH THE PAGE ID ACCORDING TO CONDITIONS ---------
 if (isset($_GET['id'])) {
-	 $id = preg_replace('#[^0-9]#i', '', $_GET['id']); // filter everything but numbers
+    $id = preg_replace('#[^0-9]#i', '', $_GET['id']); // filter everything but numbers
+    
 } else if (isset($_SESSION['idx'])) {
-	 $id = $sessionInit_id;
+    $id = $sessionInit_id;
 } else {
-   header("location: index.php");
-   exit();
+    header("location: index.php");
+    exit();
 }
-
 $id = preg_replace("#[^0-9]#i", '', $id);
-$check_user = mysqli_query($connection,"SELECT * FROM users WHERE id = '$id' LIMIT 1") or die(mysqli_connect_error());
+$check_user = mysqli_query($connection, "SELECT * FROM users WHERE id = '$id' LIMIT 1") or die(mysqli_connect_error());
 $sql_confirmation = mysqli_num_rows($check_user);
-
-if($sql_confirmation == 0){
-	// header("location:index.php?msg=user_does_not_exist");
-	}
-while($row = mysqli_fetch_array($check_user)) {
+if ($sql_confirmation == 0) {
+    // header("location:index.php?msg=user_does_not_exist");
+    
+}
+while ($row = mysqli_fetch_array($check_user)) {
     $email = $row['email'];
-	
-	$username = $row["username"];
-	//$firstname = $row["firstname"];
-	//$middlename = $row["middlename"];
-	$lastname = $row["lastname"];
-	$address = $row["address"];	
-	$sign_up_date = $row["sign_up_date"];
+    $username = $row["username"];
+    //$firstname = $row["firstname"];
+    //$middlename = $row["middlename"];
+    $lastname = $row["lastname"];
+    $address = $row["address"];
+    $sign_up_date = $row["sign_up_date"];
     $sign_up_date = strftime("%b %d, %Y", strtotime($sign_up_date));
-	$last_log_date = $row["last_log_date"];
-    $last_log_date = strftime("%b %d, %Y", strtotime($last_log_date));	
-	$bio_body = $row["bio_body"];	
-	$bio_body = str_replace("&#39;", "'", $bio_body);
-	$bio_body = stripslashes($bio_body);
-	$experience = $row["experiences_body"];	
-	$experience = str_replace("&#39;", "'", $experience);
-	$experience = stripslashes($experience);
-	$website = $row["website"];
-	$youtube = $row["youtube"];
+    $last_log_date = $row["last_log_date"];
+    $last_log_date = strftime("%b %d, %Y", strtotime($last_log_date));
+    $bio_body = $row["bio_body"];
+    $bio_body = str_replace("&#39;", "'", $bio_body);
+    $bio_body = stripslashes($bio_body);
+    $experience = $row["experiences_body"];
+    $experience = str_replace("&#39;", "'", $experience);
+    $experience = stripslashes($experience);
+    $website = $row["website"];
+    $youtube = $row["youtube"];
     $facebook = $row["facebook"];
-	$twitter = $row["twitter"];
-	$google = $row["google"];	
-	$friends_array = $row["friend_array"]; 	 	 	 	 	 	 
-	$gender = $row["gender"];		 	 	 	 	 	 	
-	$birthday = $row["birthday"];	 	 	 	 	  	 	 	 	 	 	 	 	 	 	 	 	 	 	 	  	 	 				
-	$user_type = $row["user_type"] ;	
-	$contract = $row["contract"]; 	 	 	 	 	
-	$account_status	= $row["account_status"];	 	 	 	 	 	 	 	 	 	 	 	 	 
-	$phone = $row["phone"];	 
-	$city = $row["city"];	 	 	 	 	 	 
-}//close while loop
+    $twitter = $row["twitter"];
+    $google = $row["google"];
+    $friends_array = $row["friend_array"];
+    $gender = $row["gender"];
+    $birthday = $row["birthday"];
+    $user_type = $row["user_type"];
+    $contract = $row["contract"];
+    $account_status = $row["account_status"];
+    $phone = $row["phone"];
+    $city = $row["city"];
+} //close while loop
 /////////////////////////CHECK FOR USERNAME TO DISPLAY//////////
-if($firstname != "")
-	{
-	$username = $firstname;
-	$username = ucfirst($firstname).' '.ucfirst($middlename).' '.ucfirst($lastname);
-	}else 
-		{
-		$username = ucfirst($username);
-		}
-
+if ($firstname != "") {
+    $username = $firstname;
+    $username = ucfirst($firstname) . ' ' . ucfirst($middlename) . ' ' . ucfirst($lastname);
+} else {
+    $username = ucfirst($username);
+}
 ///////  Mechanism to Display Pic. See if they have uploaded a pic or not  //////////////////////////
-	$check_pic = "../users/$id/pic.jpg";
-	$default_pic = "../users/0/pic.jpg";
-	if (file_exists($check_pic)) {
+$check_pic = "../users/$id/pic.jpg";
+$default_pic = "../users/0/pic.jpg";
+if (file_exists($check_pic)) {
     $user_pic = "
 
  <img class=\"card-bkimg\" src=\"$check_pic?$cacheBuster\"  alt=\"img\" />";
-	} else {
-	$user_pic = "<img class=\"card-bkimg\" src=\"$default_pic\"  alt=\"img\" />"; 
-	}
-
-	$check_bg = "../users/$id/bg.jpg";
-
-	if(file_exists($check_bg)){
-		$user_bg = "../users/$id/bg.jpg";
-	}else{
-		$user_bg = "../users/0/bg.jpg";
-	}
-
-
-	
-	///////////////////////////////////////////////////////////
-	/////////////////FUNCTIONS GOES HERE////////////////////////////////////////////////////////-------------///
-	////function show name in active links//////////
-	function show_name($name,$profile_id, $true = true, $s = true)
-		{
-		if($s == true)
-			{
-			$s = '\'s';
-			}else
-				{
-				$s = '';
-				}
-		if($true == true)
-			{
-			$name = '<a href="home.php?id='.$profile_id.'">'.$name.$s.'</a>';
-			}else 
-				{
-				$name = $name;
-				}
-		
-		return $name;
-		}
-		//--------//
-		//close function------//
-		
-		//----------//FUNCTION TO CUT LONG WORDS IN STRING VERY POWERFUL/////////////---//
-		function wrap($str, $width=20, $break="\n", $char_no=5) 
-			{
-			  return preg_replace('#(\S{'.$width.',})#e', "chunk_split('$1', ".$char_no.", '".$break."')", $str);
-			}
-		
-					
-		/////////////////////END FUNCTIONS BUILDING///////////////////
-		
-	//MECHANISM TO DISPLAY NAME
-	if($firstname != ""){
-		$show_name = show_name($username, $id);
-		}else
-		 {
-			$show_name = show_name($username, $id);
-			}
-	//MECHANISM TO DISPLAY INFOS
-	$bio = "";
-	
-	if($bio_body != ""){
-		$bio.='<div class="infoHeader"><span class="boldStuff2"><strong>Bio:</strong></span></div>';
-		$bio.='<div class="infoBody">'.wrap($bio_body).'</div>';
-		}else 
-			{
-			$bio = "";
-			}
-	
+} else {
+    $user_pic = "<img class=\"card-bkimg\" src=\"$default_pic\"  alt=\"img\" />";
+}
+$check_bg = "../users/$id/bg.jpg";
+if (file_exists($check_bg)) {
+    $user_bg = "../users/$id/bg.jpg";
+} else {
+    $user_bg = "../users/0/bg.jpg";
+}
+///////////////////////////////////////////////////////////
+/////////////////FUNCTIONS GOES HERE////////////////////////////////////////////////////////-------------///
+////function show name in active links//////////
+function show_name($name, $profile_id, $true = true, $s = true) {
+    if ($s == true) {
+        $s = '\'s';
+    } else {
+        $s = '';
+    }
+    if ($true == true) {
+        $name = '<a href="home.php?id=' . $profile_id . '">' . $name . $s . '</a>';
+    } else {
+        $name = $name;
+    }
+    return $name;
+}
+//--------//
+//close function------//
+//----------//FUNCTION TO CUT LONG WORDS IN STRING VERY POWERFUL/////////////---//
+function wrap($str, $width = 20, $break = "\n", $char_no = 5) {
+    return preg_replace('#(\S{' . $width . ',})#e', "chunk_split('$1', " . $char_no . ", '" . $break . "')", $str);
+}
+/////////////////////END FUNCTIONS BUILDING///////////////////
+//MECHANISM TO DISPLAY NAME
+if ($firstname != "") {
+    $show_name = show_name($username, $id);
+} else {
+    $show_name = show_name($username, $id);
+}
+//MECHANISM TO DISPLAY INFOS
+$bio = "";
+if ($bio_body != "") {
+    $bio.= '<div class="infoHeader"><span class="boldStuff2"><strong>Bio:</strong></span></div>';
+    $bio.= '<div class="infoBody">' . wrap($bio_body) . '</div>';
+} else {
+    $bio = "";
+}
 /////////////////////////////////END MECHANISM TO DISPLAY LINKS///////////////////////
 ////////////////////////////////Mechanism to invite//////////////////////////////////
-
- if(isset($_POST['invite_q'])){
-
- 	$invite_q = $_POST['invite_q'];
- 	$invite_q = mysqli_real_escape_string($connection,$invite_q);
-  	
-
-
-     if(!$invite_q){
-    	$error_p=  'Error. Please fill the form properly.';
-
-    }else{
-
-    
- $to = "$invite_q";
-                     
-    $from = "info@kairosodeum.com";
-    $subject = 'You have been invited to KairosOdeum';
-
-      $message = "<html>
+if (isset($_POST['invite_q'])) {
+    $invite_q = $_POST['invite_q'];
+    $invite_q = mysqli_real_escape_string($connection, $invite_q);
+    if (!$invite_q) {
+        $error_p = 'Error. Please fill the form properly.';
+    } else {
+        $to = "$invite_q";
+        $from = "info@kairosodeum.com";
+        $subject = 'You have been invited to KairosOdeum';
+        $message = "<html>
 <head>
 <style>
 #mail_header{
@@ -235,99 +199,59 @@ Team Kairos<br />
 <div id=\"mail_footer\">Copyright © 2017 KAIROSODEUM All rights reserved.</div>
 </body>
 </html>";
-   //end of message
-  $headers  = "From: $from\r\n";
-   $headers .= "MIME-Version: 1.0\r\n";
-$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-
-    mail($to, $subject, $message, $headers);
-
-    $Successmsg= 'Your request has been registered, We will reach out to you soon - Team kairosodeum';
-
+        //end of message
+        $headers = "From: $from\r\n";
+        $headers.= "MIME-Version: 1.0\r\n";
+        $headers.= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+        mail($to, $subject, $message, $headers);
+        $Successmsg = 'Your request has been registered, We will reach out to you soon - Team kairosodeum';
     }
-
-
 }
-
-
-
-
-
-
-
-			//////////////////////////////// Check if already hired ////////////////////////////
-
+//////////////////////////////// Check if already hired ////////////////////////////
 $hire_check = mysqli_query($connection, "SELECT * from hire_request WHERE own_id='$sessionInit_id' AND hiring_id='$id'");
-while($row=mysqli_fetch_array($hire_check)){
-	$approval = $row['approved'];
-	$book_price = $row['price'];
+while ($row = mysqli_fetch_array($hire_check)) {
+    $approval = $row['approved'];
+    $book_price = $row['price'];
 }
-
-	$bb_price = $book_price;
-
-
+$bb_price = $book_price;
 $hire_check_flag = mysqli_num_rows($hire_check);
-
-
 $follow_check = mysqli_query($connection, "SELECT * from followers where own_id='$sessionInit_id' AND following_id='$id'");
-while($row= mysqli_fetch_array($follow_check)){
-	$follow_approval = $row['approved'];
-
+while ($row = mysqli_fetch_array($follow_check)) {
+    $follow_approval = $row['approved'];
 }
 $follow_check_flag = mysqli_num_rows($follow_check);
-
-
 //////////////////////Follow Mechanism //////////////////////////////////////////////
-if(isset($_POST['follow'])){
-
-	$user_value = mysqli_real_escape_string($connection, $_POST['user_value']);
-
-	$follow_query=mysqli_query($connection, "INSERT INTO followers (own_id,following_id,follow_date) VALUES('$sessionInit_id','$user_value',now())");
-
-if($follow_query){
-	header('location:/home?id='.$user_value.'');
+if (isset($_POST['follow'])) {
+    $user_value = mysqli_real_escape_string($connection, $_POST['user_value']);
+    $follow_query = mysqli_query($connection, "INSERT INTO followers (own_id,following_id,follow_date) VALUES('$sessionInit_id','$user_value',now())");
+    if ($follow_query) {
+        header('location:/home?id=' . $user_value . '');
+    }
 }
-}
-
-
 //////////////////Unfollow Mechanism ////////////////////////////////////////////////
-if(isset($_POST['unfollow'])){
-
-	$user_value = mysqli_real_escape_string($connection, $_POST['user_value']);
-
-	$follow_query=mysqli_query($connection, "DELETE FROM followers WHERE own_id='$sessionInit_id' AND following_id='$user_value'");
-
-if($follow_query){
-	header('location:/home?id='.$user_value.'');
+if (isset($_POST['unfollow'])) {
+    $user_value = mysqli_real_escape_string($connection, $_POST['user_value']);
+    $follow_query = mysqli_query($connection, "DELETE FROM followers WHERE own_id='$sessionInit_id' AND following_id='$user_value'");
+    if ($follow_query) {
+        header('location:/home?id=' . $user_value . '');
+    }
 }
-}
-
 /////////////////////////////////////////////////////////////////////////////////////
-
-  $error_p ="";
-  /////////////////////////////// Mechanism to Hire ///////////////////////////////////////
-  if(isset($_POST['bookDate'])){
-  	$bookDate= preg_replace('#[^0-9]#i', "", $_POST['bookDate']);
-    $bookTime= preg_replace('#[^0-9]#i', '', $_POST['bookTime']); // filter everything but numbers
-    $quotePrice =  preg_replace('#[^0-9]#i', "", $_POST['quotePrice']);
+$error_p = "";
+/////////////////////////////// Mechanism to Hire ///////////////////////////////////////
+if (isset($_POST['bookDate'])) {
+    $bookDate = preg_replace('#[^0-9]#i', "", $_POST['bookDate']);
+    $bookTime = preg_replace('#[^0-9]#i', '', $_POST['bookTime']); // filter everything but numbers
+    $quotePrice = preg_replace('#[^0-9]#i', "", $_POST['quotePrice']);
     $owners_id = preg_replace('#[^0-9]#i', "", $_POST['od']);
     $hiring_user = preg_replace('#[^0-9]#i', "", $_POST['hd']);
     $approved = 0;
-    $req_date		= date("Y-m-d H:i:s");
-
-   
-
-
-    	$hire_query = mysqli_query($connection, "INSERT INTO hire_request(own_id,hiring_id,bookdate,booktime,price,approved,req_date) VALUES ('$owners_id','$hiring_user','$bookDate','$bookTime','$quotePrice','$approved','$req_date')");
-
-
-    
- $to = "kairosodeum@gmail.com";
-                     
+    $req_date = date("Y-m-d H:i:s");
+    $hire_query = mysqli_query($connection, "INSERT INTO hire_request(own_id,hiring_id,bookdate,booktime,price,approved,req_date) VALUES ('$owners_id','$hiring_user','$bookDate','$bookTime','$quotePrice','$approved','$req_date')");
+    $to = "kairosodeum@gmail.com";
     $from = "info@kairosodeum.com";
     $subject = 'Booking Request';
-
-      $message = "Hi Arnav,
+    $message = "Hi Arnav,
 
     $sessionInit_username has requested to hire $username_hire for $book_date at $book_time for a total amount of $price.
 
@@ -336,250 +260,155 @@ if($follow_query){
 
 
 ";
-   //end of message
-  $headers  = "From: $from\r\n";
-    $headers .= "Content-type: text\r\n";
-
+    //end of message
+    $headers = "From: $from\r\n";
+    $headers.= "Content-type: text\r\n";
     mail($to, $subject, $message, $headers);
-
-    $Successmsg= 'Your request has been registered, We will reach out to you soon - Team kairosodeum';
-
-    header('location: /home/?id='.$hiring_user.'');
-
-    
-
-  // Connect to database
-  
-  /*  $sql_check_if_con = mysql_query("SELECT con_array FROM users WHERE id='$id' LIMIT 1") or die(mysql_error());
+    $Successmsg = 'Your request has been registered, We will reach out to you soon - Team kairosodeum';
+    header('location: /home/?id=' . $hiring_user . '');
+    // Connect to database
+    /*  $sql_check_if_con = mysql_query("SELECT con_array FROM users WHERE id='$id' LIMIT 1") or die(mysql_error());
     $sql_con_check2 = mysql_query("SELECT usera,userb FROM con_req WHERE usera='$phone'");
      $con_check2 = mysqli_num_rows($sql_con_check2);
     $con_list_arr = explode(",", $con_list);
-
-  while($row = mysqli_fetch_array($connection,$sql_check_if_con))
+    
+    while($row = mysqli_fetch_array($connection,$sql_check_if_con))
     {
     $con_list = $row['con_array'];
     }//close while
-
+    
       if(in_array($phone, $con_list_arr)){
         echo '<div>Already connected to this number</div>';
       }elseif($phone == $phone_c){
         echo 'You cant connect with yourself';
       }elseif($con_check2>0){
         echo 'Request pending';
-
+    
       }else{
-
+    
        $sql = mysql_query("INSERT INTO con_req (usera, userb, con_date) VALUES('$phone','$phone_c',now())")  
      or die (mysql_error());
       
-
+    
        echo 'success';
       }*/
-
-
-
-      }
-
-
-      $hire_area="";
-      /////////////////////////// Hire Alert ///////////////////////////////////////
-
-      $hire_alert = mysqli_query($connection, "SELECT * FROM hire_request WHERE hiring_id='$sessionInit_id' AND approved='0'");
-
-
-      while($row= mysqli_fetch_array($hire_alert)){
-      	$o_id = $row['own_id'];
-      	$h_id = $row['hiring_id'];
-      	$b_date = $row['bookdate'];
-      	$b_time = $row['booktime'];
-      	$b_price = $row['price'];
-
-      	$sql_hire_user = mysqli_query($connection, "SELECT * FROM users WHERE id='$o_id'");
-      	while($row= mysqli_fetch_array($sql_hire_user)){
-
-      		$hiring_name = $row['username'];
-      
-
-
-      	$hire_area.='<div>'.$hiring_name.' wants to hire you for '.$b_date.' at time '.$b_time.' HRS for the amount of Rs.'.$b_price.'</div>
+}
+$hire_area = "";
+/////////////////////////// Hire Alert ///////////////////////////////////////
+$hire_alert = mysqli_query($connection, "SELECT * FROM hire_request WHERE hiring_id='$sessionInit_id' AND approved='0'");
+while ($row = mysqli_fetch_array($hire_alert)) {
+    $o_id = $row['own_id'];
+    $h_id = $row['hiring_id'];
+    $b_date = $row['bookdate'];
+    $b_time = $row['booktime'];
+    $b_price = $row['price'];
+    $sql_hire_user = mysqli_query($connection, "SELECT * FROM users WHERE id='$o_id'");
+    while ($row = mysqli_fetch_array($sql_hire_user)) {
+        $hiring_name = $row['username'];
+        $hire_area.= '<div>' . $hiring_name . ' wants to hire you for ' . $b_date . ' at time ' . $b_time . ' HRS for the amount of Rs.' . $b_price . '</div>
 
       	<div id="">
 <form action="index.php" method="post" enctype="multipart/form-data">
-<input type="hidden" id="hire_approval" name="hire_approval" value="'.$o_id.'">
+<input type="hidden" id="hire_approval" name="hire_approval" value="' . $o_id . '">
       	<button type="submit" class="btn btn-primary">Approve</button>
 
       	</form>
       	</div>
       	<div id="">
 <form action="index.php" method="post" enctype="multipart/form-data">
-<input type="hidden" id="hire_deny" name="hire_deny" value="'.$o_id.'">
+<input type="hidden" id="hire_deny" name="hire_deny" value="' . $o_id . '">
       	<button type="submit" class="btn btn-primary">Deny</button>
 
       	</form></div>';
-
-      }
-	}
-
+    }
+}
 //////////////////////Clubs can only hire other artist and clubs cannot hire another club///////////////////
-
 $sql_user_a = mysqli_query($connection, "SELECT user_type from users where id='$sessionInit_id'");
-while($row=mysqli_fetch_array($sql_user_a)){
-	$logged_user_type = $row['user_type'];
+while ($row = mysqli_fetch_array($sql_user_a)) {
+    $logged_user_type = $row['user_type'];
 }
-
 ////////////////Hire Acccept and Deny //////////////////////////////////////////
-
-
-
-
-      if(isset($_POST['hire_approval'])){
-
-
-
-      	$approval_id = preg_replace('#[^0-9]#i', "", $_POST['hire_approval']);
-
-      
-
-      	$sql_approved_query = mysqli_query($connection, "UPDATE hire_request SET approved='1' WHERE hiring_id='$sessionInit_id' AND own_id='$approval_id' LIMIT 1");
-
-      	header('location: /home');
-
-    
-      }
-
-       if(isset($_POST['hire_deny'])){
-
-
-
-      	$deny_id = preg_replace('#[^0-9]#i', "", $_POST['hire_deny']);
-
-      
-
-      	$sql_deny_query = mysqli_query($connection, "DELETE FROM hire_request WHERE hiring_id='$sessionInit_id' AND own_id='$deny_id' LIMIT 1");
-
+if (isset($_POST['hire_approval'])) {
+    $approval_id = preg_replace('#[^0-9]#i', "", $_POST['hire_approval']);
+    $sql_approved_query = mysqli_query($connection, "UPDATE hire_request SET approved='1' WHERE hiring_id='$sessionInit_id' AND own_id='$approval_id' LIMIT 1");
     header('location: /home');
-      }
-
-      ////////////////////// Notification for phone Request /////////////////////////
-
-      $sql_alert_p = mysqli_query($connection, "SELECT * from con_req where userb='$phone' LIMIT 1"); 
-      $check_palert = mysqli_num_rows($sql_alert_p);   
-
-      while($row=mysqli_fetch_array($sql_alert_p)){
-        $ap_id = $row["id"];
-        $c_u = $row["usera"]; 
-        $con_date = $row["con_date"];
-
-        $sql_cname = mysqli_query($connection, "SELECT * from users where phone='$c_u' LIMIT 1");
-
-        while($row= mysqli_fetch_array($sql_cname)){
-
-        $d_name= $row['username'];
-        }
-        
-        if($check_palert>0){
-
-        $p_alert.= '<div id="'.$ap_id.'""> '.$d_name.' wants to connect to you</div>
-
-        <a id="'.$c_u.'" class="accept" onclick="return false">Accept</a> | 
-        <a id="'.$c_u.'" class="deny" onclick="return false">Deny</a>';
-
-      }else{
-        $p_alert.= '';
-      }
-      }
-      
-//////////////////////// get current booking price ///////////////////////////////////////
-
-
-   
-
-
-		//////////////////////////paqyment gateway////////////////////////////////////////////
-if(isset($_POST['payment_method'])){
-
-$b_price2 = mysqli_real_escape_string($connection, $_POST['parse_var']);
-$b_username = mysqli_real_escape_string($connection, $_POST['parse_var2']);
-
-
-include('online_pay.php');
-
 }
+if (isset($_POST['hire_deny'])) {
+    $deny_id = preg_replace('#[^0-9]#i', "", $_POST['hire_deny']);
+    $sql_deny_query = mysqli_query($connection, "DELETE FROM hire_request WHERE hiring_id='$sessionInit_id' AND own_id='$deny_id' LIMIT 1");
+    header('location: /home');
+}
+////////////////////// Notification for phone Request /////////////////////////
+$sql_alert_p = mysqli_query($connection, "SELECT * from con_req where userb='$phone' LIMIT 1");
+$check_palert = mysqli_num_rows($sql_alert_p);
+while ($row = mysqli_fetch_array($sql_alert_p)) {
+    $ap_id = $row["id"];
+    $c_u = $row["usera"];
+    $con_date = $row["con_date"];
+    $sql_cname = mysqli_query($connection, "SELECT * from users where phone='$c_u' LIMIT 1");
+    while ($row = mysqli_fetch_array($sql_cname)) {
+        $d_name = $row['username'];
+    }
+    if ($check_palert > 0) {
+        $p_alert.= '<div id="' . $ap_id . '""> ' . $d_name . ' wants to connect to you</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-			////////////////Display Music//////////////////////////////////////////////////
-
-			
-				$musicDisplay="";
-		///////  END Mechanism to Display Pic	
+        <a id="' . $c_u . '" class="accept" onclick="return false">Accept</a> | 
+        <a id="' . $c_u . '" class="deny" onclick="return false">Deny</a>';
+    } else {
+        $p_alert.= '';
+    }
+}
+//////////////////////// get current booking price ///////////////////////////////////////
+//////////////////////////paqyment gateway////////////////////////////////////////////
+if (isset($_POST['payment_method'])) {
+    $b_price2 = mysqli_real_escape_string($connection, $_POST['parse_var']);
+    $b_username = mysqli_real_escape_string($connection, $_POST['parse_var2']);
+    include ('online_pay.php');
+}
+////////////////Display Music//////////////////////////////////////////////////
+$musicDisplay = "";
+///////  END Mechanism to Display Pic
 $sql_music = mysqli_query($connection, "SELECT * FROM music where own_id='$id' ORDER BY uploaded_date DESC");
 $count_music = mysqli_num_rows($sql_music);
-
-
-
-
-while($row = mysqli_fetch_array($sql_music)){
-	
-			$music_id = $row['id'];
-			//$id_to_delete = "ks007".$row_id; 
-			//$encrypted_login_id = base64_encode("g4p3h9xfn8sq03hs2234h$id_to_delete");
-			$musicTitle = $row["file_title"];
-			$music = $row["filename"];
-			$coverurl = $row["filename2"];
-			$musicDesc = $row["file_desc"];
-			$owner_id = $row["own_id"];
-			$musicPath = "../users/$owner_id/music/$music";
-			$coverPath = "../users/$owner_id/music/$coverurl";
-			
-
-			//////////////////////////////////////  ///////////////////////////////////////////////
-			$sql5 = mysqli_query($connection, "SELECT id, username FROM users where id = '$owner_id' LIMIT 1");
-				while($row = mysqli_fetch_array($sql5)) 
-					{
-					$music_poster_id = $row['id'];
-					//$blabbers_uname = $row['username'];
-					
-					}
-
-
-
-			//check for username display
-			
-	
-	
-	/*$del_btn = "";
-				if(isset($_SESSION['idx']))
-					{
-					if($id == $logOptions_id)
-						{
-						$del_btn = '<a href="#" class="delete_blab" id="'.$row_id.'" alt="remove">Delete</a>';
-						}else
-							{
-							$del_btn = '';
-							}}*/
-
-if($count_music>0){
-						
-				$musicDisplay.= '<div class="item" id="'.$music_id.'">
+while ($row = mysqli_fetch_array($sql_music)) {
+    $music_id = $row['id'];
+    //$id_to_delete = "ks007".$row_id;
+    //$encrypted_login_id = base64_encode("g4p3h9xfn8sq03hs2234h$id_to_delete");
+    $musicTitle = $row["file_title"];
+    $music = $row["filename"];
+    $coverurl = $row["filename2"];
+    $musicDesc = $row["file_desc"];
+    $owner_id = $row["own_id"];
+    $musicPath = "../users/$owner_id/music/$music";
+    $coverPath = "../users/$owner_id/music/$coverurl";
+    //////////////////////////////////////  ///////////////////////////////////////////////
+    $sql5 = mysqli_query($connection, "SELECT id, username FROM users where id = '$owner_id' LIMIT 1");
+    while ($row = mysqli_fetch_array($sql5)) {
+        $music_poster_id = $row['id'];
+        //$blabbers_uname = $row['username'];
+        
+    }
+    //check for username display
+    /*$del_btn = "";
+    if(isset($_SESSION['idx']))
+    	{
+    	if($id == $logOptions_id)
+    		{
+    		$del_btn = '<a href="#" class="delete_blab" id="'.$row_id.'" alt="remove">Delete</a>';
+    		}else
+    			{
+    			$del_btn = '';
+    			}}*/
+    if ($count_music > 0) {
+        $musicDisplay.= '<div class="item" id="' . $music_id . '">
 							<div class="meida-holder kairosodeum-mod-thumb">
 																	<div class="kairosodeum-single-gallery">
 										
 										   <ol class="fap-my-playlist">
 																																	<li>
 													<!--  TRACK -->
-													<a data-music="  '.$musicPath.'" title="'.$musicTitle.'" target="'.$musiPath.'">
-														<img style="width:150px; height:150px;" width="450" height="450" src="'.$coverPath.'" class="attachment-kairosodeum-thumb-medium size-kairosodeum-thumb-medium wp-post-image" alt="" srcset="'.$coverPath.' 450w, '.$coverPath.' 150w, '.$coverPath.' 250w" sizes="(max-width: 450px) 100vw, 450px" />														</a>
+													<a data-music="  ' . $musicPath . '" title="' . $musicTitle . '" target="' . $musiPath . '">
+														<img style="width:150px; height:150px;" width="450" height="450" src="' . $coverPath . '" class="attachment-kairosodeum-thumb-medium size-kairosodeum-thumb-medium wp-post-image" alt="" srcset="' . $coverPath . ' 450w, ' . $coverPath . ' 150w, ' . $coverPath . ' 250w" sizes="(max-width: 450px) 100vw, 450px" />														</a>
 
 													<!-- DOWNLOAD -->
 													<div class="kairosodeum-single-download">
@@ -594,8 +423,8 @@ if($count_music>0){
 															</div>
 
 							<div class="kairosodeum-mod-detail  kairosodeum-mod-detail-dark ">
-																	<h1>'.$musicTitle.'</a></h1>
-																<h2>"'.$musicDesc.'"</h2>
+																	<h1>' . $musicTitle . '</a></h1>
+																<h2>"' . $musicDesc . '"</h2>
 																				
                         
 
@@ -607,76 +436,55 @@ if($count_music>0){
 						</div>
 				
 			';
-	
-}else{
-
-	$musicDisplay.= '<div class="row"><h2>No songs are available</h2></div>';
+    } else {
+        $musicDisplay.= '<div class="row"><h2>No songs are available</h2></div>';
+    }
 }
-
-
-}
-
-
 ////////////////Display Videos//////////////////////////////////////////////////
-
-			
-				$vidDisplay="";
-		///////  END Mechanism to Display Pic	
+$vidDisplay = "";
+///////  END Mechanism to Display Pic
 $sql_vids = mysqli_query($connection, "SELECT * FROM videos where own_id='$id' ORDER BY uploaded_date DESC");
 $count_vid = mysqli_num_rows($sql_vids);
+while ($row = mysqli_fetch_array($sql_vids)) {
+    $vid_id = $row['id'];
+    //$id_to_delete = "ks007".$row_id;
+    //$encrypted_login_id = base64_encode("g4p3h9xfn8sq03hs2234h$id_to_delete");
+    $vidurl = $row['file_url'];
+    $vidName = $row['title'];
+    $vidCover = $row['cover'];
+    $owner_id = $row["own_id"];
+    $vidPath = "../users/$owner_id/videos/$vidCover";
+    ///////////////////
+    $sql5 = mysqli_query($connection, "SELECT id, username FROM users where id = '$owner_id' LIMIT 1");
+    while ($row = mysqli_fetch_array($sql5)) {
+        $vid_poster_id = $row['id'];
+        //$blabbers_uname = $row['username'];
+        
+    }
+    //check for username display
+    /*$del_btn = "";
+    if(isset($_SESSION['idx']))
+    	{
+    	if($id == $logOptions_id)
+    		{
+    		$del_btn = '<a href="#" class="delete_blab" id="'.$row_id.'" alt="remove">Delete</a>';
+    		}else
+    			{
+    			$del_btn = '';
+    			}}*/
+    if ($count_vid > 0) {
+        $vidDisplay.= '
 
-
-
-
-while($row = mysqli_fetch_array($sql_vids)){
-$vid_id = $row['id'];
-			//$id_to_delete = "ks007".$row_id; 
-			//$encrypted_login_id = base64_encode("g4p3h9xfn8sq03hs2234h$id_to_delete");
-			$vidurl = $row['file_url'];
-			$vidName = $row['title'];
-			$vidCover = $row['cover'];
-			$owner_id = $row["own_id"];
-			$vidPath = "../users/$owner_id/videos/$vidCover";
-			///////////////////
-			$sql5 = mysqli_query($connection,"SELECT id, username FROM users where id = '$owner_id' LIMIT 1");
-				while($row = mysqli_fetch_array($sql5)) 
-					{
-					$vid_poster_id = $row['id'];
-					//$blabbers_uname = $row['username'];
-					
-					}
-
-
-
-			//check for username display
-			
-	
-	
-	/*$del_btn = "";
-				if(isset($_SESSION['idx']))
-					{
-					if($id == $logOptions_id)
-						{
-						$del_btn = '<a href="#" class="delete_blab" id="'.$row_id.'" alt="remove">Delete</a>';
-						}else
-							{
-							$del_btn = '';
-							}}*/
-
-if($count_vid>0){
-						
-				$vidDisplay.= '
-
-	<div class="col-md-6" id="n_div'.$vid_id.'">
+	<div class="col-md-6" id="n_div' . $vid_id . '">
 													<div class="kairosodeum-single-gallery">
 								<a class="kairosodeum-video-popup" href="#kairosodeum-video144">
-									<img width="700" height="450" src="'.$vidPath.'" class="attachment-kairosodeum-thumb-formal size-kairosodeum-thumb-formal wp-post-image" alt="" />									<div class="kairosodeum-video-play"><i class="fa fa-play"></i></div>
+									<img width="700" height="450" src="' . $vidPath . '" class="attachment-kairosodeum-thumb-formal size-kairosodeum-thumb-formal wp-post-image" alt="" />									<div class="kairosodeum-video-play"><i class="fa fa-play"></i></div>
 								</a>
 							</div>
 												<div class="kairosodeum-mod-detail ">
 															<h1></h1>
 														<h2>
-																	"'.$vidName.'"
+																	"' . $vidName . '"
 															</h2>
 						</div>
 
@@ -685,7 +493,7 @@ if($count_vid>0){
 							<div class="col-md-8">
 															<div class="embed-container">
 															   <iframe id="ytplayer" type="text/html" width="200" height="113"
-    src="https://www.youtube.com/embed/'. $vidurl . '?rel=0&showinfo=0&color=white&iv_load_policy=3"
+    src="https://www.youtube.com/embed/' . $vidurl . '?rel=0&showinfo=0&color=white&iv_load_policy=3"
     frameborder="0" allowfullscreen></iframe> 
     							</div>
 														</div>
@@ -699,94 +507,61 @@ if($count_vid>0){
 
 				
 				';
-	
-}else{
-
-	$vidDisplay.= '<div class="row"><h2>No videos are available</h2></div>';
+    } else {
+        $vidDisplay.= '<div class="row"><h2>No videos are available</h2></div>';
+    }
 }
-
-
-}
-
-
-
 ////////////////Display Photos//////////////////////////////////////////////////
-
-	$photoDisplay="";
-		///////  END Mechanism to Display Pic	
+$photoDisplay = "";
+///////  END Mechanism to Display Pic
 $sql_photos = mysqli_query($connection, "SELECT * FROM gallery where own_id='$id' ORDER 
 								BY uploaded_date DESC");
 $count_photo = mysqli_num_rows($sql_photos);
-
-
-
-
-while($row = mysqli_fetch_array($sql_photos)){
-$photo_id = $row['id'];
-			//$id_to_delete = "ks007".$row_id; 
-			//$encrypted_login_id = base64_encode("g4p3h9xfn8sq03hs2234h$id_to_delete");
-			$photo_filename = $row['filename'];
-			$photoTitle = $row['title'];
-			$owner_id = $row["own_id"];
-			$photoPath = "../users/$owner_id/photos/$photo_filename";
-			///////////////////
-			$sql5 = mysqli_query($connection,"SELECT id, username FROM users where id = '$owner_id' LIMIT 1");
-				while($row = mysqli_fetch_array($sql5)) 
-					{
-					$photo_poster_id = $row['id'];
-					
-					
-					}
-
-
-					
-			//check for username display
-			
-	
-	
-	/*$del_btn = "";
-				if(isset($_SESSION['idx']))
-					{
-					if($id == $logOptions_id)
-						{
-						$del_btn = '<a href="#" class="delete_blab" id="'.$row_id.'" alt="remove">Delete</a>';
-						}else
-							{
-							$del_btn = '';
-							}}*/
-
-if($count_photo>0){
-						
-				$photoDisplay.= '
+while ($row = mysqli_fetch_array($sql_photos)) {
+    $photo_id = $row['id'];
+    //$id_to_delete = "ks007".$row_id;
+    //$encrypted_login_id = base64_encode("g4p3h9xfn8sq03hs2234h$id_to_delete");
+    $photo_filename = $row['filename'];
+    $photoTitle = $row['title'];
+    $owner_id = $row["own_id"];
+    $photoPath = "../users/$owner_id/photos/$photo_filename";
+    ///////////////////
+    $sql5 = mysqli_query($connection, "SELECT id, username FROM users where id = '$owner_id' LIMIT 1");
+    while ($row = mysqli_fetch_array($sql5)) {
+        $photo_poster_id = $row['id'];
+    }
+    //check for username display
+    /*$del_btn = "";
+    if(isset($_SESSION['idx']))
+    	{
+    	if($id == $logOptions_id)
+    		{
+    		$del_btn = '<a href="#" class="delete_blab" id="'.$row_id.'" alt="remove">Delete</a>';
+    		}else
+    			{
+    			$del_btn = '';
+    			}}*/
+    if ($count_photo > 0) {
+        $photoDisplay.= '
 				
-				    <div class="col-xs-6 col-sm-3 thumb"  id="n_div'.$photo_id.'">
+				    <div class="col-xs-6 col-sm-3 thumb"  id="n_div' . $photo_id . '">
 					<div class="kairosodeum-single-gallery">
 					
-            <a class="photoGallery" href="#" data-image-id="" data-toggle="modal" data-title="'.$photoTitle.'" data-caption="'.$photoTitle.'" data-image="'.$photoPath.'" data-target="#image-gallery">
-                <img class="img-responsive" src="'.$photoPath.'" alt="'.$photoTitle.'">
+            <a class="photoGallery" href="#" data-image-id="" data-toggle="modal" data-title="' . $photoTitle . '" data-caption="' . $photoTitle . '" data-image="' . $photoPath . '" data-target="#image-gallery">
+                <img class="img-responsive" src="' . $photoPath . '" alt="' . $photoTitle . '">
             </a>
 			
 				<div class="kaiosodeum-gallery-hover"></div>
 						  
 						</div>
         </div>';
-	
-}else{
-
-	$photoDisplay.= '<div class="row"><h2>No photos are available</h2></div>';
+    } else {
+        $photoDisplay.= '<div class="row"><h2>No photos are available</h2></div>';
+    }
 }
-
-
-
-
-
-}
-
-
 //-----encoded str for delete response-----------//
-$thisRandNum2 = rand(999999999999,99999999999999999);
+$thisRandNum2 = rand(999999999999, 99999999999999999);
 //----------END ENCODE STR FOR DELETE RESPONSE----------///
-
 
 ?>
 <!DOCTYPE html>
@@ -980,9 +755,8 @@ $(".deny").click(function(){
 				<div class="col-xs-12 col-sm-12 col-md-12">
 
 							<div class="kairosodeum-menu-icon">
-<?php if (isset($_SESSION['idx'])) { 
-
-								echo "<button class=\"kairosodeum-btn-\">
+<?php if (isset($_SESSION['idx'])) {
+    echo "<button class=\"kairosodeum-btn-\">
 								<a href=\"/home/\" >
 						<i class=\"fa fa-plus\"></i> <span>Dashboard</span>
 					</a>&nbsp; &nbsp;
@@ -990,8 +764,8 @@ $(".deny").click(function(){
 						<i class=\"fa fa-plus\"></i> <span>Account</span>
 					</a>
 					</button>";
-}else{
-								?>
+} else {
+?>
 					<button class="kairosodeum-btn-sidebar">
 						<i class="fa fa-plus"></i> <span>Login/Signup</span>
 					</button>
@@ -1032,44 +806,44 @@ $(".deny").click(function(){
     <div class="card hovercard">
         
         <div class="useravatar">
-                <?php echo $user_pic;?>
+                <?php echo $user_pic; ?>
         </div>
         <div class="card-info"> <span class="card-title"><?php echo $username; ?></span><br />
-           <span class="card-title-city"><?php echo $city;?></span>
+           <span class="card-title-city"><?php echo $city; ?></span>
 
 
 
         </div>
 
 
-<?php if($sessionInit_id ==$id) {?>
+<?php if ($sessionInit_id == $id) { ?>
 
          <a data-toggle="modal" data-target="#uploadMusic"><button class="btn btn-primary"><i class="fa fa-music"></i></button></a>
 
 		<a data-toggle="modal" data-target="#uploadPhoto"><button class="btn btn-primary"><i class="fa fa-photo"></i></button></a>
 <a data-toggle="modal" data-target="#uploadVideo"><button class="btn btn-primary"><i class="fa fa-file-video-o"></i> </button></a>
 
-<?php } ?>
+<?php
+    } ?>
 <!--<a data-toggle="modal" data-target="#uploadPhoto"><button class="btn btn-primary"><i class="fa fa-user"></i> </button></a>-->
 
 
 <?php
+    if ($logged_user_type != $user_type) {
+        if ($sessionInit_id != $id) { ?>
 
-if($logged_user_type!=$user_type){
-
-
- if($sessionInit_id !=$id) {?>
-
-<?php if($hire_check_flag>0 && $approval==0 ) { ?>
+<?php if ($hire_check_flag > 0 && $approval == 0) { ?>
 
 <a><button class="btn btn-primary">Hired! Awaiting Confirmation </button></a>
 
-<?php }else if($hire_check_flag>0 && $approval==1){ ?>
+<?php
+            } else if ($hire_check_flag > 0 && $approval == 1) { ?>
 
 
 <a data-toggle="modal" data-target="#payment_window"><button class="btn btn-primary">Pay for Gig </button></a>
 
-<?php }else{ ?>
+<?php
+            } else { ?>
 
 
 
@@ -1077,25 +851,25 @@ if($logged_user_type!=$user_type){
 
 
 
-<?php }}} ?>
+<?php
+            }
+        }
+    } ?>
 
 
 
 <?php
+    if ($sessionInit_id != $id) { ?>
 
-
-
-
- if($sessionInit_id !=$id) {?>
-
-<?php if($follow_check_flag>0) { ?>
+<?php if ($follow_check_flag > 0) { ?>
 <form action="index.php" method="post" enctype="multipart\form-data">
 <a>
 <input type="hidden" name="user_value" value="<?php echo $id; ?>">
 <button type="submit" name="unfollow" id="unfollow" class="btn btn-primary">Unfollow </button></a>
 </form>
 
-<?php }else{ ?>
+<?php
+        } else { ?>
 
 
 <form action="index.php" method="post" enctype="multipart\form-data">
@@ -1105,14 +879,17 @@ if($logged_user_type!=$user_type){
 </form>
 
 
-<?php }} ?>
+<?php
+        }
+    } ?>
 
 
 
-  <?php if($sessionInit_id ==$id) {?>
+  <?php if ($sessionInit_id == $id) { ?>
 
 <a data-toggle="modal" data-target="#invite_window"><button class="btn btn-primary">Invite </button></a>
-<?php } ?>
+<?php
+    } ?>
 <a href="../logout/"><button class="btn btn-primary">Logout </button></a>
 
 <div class="container" style="margin-top: 80px;">
@@ -1340,7 +1117,7 @@ if($logged_user_type!=$user_type){
 
 <!--modal Video end-->
 
-<?php if($sessionInit_id !=$id) {?>
+<?php if ($sessionInit_id != $id) { ?>
 <!-- Modal Hiring -->
 <div id="hire_window" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -1350,7 +1127,7 @@ if($logged_user_type!=$user_type){
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Hire #<?php echo $username; ?></h4>
-        <?php echo  $error_p ;?>
+        <?php echo $error_p; ?>
       </div>
       <div class="modal-body">
       <?php echo $ErrorFlag; ?>
@@ -1399,7 +1176,8 @@ if($logged_user_type!=$user_type){
 
 <!--modal Hire end-->
 
-<?php } ?>
+<?php
+    } ?>
 
 
 
@@ -1414,7 +1192,7 @@ if($logged_user_type!=$user_type){
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Invite your friends</h4>
-        <?php echo  $error_p ;?>
+        <?php echo $error_p; ?>
         <?php echo $Successmsg; ?>
       </div>
       <div class="modal-body">
@@ -1443,7 +1221,7 @@ if($logged_user_type!=$user_type){
 
 
 
-<?php if($sessionInit_id !=$id) {?>
+<?php if ($sessionInit_id != $id) { ?>
 <!-- Modal Hiring -->
 
 <div id="payment_window" class="modal fade" role="dialog">
@@ -1454,7 +1232,7 @@ if($logged_user_type!=$user_type){
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Pay #<?php echo $username; ?></h4>
-        <?php echo  $error_p ;?>
+        <?php echo $error_p; ?>
       </div>
       <div class="modal-body">
       <?php echo $ErrorFlag; ?>
@@ -1494,7 +1272,8 @@ if($logged_user_type!=$user_type){
 </div>
 <!--modal Hire end-->
 
-<?php } ?>
+<?php
+    } ?>
            
 
 	<!-- SOUND THEME / BUILDER START -->
@@ -1523,10 +1302,10 @@ if($logged_user_type!=$user_type){
 			<div class="col-md-12">
 					<div class="kairosodeum-mod-title kairosodeum-mod-title-dark">
 						<h1>#ABOUT</h1>
-						<h2>@<?php echo $username;?></h2>
+						<h2>@<?php echo $username; ?></h2>
 						<h2><?php echo $bio_body; ?></h2>
 						<h1 style="margin-top:8%;">#Experience</h1>
-						<h2>@<?php echo $username;?></h2>
+						<h2>@<?php echo $username; ?></h2>
 						<h2><?php echo $experience; ?></h2>
 					</div>
 			</div>
@@ -1726,7 +1505,7 @@ if($logged_user_type!=$user_type){
 </div>
 
 						    				    
-						    			<?php echo $photoDisplay;?>
+						    			<?php echo $photoDisplay; ?>
 
 
 
