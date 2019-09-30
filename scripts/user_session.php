@@ -1,7 +1,10 @@
 <?php
-session_start();
+if(!isset($_SESSION)) 
+{ 
+	session_start(); 
+} 
 error_reporting(E_ALL);
-ini_set("display_errors", 0);
+ini_set("display_errors", 1);
 ///////////////////////////////////////////////////////
 include_once "DB_connect.php"; 
 

@@ -1,6 +1,9 @@
 <?php
 
-session_start ();
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 $www = $_SERVER['HTTP_HOST'];
 
 error_reporting (E_ALL);
