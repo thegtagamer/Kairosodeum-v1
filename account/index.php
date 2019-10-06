@@ -1,233 +1,270 @@
 <?php
 error_reporting(E_ALL);
-ini_set("display_errors", 0);
-include_once ("../scripts/user_session.php");
+ini_set("display_errors", 1);
+include_once("../scripts/user_session.php");
 include_once '../scripts/DB_connect.php';
 if (!isset($_SESSION['idx'])) {
-    header('Location: ../index.php');
-}
+   header('Location: ../index.php');
+  }
+
 $id = $sessionInit_id; // Set the profile owner ID
-$error_msg = "";
+$error_msg = ""; 
 $errorMsg = "";
 $success_msg = "";
-$experiences = "";
-$user_type = "";
-$cacheBuster = rand(9999999, 99999999999); // Put appended to the image URL will help always show new when changed
+$experiences="";
+$user_type="";
+$cacheBuster = rand(9999999,99999999999); // Put appended to the image URL will help always show new when changed
+
+
 ///////  Mechanism to Display Pic. See if they have uploaded a pic or not  //////////////////////////
-$check_pic = "../users/$id/pic.jpg";
-$default_pic = "../users/0/pic.jpg";
-if (file_exists($check_pic)) {
+	$check_pic = "../users/$id/pic.jpg";
+	$default_pic = "../users/0/pic.jpg";
+	if (file_exists($check_pic)) {
     $user_pic = "
 
  <img class=\"card-bkimg\" src=\"$check_pic?$cacheBuster\"  alt=\"img\" />";
-} else {
-    $user_pic = "<img class=\"card-bkimg\" src=\"$default_pic\"  alt=\"img\" />";
-}
-$check_bg = "../users/$id/bg.jpg";
-if (file_exists($check_bg)) {
-    $user_bg = "../users/$id/bg.jpg";
-} else {
-    $user_bg = "../users/0/bg.jpg";
-}
-$sql_default = mysqli_query($connection, "SELECT * FROM users WHERE id='$id'");
-while ($row = mysqli_fetch_array($sql_default)) {
-    $username = $row['username'];
-    $email = $row['email'];
-    $phone = $row['phone'];
-    $country = $row['country'];
-    $state = $row['state'];
-    $city = $row['city'];
-    $address = $row['address'];
-    $pincode = $row['pincode'];
-    $birthday = $row['birthday'];
-    $user_type = $row['user_type'];
-    $about = $row['bio_body'];
-    $about = str_replace("<br />", "", $about);
-    $about = stripslashes($about);
-    $experiences = $row['experiences_body'];
-    $experiences = str_replace("<br />", "", $experiences);
-    $experiences = stripslashes($experiences);
+	} else {
+	$user_pic = "<img class=\"card-bkimg\" src=\"$default_pic\"  alt=\"img\" />"; 
+	}
+
+	$check_bg = "../users/$id/bg.jpg";
+
+	if(file_exists($check_bg)){
+		$user_bg = "../users/$id/bg.jpg";
+	}else{
+		$user_bg = "../users/0/bg.jpg";
+	}
+
+
+
+
+$sql_default = mysql_query("SELECT * FROM users WHERE id='$id'");
+while($row = mysql_fetch_array($sql_default)){ 
+  $username = $row['username'];
+  $email = $row['email'];
+  $phone = $row['phone'];
+  $country = $row['country'];
+  $state = $row['state'];
+  $city = $row['city'];
+  $address = $row['address'];
+  $pincode = $row['pincode'];
+  $birthday = $row['birthday'];
+  $user_type = $row['user_type'];
+  $about = $row['bio_body'];
+  $about = str_replace("<br />", "", $about);
+  $about = stripslashes($about);
+  $experiences = $row['experiences_body'];
+  $experiences = str_replace("<br />", "", $experiences);
+  $experiences = stripslashes($experiences);
+  
 } // close while loop
-// If a file is posted with the form
-if ($_FILES['update_pic']['tmp_name'] != "") {
-    if (!preg_match("/\.(gif|jpg|png)$/i", $_FILES['update_pic']['name'])) {
-        $error_msg = 'Unaccepted format';
-        unlink($_FILES['update_pic']['tmp_name']);
-    } else {
-        $newname = "pic.jpg";
-        $place_file = move_uploaded_file($_FILES['update_pic']['tmp_name'], "../users/$id/" . $newname);
-    }
-}
-if (isset($_POST['username'])) {
-    $username_c = mysqli_real_escape_string($connection, $_POST['username']);
-    // Update the database data now here for all fields posted in the form
-    $sqlUpdate = mysqli_query($connection, "UPDATE users SET username='$username_c' WHERE id='$id' LIMIT 1");
-    if ($sqlUpdate) {
-        header('Location: ../account/');
-        $success_msg = '<div class="alert alert-success fade in">
+
+
+
+  
+  // If a file is posted with the form
+  if ($_FILES['update_pic']['tmp_name'] != "") { 
+            
+           if (!preg_match("/\.(gif|jpg|png)$/i", $_FILES['update_pic']['name'] ) ) {
+
+                        $error_msg = 'Unaccepted format';
+                        unlink($_FILES['update_pic']['tmp_name']); 
+
+            } else { 
+                        $newname = "pic.jpg";
+                        $place_file = move_uploaded_file( $_FILES['update_pic']['tmp_name'], "../users/$id/".$newname);
+            }
+    } 
+
+
+
+  if(isset($_POST['username'])){
+    $username_c= mysql_real_escape_string($_POST['username']);
+   // Update the database data now here for all fields posted in the form
+   $sqlUpdate = mysql_query("UPDATE users SET username='$username_c' WHERE id='$id' LIMIT 1");
+     if ($sqlUpdate){
+           header('Location: ../account/');
+              $success_msg = '<div class="alert alert-success fade in">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
-    Success!</strong> Your username has been changed to ' . $username_c . '
+    Success!</strong> Your username has been changed to '.$username_c.'
 </div>';
-    } else {
+     } else {
         $error_msg = 'Please try again later.';
-    }
+     }
 }
-if (isset($_POST['email'])) {
-    $email_c = mysqli_real_escape_string($connection, $_POST['email']);
-    // Update the database data now here for all fields posted in the form
-    $sqlUpdate = mysqli_query($connection, "UPDATE users SET email='$email_c' WHERE id='$id' LIMIT 1");
-    if ($sqlUpdate) {
-        header('Location: ../account/');
-        $success_msg = '<div class="alert alert-success fade in">
+
+
+  if(isset($_POST['email'])){
+    $email_c= mysql_real_escape_string($_POST['email']);
+   // Update the database data now here for all fields posted in the form
+   $sqlUpdate = mysql_query("UPDATE users SET email='$email_c' WHERE id='$id' LIMIT 1");
+     if ($sqlUpdate){
+           header('Location: ../account/');
+           $success_msg = '<div class="alert alert-success fade in">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
-    Success!</strong> Your email has been changed to ' . $email_c . '
+    Success!</strong> Your email has been changed to '.$email_c.'
 </div>';
-    } else {
+     } else {
         $error_msg = 'Please try again later.';
-    }
-}
-if (isset($_POST['phone'])) {
-    $phone_c = mysqli_real_escape_string($connection, $_POST['phone']);
-    // Update the database data now here for all fields posted in the form
-    $sqlUpdate = mysqli_query($connection, "UPDATE users SET phone='$phone_c' WHERE id='$id' LIMIT 1");
-    if ($sqlUpdate) {
-        header('Location: ../account/');
-        $success_msg = '<div class="alert alert-success fade in">
+     }}
+
+       if(isset($_POST['phone'])){
+    $phone_c= mysql_real_escape_string($_POST['phone']);
+   // Update the database data now here for all fields posted in the form
+   $sqlUpdate = mysql_query("UPDATE users SET phone='$phone_c' WHERE id='$id' LIMIT 1");
+     if ($sqlUpdate){
+           header('Location: ../account/');
+              $success_msg = '<div class="alert alert-success fade in">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
-    Success!</strong> Your phone number has been changed to ' . $phone_c . '
+    Success!</strong> Your phone number has been changed to '.$phone_c.'
 </div>';
-    } else {
+     } else {
         $error_msg = 'Please try again later.';
-    }
-}
-if (isset($_POST['country'])) {
-    $country_c = mysqli_real_escape_string($connection, $_POST['country']);
-    // Update the database data now here for all fields posted in the form
-    $sqlUpdate = mysqli_query($connection, "UPDATE users SET country='$country_c' WHERE id='$id' LIMIT 1");
-    if ($sqlUpdate) {
-        header('Location: ../account/');
-        $success_msg = '<div class="alert alert-success fade in">
+     }}
+
+
+
+  if(isset($_POST['country'])){
+    $country_c= mysql_real_escape_string($_POST['country']);
+   // Update the database data now here for all fields posted in the form
+   $sqlUpdate = mysql_query("UPDATE users SET country='$country_c' WHERE id='$id' LIMIT 1");
+     if ($sqlUpdate){
+          header('Location: ../account/');
+             $success_msg = '<div class="alert alert-success fade in">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
-    Success!</strong> Your country has been changed to ' . $country_c . '
+    Success!</strong> Your country has been changed to '.$country_c.'
 </div>';
-    } else {
+     } else {
         $error_msg = 'Please try again later.';
-    }
-}
-if (isset($_POST['state'])) {
-    $state_c = mysqli_real_escape_string($connection, $_POST['state']);
-    // Update the database data now here for all fields posted in the form
-    $sqlUpdate = mysqli_query($connection, "UPDATE users SET state='$state_c' WHERE id='$id' LIMIT 1");
-    if ($sqlUpdate) {
+     }}
+
+       if(isset($_POST['state'])){
+    $state_c= mysql_real_escape_string($_POST['state']);
+   // Update the database data now here for all fields posted in the form
+   $sqlUpdate = mysql_query("UPDATE users SET state='$state_c' WHERE id='$id' LIMIT 1");
+     if ($sqlUpdate){
         header('Location: ../account/');
-        $success_msg = '<div class="alert alert-success fade in">
+           $success_msg = '<div class="alert alert-success fade in">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
-    Success!</strong> Your state has been changed to ' . $state_c . '
+    Success!</strong> Your state has been changed to '.$state_c.'
 </div>';
-    } else {
+     } else {
         $error_msg = 'Please try again later.';
-    }
-}
-if (isset($_POST['city'])) {
-    $city_c = mysqli_real_escape_string($connection, $_POST['city']);
-    // Update the database data now here for all fields posted in the form
-    $sqlUpdate = mysqli_query($connection, "UPDATE users SET city='$city_c' WHERE id='$id' LIMIT 1");
-    if ($sqlUpdate) {
-        header('Location: ../account/');
-        $success_msg = '<div class="alert alert-success fade in">
+     }}
+
+       if(isset($_POST['city'])){
+    $city_c= mysql_real_escape_string($_POST['city']);
+   // Update the database data now here for all fields posted in the form
+   $sqlUpdate = mysql_query("UPDATE users SET city='$city_c' WHERE id='$id' LIMIT 1");
+     if ($sqlUpdate){
+          header('Location: ../account/');
+             $success_msg = '<div class="alert alert-success fade in">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
-    Success!</strong> Your city has been changed to ' . $city_c . '
+    Success!</strong> Your city has been changed to '.$city_c.'
 </div>';
-    } else {
+     } else {
         $error_msg = 'Please try again later.';
-    }
-}
-if (isset($_POST['address'])) {
-    $address_c = mysqli_real_escape_string($connection, $_POST['address']);
-    // Update the database data now here for all fields posted in the form
-    $sqlUpdate = mysqli_query($connection, "UPDATE users SET address='$address_c' WHERE id='$id' LIMIT 1");
-    if ($sqlUpdate) {
-        header('Location: ../account/');
-        $success_msg = '<div class="alert alert-success fade in">
+     }}
+
+       if(isset($_POST['address'])){
+    $address_c= mysql_real_escape_string($_POST['address']);
+   // Update the database data now here for all fields posted in the form
+   $sqlUpdate = mysql_query("UPDATE users SET address='$address_c' WHERE id='$id' LIMIT 1");
+     if ($sqlUpdate){
+          header('Location: ../account/');
+             $success_msg = '<div class="alert alert-success fade in">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
-    Success!</strong> Your address has been changed to ' . $address_c . '
+    Success!</strong> Your address has been changed to '.$address_c.'
 </div>';
-    } else {
+     } else {
         $error_msg = 'Please try again later.';
-    }
-}
-if (isset($_POST['pincode'])) {
-    $pincode_c = mysqli_real_escape_string($connection, $_POST['pincode']);
-    // Update the database data now here for all fields posted in the form
-    $sqlUpdate = mysqli_query($connection, "UPDATE users SET pincode='$pincode_c' WHERE id='$id' LIMIT 1");
-    if ($sqlUpdate) {
-        header('Location: ../account/');
-        $success_msg = '<div class="alert alert-success fade in">
+     }}
+
+       if(isset($_POST['pincode'])){
+    $pincode_c= mysql_real_escape_string($_POST['pincode']);
+   // Update the database data now here for all fields posted in the form
+   $sqlUpdate = mysql_query("UPDATE users SET pincode='$pincode_c' WHERE id='$id' LIMIT 1");
+     if ($sqlUpdate){
+         header('Location: ../account/');
+            $success_msg = '<div class="alert alert-success fade in">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
-    Success!</strong> Your pin code has been changed to ' . $pincode_c . '
+    Success!</strong> Your pin code has been changed to '.$pincode_c.'
 </div>';
-    } else {
+     } else {
         $error_msg = 'Please try again later.';
-    }
-}
-if (isset($_POST['birthday'])) {
-    $birthday_c = mysqli_real_escape_string($connection, $_POST['birthday']);
-    // Update the database data now here for all fields posted in the form
-    $sqlUpdate = mysqli_query($connection, "UPDATE users SET birthday='$birthday_c' WHERE id='$id' LIMIT 1");
-    if ($sqlUpdate) {
-        header('Location: ../account/');
-        $success_msg = '<div class="alert alert-success fade in">
+     }}
+
+    if(isset($_POST['birthday'])){
+    $birthday_c= mysql_real_escape_string($_POST['birthday']);
+   // Update the database data now here for all fields posted in the form
+   $sqlUpdate = mysql_query("UPDATE users SET birthday='$birthday_c' WHERE id='$id' LIMIT 1");
+     if ($sqlUpdate){
+          header('Location: ../account/');
+             $success_msg = '<div class="alert alert-success fade in">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
-    Success!</strong> Your birthday has been changed to ' . $birthday_c . '
+    Success!</strong> Your birthday has been changed to '.$birthday_c.'
 </div>';
-    } else {
+     } else {
         $error_msg = 'Please try again later.';
-    }
-}
-if (isset($_POST['about'])) {
-    $bio_c = mysqli_real_escape_string($connection, $_POST['about']);
-    // Update the database data now here for all fields posted in the form
-    $sqlUpdate = mysqli_query($connection, "UPDATE users SET bio_body='$bio_c' WHERE id='$id' LIMIT 1");
-    if ($sqlUpdate) {
-        header('Location: ../account/');
-        $success_msg = '<div class="alert alert-success fade in">
+     }
+   }
+
+    if(isset($_POST['about'])){
+    $bio_c= mysql_real_escape_string($_POST['about']);
+   // Update the database data now here for all fields posted in the form
+   $sqlUpdate = mysql_query("UPDATE users SET bio_body='$bio_c' WHERE id='$id' LIMIT 1");
+     if ($sqlUpdate){
+          header('Location: ../account/');
+             $success_msg = '<div class="alert alert-success fade in">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
-    Success!</strong> Your about has been changed to ' . $bio_c . '
+    Success!</strong> Your about has been changed to '.$bio_c.'
 </div>';
-    } else {
+     } else {
         $error_msg = 'Please try again later.';
-    }
+     }
+
 }
-if (isset($_POST['experiences'])) {
-    $exp_c = mysqli_real_escape_string($connection, $_POST['experiences']);
-    // Update the database data now here for all fields posted in the form
-    $sqlUpdate = mysqli_query($connection, "UPDATE users SET experiences_body='$exp_c' WHERE id='$id' LIMIT 1");
-    if ($sqlUpdate) {
-        header('Location: ../account/');
-        $success_msg = '<div class="alert alert-success fade in">
+
+
+  if(isset($_POST['experiences'])){
+    $exp_c= mysql_real_escape_string($_POST['experiences']);
+   // Update the database data now here for all fields posted in the form
+   $sqlUpdate = mysql_query("UPDATE users SET experiences_body='$exp_c' WHERE id='$id' LIMIT 1");
+     if ($sqlUpdate){
+          header('Location: ../account/');
+             $success_msg = '<div class="alert alert-success fade in">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
-    Success!</strong> Your experiences has been changed to ' . $exp_c . '
+    Success!</strong> Your experiences has been changed to '.$exp_c.'
 </div>';
-    } else {
+     } else {
         $error_msg = 'Please try again later.';
-    }
+     }
+
 }
-if (isset($_POST['user_type'])) {
-    $usr_c = mysqli_real_escape_string($connection, $_POST['user_type']);
-    // Update the database data now here for all fields posted in the form
-    $sqlUpdate = mysqli_query($connection, "UPDATE users SET user_type='$usr_c' WHERE id='$id' LIMIT 1");
-    if ($sqlUpdate) {
-        header('Location: ../account/');
-        $success_msg = '<div class="alert alert-success fade in">
+
+
+if(isset($_POST['user_type'])){
+    $usr_c= mysql_real_escape_string($_POST['user_type']);
+   // Update the database data now here for all fields posted in the form
+   $sqlUpdate = mysql_query("UPDATE users SET user_type='$usr_c' WHERE id='$id' LIMIT 1");
+     if ($sqlUpdate){
+           header('Location: ../account/');
+              $success_msg = '<div class="alert alert-success fade in">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
-    Success!</strong> Your account type has been changed to ' . $usr_c . '
+    Success!</strong> Your account type has been changed to '.$usr_c.'
 </div>';
-    } else {
+     } else {
         $error_msg = 'Please try again later.';
-    }
+     }
+
 }
+
+
+
+
+
 ?>
-<?php echo $success_msg; ?> 
+<?php echo $success_msg;?> 
 <!DOCTYPE html>
 <html lang="en-US" class="no-js">
 <head>
@@ -419,8 +456,9 @@ $(".deny").click(function(){
 				<div class="col-xs-12 col-sm-12 col-md-12">
 
 							<div class="kairosodeum-menu-icon">
-<?php if (isset($_SESSION['idx'])) {
-    echo "<button class=\"kairosodeum-btn-\">
+<?php if (isset($_SESSION['idx'])) { 
+
+								echo "<button class=\"kairosodeum-btn-\">
 								<a href=\"/home/\" >
 						<i class=\"fa fa-plus\"></i> <span>Dashboard</span>
 					</a>&nbsp; &nbsp;
@@ -428,13 +466,13 @@ $(".deny").click(function(){
 						<i class=\"fa fa-plus\"></i> <span>Account</span>
 					</a>
 					</button>";
-} else {
-?>
+}else{
+								?>
 					<button class="kairosodeum-btn-sidebar">
 						<i class="fa fa-plus"></i> <span>Login/Signup</span>
 					</button>
 
-					<?php } ?>
+					<? } ?>
 				</div>
 			
 			<div class="kairosodeum-logo hidden-sm hidden-xs">
@@ -472,7 +510,7 @@ $(".deny").click(function(){
     <div class="card2 hovercard2">
 <h1>Account @<?php echo $username; ?></h1>        
         <div class="useravatar2">
-                <?php echo $user_pic; ?>
+                <?php echo $user_pic;?>
         </div>
        
 
@@ -654,7 +692,7 @@ $(".deny").click(function(){
   <label class="col-md-4 control-label" for="selectbasic">Account Type</label>
   <div class="col-md-4">
     <select id="selectbasic" name="user_type" class="form-control">
-    <?php if ($user_type == "u") { ?>
+    <?php if($user_type=="u"){ ?>
       <option value="u">Artist</option>
       <option value="c">Club</option>
       <? }else if($user_type=="c"){ ?>

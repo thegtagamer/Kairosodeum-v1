@@ -43,7 +43,8 @@ html, body, p {
 .kairosodeum-sidebar-tab ul li, .kairosodeum-sidebar-menu, .kairosodeum-nav-fixed, .kairosodeum-header-back, .btn-primary, .btn-success:hover, 
 .btn-success:focus, .btn-primary:focus, .kairosodeum-darkback-one, .kairosodeum-logo-footer ul li a, .component-fullwidth, .kairosodeum-mod-dark,
 .kairosodeum-single-tracklist .fap-add-playlist, #fap-closer, #fap-player-wrapper, #fap-playlist {
-	background-color:#24252A;
+/*	background-color:#24252A;*/
+    background-color: #020202e3;
 }
 
 /* #2A2B30 */
@@ -55,7 +56,7 @@ html, body, p {
 
 .kairosodeum-sidebar-tab ul li.active, .main-nav li > ul a, .kairosodeum-mini-popup ul li button, .input-group-addon, .kairosodeum-darkback-two, .kairosodeum-navi ul li a, .kairosodeum-navi ul li.page_nums,
 .kairosodeum-filter-menu ul li, .kairosodeum-filter-random ul li, #fap-volume-scrubber {
-	background-color:#2A2B30;
+	background-color:#000;
 }
 
 
@@ -233,6 +234,7 @@ a:hover, a:focus {
     -webkit-border-radius: 4px;
     -khtml-border-radius: 4px;
     border-radius: 4px;
+    text-align: center;
 }
 
 .carousel-block h4{
@@ -240,8 +242,8 @@ a:hover, a:focus {
     font-weight: bold;
     color:#fff;
 }
-.carousel-block img{
-	
+.carousel-block img {
+    width: 70%;
 }
 
 
@@ -512,4 +514,120 @@ a:hover, a:focus {
         cursor: pointer;
     }
 
-    
+    .btn1{
+  display: inline;
+  color: white;
+  min-width: 154px;
+  text-decoration: none;
+  margin-right: 50px;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+            float: right;
+    top: -40px;
+        
+}
+.btn1:hover .button1-stroke:nth-child(2) {
+  stroke-dashoffset: 0;
+cursor:default;
+}
+
+.button1-stroke {
+  display: block;
+  width: calc(100% - 40px);
+  height: 20px;
+  stroke: yellow;
+  position: absolute;
+ float: right;
+  stroke-width: 4;
+}
+.button1-stroke:nth-child(2) {
+  stroke-dasharray: 650px;
+  stroke-dashoffset: 650px;
+  stroke: #11171a;
+  stroke-width: 5;
+  transition: stroke-dashoffset 800ms ease-out;
+}
+
+  .testimonial{
+            margin: 0 20px 40px;
+        }
+        .testimonial .testimonial-content{
+            padding: 35px 25px 35px 50px;
+            margin-bottom: 35px;
+            background: #fff;
+            position: relative;
+            min-height: 410px;
+            max-height: 410px;
+        }
+        .testimonial .testimonial-content:before{
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            border-top: 15px solid #718076;
+            border-left: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+        }
+        .testimonial .testimonial-content:after{
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            right: 0;
+            border-top: 15px solid #718076;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+        }
+        .testimonial-content .testimonial-icon{
+            width: 50px;
+            height: 45px;
+            background: #0CCA4A;
+            text-align: center;
+            font-size: 22px;
+            color: #fff;
+            line-height: 42px;
+            position: absolute;
+            top: 37px;
+            left: -19px;
+        }
+        .testimonial-content .testimonial-icon:before{
+            content: "";
+            border-bottom: 16px solid #05A739;
+            border-left: 18px solid transparent;
+            position: absolute;
+            top: -16px;
+            left: 1px;
+        }
+        .testimonial .description{
+            font-size: 15px;
+            font-style: italic;
+            color: #8a8a8a;
+            line-height: 23px;
+            margin: 0;
+        }
+        .testimonial .title{
+            display: block;
+            font-size: 18px;
+            font-weight: 700;
+            color: #525252;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+            margin: 0 0 5px 0;
+        }
+        .testimonial .post{
+            display: block;
+            font-size: 14px;
+            color: #0CCA4A;
+        }
+        .owl-theme .owl-controls{
+            margin-top: 20px;
+        }
+        .owl-theme .owl-controls .owl-page span{
+            background: #ccc;
+            opacity: 1;
+            transition: all 0.4s ease 0s;
+        }
+        .owl-theme .owl-controls .owl-page.active span,
+        .owl-theme .owl-controls.clickable .owl-page:hover span{
+            background: #0CCA4A;
+        }
