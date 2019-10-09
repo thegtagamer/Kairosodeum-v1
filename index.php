@@ -383,7 +383,7 @@ if (isset($_POST['email_reg'])) {
 									<input type="text" class="form-control" id="city" name="city" placeholder="City">
 								</div>
 								<div class="form-group"  style="width: 220px">
-									<p>By clicking on sign up, you agree to our <a href="/terms">Terms</a> and <a href="/policy" id="privacy-link" target="_blank" rel="nofollow">Data Policy</a></p>
+									<p>By clicking on sign up, you agree to our <a href="/policy">Terms</a> and <a href="/policy" id="privacy-link" target="_blank" rel="nofollow">Data Policy</a></p>
 								</div>
 								<button type="submit" class="sign-action" style="width: 180px; ">Sign up</button>
 							</form>
