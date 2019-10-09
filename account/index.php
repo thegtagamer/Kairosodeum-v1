@@ -657,12 +657,12 @@ $(".deny").click(function(){
     <?php if ($user_type == "u") { ?>
       <option value="u">Artist</option>
       <option value="c">Club</option>
-      <? }else if($user_type=="c"){ ?>
+      <?php }else if($user_type=="c"){ ?>
        <option value="c">Club</option>
        <option value="u">Artist</option>
-     <? }else{ ?>
+     <?php }else{ ?>
 
-     <? }?>
+     <?php }?>
     </select>
   </div>
 </div>
