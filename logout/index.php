@@ -13,6 +13,7 @@ if (isset($_COOKIE['idCookie'])) {
 session_destroy();
 //if(!session_is_registered('username')){
 header("location: ../");
+exit();
 //} else {
 //echo "We cannot log you out.";
 //exit();

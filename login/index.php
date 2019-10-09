@@ -7,6 +7,7 @@ if (!isset($_SESSION)) {
 }
 if (isset($_SESSION['idx'])) {
     header("location: ../home/");
+    exit();
 }
 $errorMsg = '';
 $email = '';
