@@ -42,7 +42,7 @@ if (isset($_POST['email'])) {
         $login_check = mysqli_num_rows($sql);
         if ($login_check > 0) {
             header("location: /home");
-            while ($row = mysqli_fetch_array($connection, $sql)) {
+            while ($row = mysqli_fetch_array($sql)) {
                 $id                   = $row["id"];
                 $username             = $row["username"];
                 $_SESSION['id']       = $id;
