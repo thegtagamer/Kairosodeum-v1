@@ -35,7 +35,7 @@ if (isset($_POST['email'])) {
 					</div>';
         echo $errorMsg;
     } else {
-        include_once 'scripts/DB_connect.php';
+        include_once ("scripts/DB_connect.php");
         $email       = mysqli_real_escape_string($connection, $email);
         $pass        = md5($pass);
         $sql         = mysqli_query($connection, "SELECT * FROM users WHERE email='$email' AND password='$pass'");
@@ -78,7 +78,7 @@ if (isset($_POST['email_reg'])) {
     $pass      = stripslashes($pass);
     $email     = strip_tags($email);
     $pass      = strip_tags($pass);
-    include_once 'scripts/DB_connect.php';
+    include_once ('scripts/DB_connect.php');
     $emailValid      = mysqli_real_escape_string($connection, $email);
     $emailValid      = str_replace("`", "", $emailValid);
     $sql_email_check = mysqli_query($connection, "SELECT email FROM users WHERE email='$emailValid'");
