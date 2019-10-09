@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-ini_set("display_errors", 1);
+ini_set("display_errors", 0);
 include ("../scripts/user_session.php");
 $user_pic = "";
 $links = "";
@@ -49,7 +49,7 @@ while ($row = mysqli_fetch_array($check_user)) {
     $username = $row["username"];
     //$firstname = $row["firstname"];
     //$middlename = $row["middlename"];
-    $lastname = $row["lastname"];
+    // $lastname = $row["lastname"];
     $address = $row["address"];
     $sign_up_date = $row["sign_up_date"];
     $sign_up_date = strftime("%b %d, %Y", strtotime($sign_up_date));
@@ -67,7 +67,7 @@ while ($row = mysqli_fetch_array($check_user)) {
     $twitter = $row["twitter"];
     $google = $row["google"];
     $friends_array = $row["friend_array"];
-    $gender = $row["gender"];
+    // $gender = $row["gender"];
     $birthday = $row["birthday"];
     $user_type = $row["user_type"];
     $contract = $row["contract"];
@@ -215,7 +215,7 @@ while ($row = mysqli_fetch_array($hire_check)) {
     $approval = $row['approved'];
     $book_price = $row['price'];
 }
-$bb_price = $book_price;
+// $bb_price = $book_price;
 $hire_check_flag = mysqli_num_rows($hire_check);
 $follow_check = mysqli_query($connection, "SELECT * from followers where own_id='$sessionInit_id' AND following_id='$id'");
 while ($row = mysqli_fetch_array($follow_check)) {
@@ -409,7 +409,7 @@ while ($row = mysqli_fetch_array($sql_music)) {
 										   <ol class="fap-my-playlist">
 																																	<li>
 													<!--  TRACK -->
-													<a data-music="  ' . $musicPath . '" title="' . $musicTitle . '" target="' . $musiPath . '">
+													<a data-music="  ' . $musicPath . '" title="' . $musicTitle . '" target="' . $musicPath . '">
 														<img style="width:150px; height:150px;" width="450" height="450" src="' . $coverPath . '" class="attachment-kairosodeum-thumb-medium size-kairosodeum-thumb-medium wp-post-image" alt="" srcset="' . $coverPath . ' 450w, ' . $coverPath . ' 150w, ' . $coverPath . ' 250w" sizes="(max-width: 450px) 100vw, 450px" />														</a>
 
 													<!-- DOWNLOAD -->
