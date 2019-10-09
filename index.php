@@ -202,6 +202,8 @@ if (isset($_POST['email_reg'])) {
 	<link rel='stylesheet' id='kairosodeum-skins-css-css'  href='assets/themes/default/js/utilcarousel-files/utilcarousel/util.carousel.skins.css?ver=4.7.5' type='text/css' media='all' />
 	<link rel='stylesheet' id='kairosodeum-popup-css-css'  href='assets/themes/default/js/utilcarousel-files/magnific-popup/magnific-popup.css?ver=4.7.5' type='text/css' media='all' />
 	<link rel='stylesheet' id='ebs_dynamic_css-css'  href='assets/plugins/easy-bootstrap-shortcodes/styles/ebs_dynamic_css.css?ver=4.7.5' type='text/css' media='all' />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
 	<script type='text/javascript' src='assets/plugins/advanced-ajax-page-loader/jquery.js?ver=4.7.5'></script>
 	<script type='text/javascript' src='assets/plugins/easy-bootstrap-shortcodes/js/bootstrap.min.js?ver=4.7.5'></script>
 	<script type='text/javascript' src='assets/themes/default/js/kairosodeum-js.js'></script>
@@ -410,18 +412,38 @@ if (isset($_POST['email_reg'])) {
 				// 					";
 				// }else{
 				?>
+<!--
 				<button class="kairosodeum-btn-sidebar">
 					<i class="fa fa-plus"></i> <span>Login/Signup</span>
 				</button>
-				<?php
+-->
+            <svg id="stroke" xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+	<defs>
+		<path id="line" d="M2 2c49.7 2.6 100 3.1 150 1.7-46.5 2-93 4.4-139.2 7.3 45.2-1.5 90.6-1.8 135.8-.6" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+	</defs>
+</svg>
+
+<div class="container">
+	
+	<a class="kairosodeum-btn-sidebar btn1">login/Signup
+		<svg class="button1-stroke" viewBox="0 0 154 13">
+			<use href="#line"></use>
+		</svg>
+		<svg class="button1-stroke" viewBox="0 0 154 13">
+			<use href="#line"></use>
+		</svg>
+	</a>
+	
+</div>
+	<?php
 				/*}*/
 				?>					
 			</div>
 			<div class="kairosodeum-logo hidden-sm hidden-xs">
-				<a href="index.php"><img src="assets/themes/default/images/logo.png" alt="Logo"></a>
+				<a href="index.php"><img src="assets/themes/default/images/logo1.png" alt="Logo"></a>
 			</div>
 			<div class="kairosodeum-logo hidden-md hidden-lg">
-				<a href="index.php"><img src="assets/themes/default/images/logo.png" alt="Logo"></a>
+				<a href="index.php"><img src="assets/themes/default/images/logo1.png" alt="Logo"></a>
 			</div>
 			<div class="kairosodeum-search-icon">
 				<!--<button class="kairosodeum-btn-search">
@@ -439,68 +461,77 @@ if (isset($_POST['email_reg'])) {
 		<!-- SOUND THEME / MODULE SLIDER -->
 		<!-- Module Slider -->
 		<div id="component" class="component component-fullwidth fxStickIt">
-	    	<ul class="itemwrap">
-		        <li  class="current"  style="background-image: url(assets/themes/default/images/Main-Slide1.jpg);" >
+	    	 <ul class="itemwrap">
+
+		        <li  class="current"  style="background-image: url(assets/themes/default/images/kairosbannermain1.jpg);" >
 		            <div class="kairosodeum-slidertitle">
-		                <h1>A Gig</h1><h1>With just a click!</h1>
-		            	<h2>Explore a complete new era!</h2>
-		                <div class="kairosodeum-slider-button">
-				            <a href="/kairosodeum/about" class="btn btn-lg btn-success">Explore</a>
-				        </div>
-				    </div>
-		        	<img src="assets/themes/default/images/Main-Slide1.jpg)" alt="Slider" />
+		                		                	<h1>A Gig</h1><h1>With just a click!</h1>
+		                		                		                	<h2>Explore a complete new era!</h2>
+		                		                			                <div class="kairosodeum-slider-button">
+				            	<a href="/about" class="btn btn-lg btn-success">
+				            		Explore		            	</a>
+				            </div>
+				        		            </div>
+		            <img src="assets/themes/default/images/Main-Slide1.jpg)" alt="Slider" />
 	        	</li>
-	        	<li  style="background-image: url(assets/themes/default/images/Main-Slide2.jpg);" >
+
+
+	        	        			        <li  style="background-image: url(assets/themes/default/images/kairosbanner2.jpg);" >
 		            <div class="kairosodeum-slidertitle">
-		                <h1>Passion is money!</h1><h1>Money is passion!</h1>
-		                <h2>And if you are good at something, never do it for free!</h2>
-		                <div class="kairosodeum-slider-button">
-				            <a href="/about" class="btn btn-lg btn-success">Get Hired Now</a>
-				        </div>
-				    </div>
+		                		                	<h1>Passion is money!</h1><h1>Money is passion!</h1>
+		                		                		                	<h2>And if you are good at something, never do it for free!</h2>
+		                		                			                <div class="kairosodeum-slider-button">
+				            	<a href="/about" class="btn btn-lg btn-success">
+				            		Get Hired Now		            	</a>
+				            </div>
+				        		            </div>
 		            <img src="assets/themes/default/images/Main-Slide2.jpg)" alt="Slider" />
 	        	</li>
-	        	<li  style="background-image: url(assets/themes/default/images/Main-Slide3.jpg);" >
+	        	        			        <li  style="background-image: url(assets/themes/default/images/kairosbanner3.jpg);" >
 		            <div class="kairosodeum-slidertitle">
-		                <h1>Be the hero of your own life story</h1>
-		                <h2>Trend on Kairos Odeum, trend in the music world</h2>
-		                <div class="kairosodeum-slider-button">
-				            <a href="/about" class="btn btn-lg btn-success">Discover More</a>
-				        </div>
-				    </div>
+		                		                	<h1>Be the hero of your own life story</h1>
+		                		                		                	<h2>Trend on Kairos Odeum, trend in the music world</h2>
+		                		                			                <div class="kairosodeum-slider-button">
+				            	<a href="/about" class="btn btn-lg btn-success">
+				            		Discover More				            	</a>
+				            </div>
+				        		            </div>
 		            <img src="assets/themes/default/images/Main-Slide3.jpg" alt="Slider" />
 	        	</li>
-	        	<li  style="background-image: url(assets/themes/default/images/Main-Slide4.jpg);" >
+	        	        			        <li  style="background-image: url(assets/themes/default/images/kairosbanner4.jpg);" >
 		            <div class="kairosodeum-slidertitle">
-		                <h1>Be the uncut diamond in the coal mine and shine bright</h1>
-						<h2>Let your music do the talking</h2>
-						<div class="kairosodeum-slider-button">
-							<a href="/about" class="btn btn-lg btn-success">Start Your Journey</a>
-						</div>
-					</div>
+		                		                	<h1>Be the uncut diamond in the coal mine and shine bright</h1>
+		                		                		                	<h2>Let your music do the talking</h2>
+		                		                			                <div class="kairosodeum-slider-button">
+				            	<a href="/about" class="btn btn-lg btn-success">
+				            		Start Your Journey				            	</a>
+				            </div>
+				        		            </div>
 		            <img src="assets/themes/default/images/Main-Slide4.jpg" alt="Slider" />
 	        	</li>
-	        	<li  style="background-image: url(assets/themes/default/images/Main-Slide5.jpg);" >
+	        	        			        <li  style="background-image: url(assets/themes/default/images/kairosbanner5.jpg);" >
 		            <div class="kairosodeum-slidertitle">
-		                <h1>love to have myriad served on your platter</h1>
-						<h2>Have bazillions of artists at your disposal</h2>
-						<div class="kairosodeum-slider-button">
-							<a href="/about" class="btn btn-lg btn-success">Find out</a>
-						</div>
-					</div>
+		                		                	<h1>love to have myriad served on your platter</h1>
+		                		                		                	<h2>Have bazillions of artists at your disposal</h2>
+		                		                			                <div class="kairosodeum-slider-button">
+				            	<a href="/about" class="btn btn-lg btn-success">
+				            		Find out				            	</a>
+				            </div>
+				        		            </div>
 		            <img src="assets/themes/default/images/Main-Slide5.jpg" alt="Slider" />
 	        	</li>
-	        	<!--    <li  style="background-image: url(assets/themes/default/images/Main-Slide5.jpg);" >
-		        	<div class="kairosodeum-slidertitle">
-		            	<h1>Creative Awesome Events</h1>
-						<h2>Event Magazine</h2>
-						<div class="kairosodeum-slider-button">
-				            <a href="http://www.kairosodeum.com/sound/event-page-four-grid/" class="btn btn-lg btn-success">Discovery Events				            	</a>
-				        </div>
-				    </div>
+	        	        			      <!--    <li  style="background-image: url(assets/themes/default/images/Main-Slide5.jpg);" >
+		          <div class="kairosodeum-slidertitle">
+		                		                	<h1>Creative Awesome Events</h1>
+		                		                		                	<h2>Event Magazine</h2>
+		                		                			                <div class="kairosodeum-slider-button">
+				            	<a href="http://www.kairosodeum.com/sound/event-page-four-grid/" class="btn btn-lg btn-success">
+				            		Discovery Events				            	</a>
+				            </div>
+				        		            </div>
 		            <img src="assets/themes/default/images/Main-Slide5.jpg" alt="Slider" />
 	        	</li>-->
-	        </ul>
+	        	    </ul>
 			<nav>
 				<a class="prev" href="#"><i class="fa fa-chevron-left"></i></a>
 				<a class="next" href="#"><i class="fa fa-chevron-right"></i></a>
@@ -512,16 +543,17 @@ if (isset($_POST['email_reg'])) {
 		<!-- SOUND THEME / FEATURED SLIDER -->
 
 		<style type="text/css">
-			.kairosodeum-gradient-wall {
-				background: url(assets/themes/default/images/gradient.jpg) no-repeat center center;
+				.kairosodeum-gradient-wall {
+/*				background: url(assets/themes/default/images/gradient.jpg) no-repeat center center;*/
+                        background-image: linear-gradient(to bottom, rgb(102, 66, 114), rgb(149, 84, 116));
 				background-color:#24252A;
-				-webkit-background-size: cover;
-				-moz-background-size: cover;
-				-o-background-size: cover;
-				background-size: cover; 
-				filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/themes/default/images/gradient.jpg", sizingMethod='scale');
-				-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/themes/default/images/gradient.jpg', sizingMethod='scale')";
-			}
+				  -webkit-background-size: cover;
+				  -moz-background-size: cover;
+				  -o-background-size: cover;
+				  background-size: cover; 
+				  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/themes/default/images/gradient.jpg", sizingMethod='scale');
+				  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/themes/default/images/gradient.jpg', sizingMethod='scale')";
+				}
 		</style>
 						
 		<div class="container-fluid kairosodeum-mod-gradient kairosodeum-container kairosodeum-gradient-wall ">
@@ -604,38 +636,43 @@ if (isset($_POST['email_reg'])) {
 						</div>
 					</div>
 					<div class="carousel carousel-margin">
-						<ul class="list-inline">
-							<li class="clearfix">
-								<div class="carousel-block">
-									<h4>Maintain your profile</h4>
-									<img src="assets/themes/default/images/curriculum.png"/>
-								</div>
-							</li>
-							<li  class="clearfix">
-								<div class="carousel-block">
-									<h4>Start your journey</h4>
-									<img src="assets/themes/default/images/laptop.png"/>
-								</div>
-							</li>
-							<li  class="clearfix">
-								<div class="carousel-block">
-									<h4>Get Found by people around</h4>
-									<img src="assets/themes/default/images/team.png"/>
-								</div>
-							</li>
-							<li  class="clearfix">
-								<div class="carousel-block">
-									<h4>Get Gigs, Make Money</h4>
-									<img src="assets/themes/default/images/networking.png"/>
-								</div>
-							</li>
-							<li  class="clearfix">
-								<div class="carousel-block">
-									<h4>Build your musical career</h4>
-									<img src="assets/themes/default/images/profits.png"/>
-								</div>
-							</li>
-						</ul>
+						 <ul class="list-inline">
+                <li class="clearfix">
+                    <div class="carousel-block">
+                        <h4>Maintain your profile</h4>
+
+                        	
+                        <img src="assets/themes/default/images/resume.png"/>
+                    </div>
+                </li>
+                <li  class="clearfix">
+                    <div class="carousel-block">
+                        <h4>Start your journey</h4>
+                        <img src="assets/themes/default/images/goal%20(1).png"/>
+                    </div>
+                </li>
+                <li  class="clearfix">
+                    <div class="carousel-block">
+                        <h4>Get Found by people around</h4>
+                        <img src="assets/themes/default/images/search.png"/>
+                    </div>
+                </li>
+                
+                   <li  class="clearfix">
+                    <div class="carousel-block">
+                        <h4>Get Gigs, Make Money</h4>
+                        <img src="assets/themes/default/images/bank.png"/>
+                    </div>
+                </li>
+
+                    <li  class="clearfix">
+                    <div class="carousel-block">
+                        <h4>Build your musical career</h4>
+                        <img src="assets/themes/default/images/goal.png"/>
+                    </div>
+                </li>
+                
+            </ul>
 					</div>    
 				</div>
 			</div>
@@ -652,52 +689,84 @@ if (isset($_POST['email_reg'])) {
 		</style>
 						
 		<div class="container-fluid kairosodeum-container kairosodeum-mod-black ">
-			<div class="col-md-12">
+	
+					<div class="col-md-12">
 				<div class="kairosodeum-mod-title  kairosodeum-mod-title-dark ">
 					<h1>#Everyone has their own story</h1>
 					<h2>Check out now</h2>
 				</div>
+				<div id="testimonial-slider" class="owl-carousel">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <div class="testimonial-icon">
+                                <i class="fa fa-quote-left"></i>
+                            </div>
+                            <p class="description">
+                                "Without Music, life would be a mistake."  Nietzsche spoke the truth! It has breathed life into everything that surrounds me. I have used music to help me define who I am and who I want to be. Truth be told, I wouldn't know how to make sense of life without the frequent chills. The best part about the feeling is that it's real. Intangible and abstract, but very real. So bold, so powerful yet ethereal. It's one of those things that make us human. We believe, we feel, we express and we wonder. To me, it's a part of the answer to the question I often ask myself - 'Who am I and why am I here?' It's home to me and those close to me know exactly why.
+                            </p>
+                        </div>
+                        <span class="post">Dasmeshjot Singh Mangat</span>
+                    </div>
+
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <div class="testimonial-icon">
+                                <i class="fa fa-quote-left"></i>
+                            </div>
+                            <p class="description">
+                               It was a very stressful day and to keep my anxiety and worries aside,  I planned to listen to some music with the intention of calming myself down. I couldn't believe that music had so much power that it just took me 5 mins to lay relaxed and I felt as if all the worries and problems have just been washed away.  <br>
+
+It does not only helps someone to calm down but also helps in increasing cognition activities.  It's from my personal experience that I can say music increases learning speed,  enhances memory and takes you to another world. <br>
+
+My attachment with music is really deep. So, whenever I am in my lows or am facing any medical ailment, music becomes my doctor.
+                            </p>
+                        </div>
+                       <span class="post">Tamanpreet Kaur</span>
+                    </div>
+
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <div class="testimonial-icon">
+                                <i class="fa fa-quote-left"></i>
+                            </div>
+                            <p class="description">
+                                Music to me is a peppy beat to match the spring in my step, a snuggly blanket when l am low ... A reassuring tap when I need assurance , a push when l need motivation and a beautiful company when l need solace.
+
+                            </p>
+                        </div>
+                       <span class="post">Amisha Batra</span>
+                    </div>
+<div class="testimonial">
+                        <div class="testimonial-content">
+                            <div class="testimonial-icon">
+                                <i class="fa fa-quote-left"></i>
+                            </div>
+                            <p class="description">
+                                Music is the touch of comfort and a calming hug that i've always had an apatite for and this is quite evident for someone who was introduced to music with her mother melodiously singing her a lullaby everynight, all her childhood! Every mood swing, every fall I've taken, every win, every lonely night, every anxiety attack, was always cushioned by some melody for me. Connections made over music are the closest to me, for they feel pure, like the one with my maa.
+                            </p>
+                        </div>
+                        
+                        <span class="post">Gunjan Handa</span>
+                    </div>
+<!--
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <div class="testimonial-icon">
+                                <i class="fa fa-quote-left"></i>
+                            </div>
+                            <p class="description">
+                                Music to me is home. It's the key to my inner child. Choosing different songs of different genres let me tap into the flow of my emotions. Be it letting go of something or holding something back, be it walking a lonely night or wiggling off a heavy day, Music is always there for me.
+                            </p>
+                        </div>
+                        
+                        <span class="post">Arnav Batra</span>
+                    </div>
+-->
+                </div>
 			</div>
-			<div class="clearfix"></div>
-			<div class="wrapper">
-				<div class="column">
-					<div class="inner"></div>
-				</div>
-				<div class="column">
-					<div class="inner"></div>
-				</div>
-				<div class="column">
-					<div class="inner"></div>
-				</div>
-				<div class="column">
-					<div class="inner"></div>
-				</div>
-				<div class="column">
-					<div class="inner"></div>
-				</div>
-				<div class="column">
-					<div class="inner"></div>
-				</div>
-				<div class="column">
-					<div class="inner"></div>
-				</div>
-				<div class="column">
-					<div class="inner"></div>
-				</div>
-				<div class="column">
-					<div class="inner"></div>
-				</div>
-				<div class="column">
-					<div class="inner"></div>
-				</div>
-				<div class="column">
-					<div class="inner"></div>
-				</div>
-				<div class="column">
-					<div class="inner"></div>
-				</div>
-			</div>
-		</div>
+		
+		<div class="clearfix"></div>
+	</div>
 
 		<!-- SOUND THEME / EVENT LIST -->
 		<!-- SOUND THEME / FEATURED SLIDER -->
@@ -721,15 +790,16 @@ if (isset($_POST['email_reg'])) {
 		<!-- SOUND THEME / FEATURED SLIDER -->
 		<style type="text/css">
 			.kairosodeum-mod-newsblog {
-				/*background: url(assets/themes/default/images/trending.jpg) no-repeat center center;*/
-				background-color:#F4F6F7;
-				-webkit-background-size: cover;
-				-moz-background-size: cover;
-				-o-background-size: cover;
-				background-size: cover; 
-				filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/themes/default/images/trending.jpg', sizingMethod='scale');
-				-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/themes/default/images/trending.jpg', sizingMethod='scale')";
-			}
+		/*background: url(assets/themes/default/images/trending.jpg) no-repeat center center;*/
+/*				background-color:#F4F6F7;*/
+            background-image: linear-gradient(to bottom, rgb(253, 248, 246), rgb(253, 191, 191));
+				  -webkit-background-size: cover;
+		  -moz-background-size: cover;
+		  -o-background-size: cover;
+		  background-size: cover; 
+		  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/themes/default/images/trending.jpg', sizingMethod='scale');
+		  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/themes/default/images/trending.jpg', sizingMethod='scale')";
+		}
 		</style>
 
 		<div class="container-fluid kairosodeum-mod-newsblog kairosodeum-container kairosodeum-mod-grey ">
@@ -873,18 +943,20 @@ if (isset($_POST['email_reg'])) {
 		</div>
 
 		<!-- SOUND THEME / FEATURED SLIDER -->
-		<style type="text/css">
-			.kairosodeum-mod-galleries {
-				background: url(assets/themes/default/images/gradient_2.jpg) no-repeat center center;
+			<style type="text/css">
+		.kairosodeum-mod-galleries {
+/*		background: url(assets/themes/default/images/gradient_2.jpg) no-repeat center center;*/
+                background-image: linear-gradient(to bottom, rgb(246, 171, 140), rgb(216, 128, 127));
 				background-color:#24252A;
-				-webkit-background-size: cover;
-				-moz-background-size: cover;
-				-o-background-size: cover;
-				background-size: cover; 
-				filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/uploads/2017/10/Music-Header.png', sizingMethod='scale');
-				-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/uploads/2017/10/Music-Header.png', sizingMethod='scale')";
-			}
-		</style>
+				  -webkit-background-size: cover;
+		  -moz-background-size: cover;
+		  -o-background-size: cover;
+		  background-size: cover; 
+		  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/uploads/2017/10/Music-Header.png', sizingMethod='scale');
+		  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/uploads/2017/10/Music-Header.png', sizingMethod='scale')";
+		}
+	</style>
+
 
 		<div class="container-fluid kairosodeum-mod-galleries kairosodeum-container kairosodeum-mod-dark ">
 			<div class="container">
@@ -1018,81 +1090,105 @@ if (isset($_POST['email_reg'])) {
 		<!-- SOUND THEME / BIG NEWS -->
 				
 		<style type="text/css">
-			.kairosodeum-footer-wall {
-				background: url(assets/themes/default/images/found.jpg) no-repeat center center;
+				.kairosodeum-footer-wall {
+				background: url(assets/themes/default/images/kairosbanner3.jpg) no-repeat center center;
 				background-color:#24252A;
-				-webkit-background-size: cover;
-				-moz-background-size: cover;
-				-o-background-size: cover;
-				background-size: cover; 
-				filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/themes/default/images/found.jpg", sizingMethod='scale');
-				-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/themes/default/images/found.jpg', sizingMethod='scale')";
-			}
-		</style>
+				  -webkit-background-size: cover;
+				  -moz-background-size: cover;
+				  -o-background-size: cover;
+				  background-size: cover; 
+				  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/themes/default/images/found.jpg", sizingMethod='scale');
+				  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/themes/default/images/found.jpg', sizingMethod='scale')";
+				}
+			</style>
 			
 		<!-- SOUND THEME / CONTACT FORMS -->
 		<div class="container-fluid kairosodeum-darkback-one kairosodeum-footer-wall">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
+
 						<div class="kairosodeum-related-title">
-							<h1>Get Found</h1>
-							<h6>With KairosOdeum</h6>
-							<div class="kairosodeum-slider-button">
-								<h6><a href="/about" class="btn btn-lg btn-success">Explore</a></h6>
-							</div>
-						</div>
-						<div class="kairosodeum-contact-form">
-							<div class="row">
-								<div class="col-md-4"></div>
-									<div class="col-md-4"></div>
-										<div class="col-md-4"></div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-							</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-		
-		<!-- SOUND THEME / SOCIAL ICONS -->
-		<div class="container-fluid kairosodeum-darkback-two">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="kairosodeum-logo-footer">
-							<ul>
-								<li>
-									<a href="https://www.youtube.com/channel/UC9wsWr46RbTAEdleFzjSKXg"><i class="fa fa-youtube"></i></a>
-								</li>
-								<li>
-									<a href="https://www.instagram.com/kairosodeum/"><i class="fa fa-instagram"></i></a>
-								</li>
-								<li>
-									<a href="https://www.twitter.com/kairosodeum/"><i class="fa fa-twitter"></i></a>
-								</li>
-								<li>
-									<a href="https://www.facebook.com/kairosodeum/"><i class="fa fa-facebook"></i></a>
-								</li>
-							</ul>
-							<div class="clearfix"></div>
-							<div class="container">
+															<h1>Get Found</h1>
+							
+															<h6>With KairosOdeum</h6>
+<div class="kairosodeum-slider-button">
+															<h6><a href="/about" class="btn btn-lg btn-success">
+				            		Explore		            	</a></h6>
+				            	</div>
+													</div>
+
+													<div class="kairosodeum-contact-form">
 								<div class="row">
-									<div class="copyright">&copy; 2017 Kairos Odeum.</div>
+									<div class="col-md-4"></div>
+									<div class="col-md-4">
+					
+
+<!-- -->
+
+
+
+													</div>
+									<div class="col-md-4"></div>
+									<div class="clearfix"></div>
 								</div>
 							</div>
-						</div>
-					</div>
+											</div>
+					<div class="clearfix"></div>
 				</div>
 			</div>
 		</div>
 		<div class="clearfix"></div>
-	</div>
-							
-	<!-- SOUND THEME / AJAX CONTENT END -->
+	
+						<!-- SOUND THEME / SOCIAL ICONS -->
+			<div class="container-fluid kairosodeum-darkback-two">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="kairosodeum-logo-footer">
+								<ul>
+																			<li>
+											<a href="https://www.youtube.com/channel/UC9wsWr46RbTAEdleFzjSKXg"><i class="fa fa-youtube"></i></a>
+										</li>
+																			<li>
+											<a href="https://www.instagram.com/kairosodeum/"><i class="fa fa-instagram"></i></a>
+										</li>
+																			<li>
+											<a href="https://www.twitter.com/kairosodeum/"><i class="fa fa-twitter"></i></a>
+										</li>
+																			<li>
+											<a href="https://www.facebook.com/kairosodeum/"><i class="fa fa-facebook"></i></a>
+										</li>
+																	</ul>
+
+
+								<div class="clearfix"></div>
+
+
+
+<div class="container">
+      <div class="row">
+        <div class="copyright">
+   
+         &copy; 2017 Kairos Odeum. 
+
+         
+        </div>
+       
+      </div>
+    </div>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			
+	
+</div>
+<!-- SOUND THEME / AJAX CONTENT END -->
 	<!-- SOUND THEME / THEME FOOTER -->
 	<script type="text/javascript">
 		(function($) {          
@@ -1175,6 +1271,33 @@ if (isset($_POST['email_reg'])) {
 		});
 	</script>
 	-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $("#testimonial-slider").owlCarousel({
+            items:3,
+            itemsDesktop:[1000,3],
+            itemsDesktopSmall:[980,2],
+            itemsTablet:[768,2],
+            itemsMobile:[650,1],
+            pagination:true,
+            navigation:false,
+            slideSpeed:1000,
+            autoPlay:true
+        });
+    });
+</script>
+			<script type="text/javascript">
+			function AAPL_reload_code() {
+			jQuery.getScript("assets/themes/default/js/utilcarousel-files/utilcarousel/jquery.utilcarousel.min.js", function(data, textStatus, jqxhr){ });
+			jQuery.getScript("assets/themes/default/js/utilcarousel-files/magnific-popup/jquery.magnific-popup.js", function(data, textStatus, jqxhr){ }); 
+			jQuery.getScript("assets/themes/default/js/jquery.mixitup.js", function(data, textStatus, jqxhr){ }); 
+			jQuery.getScript("assets/themes/default/js/kairosodeum-load-up.js", function(data, textStatus, jqxhr){ });  
+			jQuery.getScript("assets/themes/default/js/kairosodeum-load-down.js", function(data, textStatus, jqxhr){ });
+					}
+		</script>
 	<script type="text/javascript">
 		function AAPL_reload_code() {
 			jQuery.getScript("assets/themes/default/js/utilcarousel-files/utilcarousel/jquery.utilcarousel.min.js", function(data, textStatus, jqxhr){ });
@@ -1197,5 +1320,6 @@ if (isset($_POST['email_reg'])) {
 	<script type='text/javascript' src='assets/themes/default/js/kairosodeum-load-up.js'></script>
 	<script type='text/javascript' src='assets/themes/default/js/kairosodeum-load-down.js'></script>
 	<script type='text/javascript' src='wp-includes/js/wp-embed.min.js?ver=4.7.5'></script>
+
 </body>
 </html>

@@ -15,7 +15,25 @@
 html {
 
 }
+::-webkit-scrollbar { width: 4px; }
 
+::-webkit-scrollbar-track {
+  background: #000;
+  border-radius: 5px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #040851;
+  background: -moz-linear-gradient(left, #040851 0%, #29b8e5 50%, #bce0ee 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #b3dced), color-stop(50%, #29b8e5), color-stop(100%, #bce0ee));
+  background: -webkit-linear-gradient(left, #b3dced 0%, #29b8e5 50%, #bce0ee 100%);
+  background: -o-linear-gradient(left, #040851 0%, #29b8e5 50%, #bce0ee 100%);
+  background: -ms-linear-gradient(left, #040851 0%, #29b8e5 50%, #bce0ee 100%);
+  background: #d97904;
+  border-radius: 5px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b3dced', endColorstr='#bce0ee', GradientType=1);
+}
 body {
 	overflow: none;
 }
@@ -221,17 +239,17 @@ button, input, textarea {
 
 .kairosodeum-logo {
 	margin: 0;
-	padding: 20px 0 20px 0;
+	padding: 10px 0 10px 0;
 }
 
 .kairosodeum-logo img {
-	max-height: 90px;
+	max-height: 100px;
 }
 
 .kairosodeum-menu-icon {
-  position: absolute;
-  top: 15px;
-  right: 60px;
+ position: absolute;
+    top: 32%;
+    right: 45px;
 }
 
 .kairosodeum-search-icon {
