@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 $data = $_POST;
 $mac_provided = $data['mac']; // Get the MAC from the POST data
 unset($data['mac']); // Remove the MAC key from the data.

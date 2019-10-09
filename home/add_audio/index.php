@@ -6,6 +6,7 @@ include ("../../scripts/user_session.php");
 include ("../../scripts/DB_connect.php");
 if (!isset($_SESSION['idx'])) {
     header('Location: ../../index.php');
+    exit();
 }
 $id = $sessionInit_id;
 $UploadDirectory = '../../users/' . $id . '/music/'; //Upload Directory, ends with slash & make sure folder exist

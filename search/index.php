@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-ini_set("display_errors", 0);
+ini_set("display_errors", 1);
 $cacheBuster = rand(999999999, 9999999999999); // Put on an image URL will help always show new when changed
 $encrypted_nos = base64_encode("s6k3k4lsjdfsdsasf453fs"); //this will be used in deleting response
 include ('../scripts/DB_connect.php');
