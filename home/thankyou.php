@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 include 'src/instamojo.php';
 /*$api = new Instamojo\Instamojo('5ab10726b6ff4eacdc65389ea7c8475c', '830b2e5caa7a946679fa656850dde37d','https://www.instamojo.com/api/1.1/payment-requests/');
 

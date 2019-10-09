@@ -1,9 +1,12 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 // Start_session, check if user is logged in or not, and connect to the database all in one included file
 include ("../../scripts/user_session.php");
 include ("../../scripts/DB_connect.php");
 if (!isset($_SESSION['idx'])) {
     header('Location: ../../index.php');
+    exit();
 }
 $id = $sessionInit_id;
 $UploadDirectory = '../../users/' . $id . '/videos/'; //Upload Directory, ends with slash & make sure folder exist
